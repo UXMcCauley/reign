@@ -41,9 +41,11 @@ export default function WorkforceDiversity() {
                 <link rel="icon" href="/public/favicon.ico"/>
                 <title>Dashboards - Workforce Diversity</title>
             </Head>
+            <DashboardTitle label={"Workforce Diversity"} icon={"Fingerprint"}/>
             <ContentContainer>
+
                 <DashboardStatusLine/>
-                <DashboardTitle label={"Workforce Diversity"} icon={"Fingerprint"}/>
+
                 <div style={{display: "flex", justifyContent: "space-between"}}>
                     <div style={{width: "24%"}}>
                         <Doughnut data={data} type={"doughnut"}/>
