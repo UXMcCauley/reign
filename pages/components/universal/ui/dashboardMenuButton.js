@@ -4,8 +4,9 @@ import {useRouter} from "next/router"
 
 export default function DashboardMenuButton(props){
     const router = useRouter()
+    const link = props.link || null
     return (
-        <Link href={props.link}>
+        <Link href={link}>
             <button className={`${styles.dashboardMenuButton} ${router.pathname === props.link ? styles.active : ''}`}>{props.label}</button>
         </Link>
     )
