@@ -7,6 +7,7 @@ export default function YMQToggle(props) {
 
     return (
         <div className={styles.container}>
+
             <div className={styles.slider} style={{left: slidePosition}}/>
             <div onClick={() => {
                 setActive("y")

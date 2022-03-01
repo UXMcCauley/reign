@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Layout, {ContentContainer} from "./components/universal/ui/layout"
 import styles from "./Home.module.scss"
 import ActivityFeed from "./components/feed/activityFeed";
-import NewsAndEvents from "./components/feed/newsAndEvents";
 
 export default function Home() {
     return (
@@ -20,7 +19,6 @@ export default function Home() {
                     <div className={styles.right}>
                         <h1>Shortcuts</h1>
                         <hr/>
-                        <NewsAndEvents/>
 
                     </div>
                 </div>
