@@ -9,66 +9,66 @@ export default function VerticalIconMenu(props) {
     return (
         <div className={styles.container}>
             <div className={`${styles.link} ${router.pathname === "/notifications" ? styles.active : ''}`}>
-                <Link href={"/notifications"}>
+                <Link href={"/notifications"} passHref>
                     <div>
                         <BellRinging size={props.size}/>
                         <div className={styles.label}>Alerts</div>
                     </div>
                 </Link>
             </div>
-            <div className={`${styles.link} ${router.pathname === "/" ? styles.active : ''}`}>
-                <Link href={"/"}>
-                    <div>
-                        <ListBullets size={props.size}/>
-                        <div className={styles.label}>Feed</div>
-                    </div>
-                </Link>
-            </div>
             <div className={`${styles.link} ${router.pathname === "/dashboards/executive" ? styles.active : ''}`}>
-                <Link href={"/dashboards/executive"}>
+                <Link href={"/dashboards/executive"} passHref>
                     <div>
                         <Gauge size={props.size}/>
                         <div className={styles.label}>Dashboards</div>
                     </div>
                 </Link>
             </div>
+            <div className={`${styles.link} ${router.pathname === "/" ? styles.active : ''}`}>
+                <Link href={"/"} passHref>
+                    <div>
+                        <ListBullets size={props.size}/>
+                        <div className={styles.label}>Feed</div>
+                    </div>
+                </Link>
+            </div>
             <div className={`${styles.link} ${router.pathname === "/employees" ? styles.active : ''}`}>
-                <Link href={"/employees"}>
+                <Link href={"/employees"} passHref>
                     <div><Person size={props.size}/>
                         <div className={styles.label}>Employees</div>
                     </div>
                 </Link>
             </div>
             <div className={`${styles.link} ${router.pathname === "/keycards" ? styles.active : ''}`}>
-                <Link href={"/keycards"}>
+                <Link href={"/keycards"} passHref>
                     <div><Key size={props.size}/>
                         <div className={styles.label}>Keycards</div>
                     </div>
                 </Link>
             </div>
             <div className={`${styles.link} ${router.pathname === "/schedules" ? styles.active : ''}`}>
-                <Link href={"/schedules"}>
+                <Link href={"/schedules"} passHref>
                     <div><Calendar size={props.size}/>
                         <div className={styles.label}>Schedules</div>
                     </div>
                 </Link>
             </div>
             <div className={`${styles.link} ${router.pathname === "/data" ? styles.active : ''}`}>
-                <Link href={"/data"}>
+                <Link href={"/data"} passHref>
                     <div><Database size={props.size}/>
                         <div className={styles.label}>Data</div>
                     </div>
                 </Link>
             </div>
             <div className={`${styles.link} ${router.pathname === "/settings" ? styles.active : ''}`}>
-                <Link href={"/settings"}>
+                <Link href={"/settings"} passHref>
                     <div><Gear size={props.size}/>
                         <div className={styles.label}>Settings</div>
                     </div>
                 </Link>
             </div>
             <div className={`${styles.link} ${router.pathname === "/help" ? styles.active : ''}`}>
-                <Link href={"/help"}>
+                <Link href={"/help"} passHref>
                     <div><Question size={props.size}/>
                         <div className={styles.label}>Help Center</div>
                     </div>

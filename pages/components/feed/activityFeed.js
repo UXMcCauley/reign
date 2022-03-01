@@ -1,7 +1,7 @@
 import FeedActivityItem from "./feedActivityItem";
-import generateFeed from "../universal/ui/helpers";
+import generateFeed from "../../../public/helpers";
 
-export default function ActivityFeed(props) {
+export default function ActivityFeed() {
     return (
         <div>
             <h1>Activity Feed</h1>

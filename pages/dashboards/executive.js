@@ -3,9 +3,7 @@ import Layout, {ContentContainer} from "../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
 import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
-import DashboardMenu from "../components/dashboards/dashboardMenu"
 import DashboardTitle from "../components/dashboards/dashboardTitle";
-import YMQToggle from "../components/dashboards/ymqToggle";
 import styles from "./Executive.module.scss"
 import NumericDisplay from "../components/dashboards/numericDisplay";
 
@@ -50,7 +48,6 @@ export default function Executive() {
 
                 <div className={styles.container}>
                     <DashboardStatusLine/>
-                    <DashboardMenu/>
                     <div style={{display:"flex", justifyContent: "space-between"}}>
                         <NumericDisplay title={"Employees"} number={1128}/>
                         <NumericDisplay title={"Payroll Average"} number={41541} isMoney={true}/>
@@ -63,16 +60,16 @@ export default function Executive() {
 
                     <div style={{display: "flex", justifyContent: "space-between"}}>
                         <div style={{width: "24%"}}>
-                            <Doughnut data={data}/>
+                            <Doughnut data={data} type={"doughnut"}/>
                         </div>
                         <div style={{width: "24%"}}>
-                            <Doughnut data={data}/>
+                            <Doughnut data={data} type={"doughnut"}/>
                         </div>
                         <div style={{width: "24%"}}>
-                            <Doughnut data={data}/>
+                            <Doughnut data={data} type={"doughnut"}/>
                         </div>
                         <div style={{width: "24%"}}>
-                            <Doughnut data={data}/>
+                            <Doughnut data={data} type={"doughnut"}/>
                         </div>
                     </div>
                 </div>
