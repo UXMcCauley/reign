@@ -1,19 +1,32 @@
 .container {
-  color: #535353;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 30px;
+  background: #0c3850;
+  background: linear-gradient(90deg, #001634 0%, #0c3850 100%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 166px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 12px;
 }
 .container .link {
   text-align: center;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+.container .link:hover {
+  color: #a9a9a9;
 }
 .container .link.active {
-  color: #0070f3;
+  color: #f4e50f;
 }
 .container .link .label {
   font-size: 9px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=VerticalIconMenu.module.css.map */

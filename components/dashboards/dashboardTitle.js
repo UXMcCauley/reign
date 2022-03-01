@@ -9,7 +9,8 @@ import {
     Gear,
     Database,
     Question,
-    Calendar
+    Calendar,
+    ListBullets
 
 } from "phosphor-react"
 import styles from "./styles/DashboardTitle.module.scss"
@@ -40,6 +41,8 @@ export default function DashboardTitle(props) {
                 return <Question size={42} className={styles.icon}/>
             case "Calendar":
                 return <Calendar size={42} className={styles.icon}/>
+            case "ListBullets":
+                return <ListBullets size={42} className={styles.icon}/>
         }
     }
 

@@ -11,7 +11,7 @@ export default function Home() {
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN - Intelligence Network "/>
             </Head>
-            <DashboardTitle/>
+            <DashboardTitle label={"Activity Feed & News"} icon={"ListBullets"}/>
             <ContentContainer>
                 <div className={styles.container}>
                     <div className={styles.left}>
