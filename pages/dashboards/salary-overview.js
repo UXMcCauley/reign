@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import DashboardContentContainer from "../../components/dashboards/dashboardContentContainer";
+import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
+import DashboardTitle from "../components/dashboards/dashboardTitle";
 
 export default function SalaryOverview() {
     ChartJS.register(ArcElement, Tooltip, Legend);
@@ -41,24 +41,23 @@ export default function SalaryOverview() {
                 <link rel="icon" href="/public/favicon.ico"/>
                 <title>Dashboards - Salary Overview</title>
             </Head>
-            <DashboardTitle label={"Salary Overview"} icon={"Money"}/>
             <ContentContainer>
-                <DashboardContentContainer>
-                    <div style={{display: "flex", justifyContent: "space-between"}}>
-                        <div style={{width: "24%"}}>
-                            <Doughnut data={data} type={"doughnut"}/>
-                        </div>
-                        <div style={{width: "24%"}}>
-                            <Doughnut data={data} type={"doughnut"}/>
-                        </div>
-                        <div style={{width: "24%"}}>
-                            <Doughnut data={data} type={"doughnut"}/>
-                        </div>
-                        <div style={{width: "24%"}}>
-                            <Doughnut data={data} type={"doughnut"}/>
-                        </div>
+                <DashboardStatusLine/>
+                <DashboardTitle label={"Salary Overview"} icon={"Money"}/>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
+                    <div style={{width: "24%"}}>
+                        <Doughnut data={data} type={"doughnut"}/>
                     </div>
-                </DashboardContentContainer>
+                    <div style={{width: "24%"}}>
+                        <Doughnut data={data} type={"doughnut"}/>
+                    </div>
+                    <div style={{width: "24%"}}>
+                        <Doughnut data={data} type={"doughnut"}/>
+                    </div>
+                    <div style={{width: "24%"}}>
+                        <Doughnut data={data} type={"doughnut"}/>
+                    </div>
+                </div>
             </ContentContainer>
         </Layout>
     )

@@ -1,4 +1,4 @@
-import styles from "./styles/NumericDisplay.module.scss"
+import styles from "./NumericDisplay.module.scss"
 import YMQToggle from "./ymqToggle";
 import {useState} from "react";
 
@@ -7,7 +7,8 @@ export default function NumericDisplay(props) {
     const getActive = (value) => {
         setState(value)
     }
-    const evaluateNumber = () => {
+    const [number, setNumber] = useState(props.number)
+    const evaluateNumber = (value) => {
         if(state === "Year"){
             return Math.round(props.number).toLocaleString("en-US")
         }else if(state === "Month"){

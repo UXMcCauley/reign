@@ -1,9 +1,11 @@
 import FeedActivityItem from "./feedActivityItem";
-import generateFeed from "../../public/helpers";
+import generateFeed from "../../../public/helpers";
 
 export default function ActivityFeed() {
     return (
         <div>
+            <h1>Activity Feed</h1>
+            <hr/>
             {generateFeed(50).data.map((item, i) => {
                 return (
                     <FeedActivityItem

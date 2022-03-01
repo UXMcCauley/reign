@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
-import DashboardStatusLine from "../../components/dashboards/dashboardStatusLine";
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import DashboardContentContainer from "../../components/dashboards/dashboardContentContainer";
+import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
+import DashboardTitle from "../components/dashboards/dashboardTitle";
 
 export default function EmployeePerformance() {
     ChartJS.register(ArcElement, Tooltip, Legend);
@@ -15,15 +14,12 @@ export default function EmployeePerformance() {
                 <link rel="icon" href="/public/favicon.ico"/>
                 <title>Dashboards - Employee Performance</title>
             </Head>
-            <DashboardTitle label={"Employee Performance"} icon={"HandsClapping"}/>
             <ContentContainer>
-                <DashboardContentContainer>
-                    <DashboardStatusLine/>
-
-                    <div style={{display: "flex", justifyContent: "space-between"}}>
-                        Content
-                    </div>
-                </DashboardContentContainer>
+                <DashboardStatusLine/>
+                <DashboardTitle label={"Employee Performance"} icon={"HandsClapping"}/>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
+                    Content
+                </div>
             </ContentContainer>
         </Layout>
     )
