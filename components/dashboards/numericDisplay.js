@@ -7,8 +7,7 @@ export default function NumericDisplay(props) {
     const getActive = (value) => {
         setState(value)
     }
-    const [number, setNumber] = useState(props.number)
-    const evaluateNumber = (value) => {
+    const evaluateNumber = () => {
         if(state === "Year"){
             return Math.round(props.number).toLocaleString("en-US")
         }else if(state === "Month"){
