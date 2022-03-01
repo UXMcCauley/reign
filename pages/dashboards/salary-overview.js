@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
-import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
-import DashboardTitle from "../components/dashboards/dashboardTitle";
+import DashboardStatusLine from "../../components/dashboards/dashboardStatusLine";
+import DashboardTitle from "../../components/dashboards/dashboardTitle";
 
 export default function SalaryOverview() {
     ChartJS.register(ArcElement, Tooltip, Legend);

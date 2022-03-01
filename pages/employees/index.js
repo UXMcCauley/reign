@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DataTable from 'react-data-table-component';
 import {generateEmployees, employeeTableColumns} from "../../public/helpers";
 import styles from "./Home.module.scss"

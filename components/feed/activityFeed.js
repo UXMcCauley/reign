@@ -1,5 +1,5 @@
 import FeedActivityItem from "./feedActivityItem";
-import generateFeed from "../../../public/helpers";
+import generateFeed from "../../public/helpers";
 
 export default function ActivityFeed() {
     return (

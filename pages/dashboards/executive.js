@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
-import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
-import DashboardTitle from "../components/dashboards/dashboardTitle";
+import DashboardStatusLine from "../../components/dashboards/dashboardStatusLine";
+import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import styles from "./Executive.module.scss"
-import NumericDisplay from "../components/dashboards/numericDisplay";
+import NumericDisplay from "../../components/dashboards/numericDisplay";
 
 export default function Executive() {
     ChartJS.register(ArcElement, Tooltip, Legend);
