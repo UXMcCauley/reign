@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "./components/universal/ui/layout"
+import Layout, {ContentContainer} from "../components/universal/ui/layout"
 import styles from "./Home.module.scss"
 
 export default function Notifications() {

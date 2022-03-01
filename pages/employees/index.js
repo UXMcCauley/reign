@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DataTable from 'react-data-table-component';
 import {generateEmployees, employeeTableColumns} from "../../public/helpers";
-import styles from "./Home.module.scss"
+import NonDashboardContentContainer from "../../components/dashboards/nonDashboardContentContainer";
+import DashboardTitle from "../../components/dashboards/dashboardTitle";
 
 export default function Home() {
     return (
@@ -12,11 +13,9 @@ export default function Home() {
                 <meta name="description" content="REIGN Analytics and Employee Management Software"/>
                 <link rel="icon" href="/public/favicon.ico"/>
             </Head>
+            <DashboardTitle label={"Employees"} icon={"Person"}/>
             <ContentContainer>
-                <div className={styles.container}>
-                    <div className={styles.title}>
-                        <h1>Employees</h1>
-                    </div>
+                <NonDashboardContentContainer>
                     <DataTable
                         columns={employeeTableColumns()}
                         data={generateEmployees().data}
@@ -25,9 +24,8 @@ export default function Home() {
                         selectableRows
                         persistTableHead
                     />
-                </div>
+                </NonDashboardContentContainer>
             </ContentContainer>
-
         </Layout>
     )
 }

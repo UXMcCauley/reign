@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
-import DashboardStatusLine from "../components/dashboards/dashboardStatusLine";
-import DashboardTitle from "../components/dashboards/dashboardTitle";
-import styles from "./Executive.module.scss"
-import NumericDisplay from "../components/dashboards/numericDisplay";
+import DashboardTitle from "../../components/dashboards/dashboardTitle";
+import NumericDisplay from "../../components/dashboards/numericDisplay";
+import DashboardContentContainer from "../../components/dashboards/dashboardContentContainer";
 
 export default function Executive() {
     ChartJS.register(ArcElement, Tooltip, Legend);
@@ -45,10 +44,8 @@ export default function Executive() {
             </Head>
             <DashboardTitle label={"Executive Overview"} icon={"Gauge"}/>
             <ContentContainer>
-
-                <div className={styles.container}>
-                    <DashboardStatusLine/>
-                    <div style={{display:"flex", justifyContent: "space-between"}}>
+                <DashboardContentContainer>
+                    <div style={{display: "flex", justifyContent: "space-between"}}>
                         <NumericDisplay title={"Employees"} number={1128}/>
                         <NumericDisplay title={"Payroll Average"} number={41541} isMoney={true}/>
                         <NumericDisplay title={"New Hires"} number={101}/>
@@ -72,7 +69,7 @@ export default function Executive() {
                             <Doughnut data={data} type={"doughnut"}/>
                         </div>
                     </div>
-                </div>
+                </DashboardContentContainer>
             </ContentContainer>
         </Layout>
     )

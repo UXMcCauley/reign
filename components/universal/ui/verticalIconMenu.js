@@ -1,4 +1,4 @@
-import {Gauge, BellRinging, Person, ListBullets, Key, Calendar, Database, Gear, Question} from "phosphor-react"
+import {Gauge, Person, ListBullets, Key, Calendar, Database, Gear, Question} from "phosphor-react"
 import styles from "./styles/VerticalIconMenu.module.scss"
 import Link from "next/link"
 import {useRouter} from "next/router";
@@ -8,14 +8,6 @@ export default function VerticalIconMenu(props) {
 
     return (
         <div className={styles.container}>
-            <div className={`${styles.link} ${router.pathname === "/notifications" ? styles.active : ''}`}>
-                <Link href={"/notifications"} passHref>
-                    <div>
-                        <BellRinging size={props.size}/>
-                        <div className={styles.label}>Alerts</div>
-                    </div>
-                </Link>
-            </div>
             <div className={`${styles.link} ${router.pathname === "/dashboards/executive" ? styles.active : ''}`}>
                 <Link href={"/dashboards/executive"} passHref>
                     <div>

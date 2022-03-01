@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/ui/layout"
+import NonDashboardContentContainer from "../../components/dashboards/nonDashboardContentContainer";
+import DashboardTitle from "../../components/dashboards/dashboardTitle";
 
 export default function Home() {
     return (
@@ -7,10 +9,12 @@ export default function Home() {
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN Analytics and Employee Management Software"/>
-                <link rel="icon" href="/favicon.ico"/>
             </Head>
+            <DashboardTitle label={"Data"} icon={"Database"}/>
             <ContentContainer>
-                <h1>Data Sources</h1>
+                <NonDashboardContentContainer>
+                    Content
+                </NonDashboardContentContainer>
             </ContentContainer>
 
         </Layout>

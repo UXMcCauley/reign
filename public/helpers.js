@@ -36,7 +36,7 @@ export function employeeTableColumns() {
         {
             name: '',
             grow: 0,
-            cell: row => <Image height="50px" width="50px" style={{borderRadius: 50, padding: 4}} alt={row.name}
+            cell: row => <Image height="50px" width="50px" alt={row.name}
                               src={row.avatar}/>
         },
         {name: 'Last', selector: row => row.last_name, sortable: true, width: "120px"},
