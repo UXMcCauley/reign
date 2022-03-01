@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.container .left {
+  width: 60%;
+  padding: 30px;
+}
+.container .right {
+  width: 36%;
+  padding: 30px;
+  background: #f3f3f3;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=Home.module.css.map */

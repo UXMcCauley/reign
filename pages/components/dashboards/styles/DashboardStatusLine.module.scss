@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin: 40px 0;
+  .left {
+    display: flex;
+
+    .refreshLink {
+      color: #0070f3;
+      text-decoration: underline;
+      margin: 0 20px;
+    }
+
+    .connected {
+      color: #118f00;
+    }
+  }
+
+  .right {
+    display: flex;
+
+    .editLayout {
+      color: #0070f3;
+      text-decoration: underline;
+    }
+
+  }
+}

@@ -1,0 +1,19 @@
+.dashboardMenuButton {
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #0070f3;
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 12px;
+  padding: 6px 12px;
+  margin-right: 12px;
+  color: #0070f3;
+  background: #ffffff;
+
+  &.active {
+    background: #0070f3;
+    color: #ffffff;
+  }
+}

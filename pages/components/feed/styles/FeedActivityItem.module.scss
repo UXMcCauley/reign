@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 13px;
+  padding: 10px 0 20px 10px;
+  margin: 10px 0;
+
+  .textContent {
+    width: 100%;
+
+    .description {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .time {
+      font-size: 11px;
+      align-self: center;
+      font-weight: 300;
+      color: #9b9b9b;
+    }
+
+    .nameAndTimeContainer {
+      display: flex;
+      justify-content: space-between;
+
+      .name {
+        color: #0070f3;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+
+    }
+  }
+
+  .avatar {
+    align-self: flex-start;
+    margin-right: 12px;
+
+  }
+
+
+}

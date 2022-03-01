@@ -1,0 +1,57 @@
+{
+  "results": [
+    {
+      "id": 42309234809540932432409723,
+      "gender": "female",
+      "name": {
+        "title": "Madame",
+        "first": "Brigitte",
+        "last": "Meyer"
+      },
+      "location": {
+        "street": {
+          "number": 1447,
+          "name": "Rue de L'Église"
+        },
+        "city": "Bofflens",
+        "state": "Basel-Stadt",
+        "country": "Switzerland",
+        "postcode": 6393,
+        "coordinates": {
+          "latitude": "-56.8374",
+          "longitude": "40.6465"
+        },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "brigitte.meyer@example.com",
+      "login": {
+        "uuid": "2bae2912-438b-4a74-90f0-267e2a983b09",
+        "username": "beautifulcat459",
+        "password": "venom",
+        "salt": "lGTMDsJd",
+        "md5": "f1c678d873ee0b5c4e86ab28faca1735",
+        "sha1": "9cb643c6bfa95e217ca0731d22c927105f7019da",
+        "sha256": "260c07eaedd7620863508bc3a48dcfff41c65ba9666a80d0a117012e0143af04"
+      },
+      "dob": {
+        "date": "1968-10-04T07:53:28.287Z",
+        "age": 54
+      },
+      "registered": {
+        "date": "2017-12-17T22:26:52.601Z",
+        "age": 5
+      },
+      "phone": "077 260 64 74",
+      "cell": "076 004 90 52",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/16.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/16.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/16.jpg"
+      },
+      "nat": "CH"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+.logoContainer {
+  display: flex;
+  .logo {
+    align-self: center;
+    padding: 10px 2px 5px 15px;
+  }
+  .title {
+    align-self: center;
+    color: #ffffff;
+    font-weight: 100;
+  }
+}
+

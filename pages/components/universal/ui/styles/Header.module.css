@@ -1,0 +1,25 @@
+.topHeader {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  background: #262626;
+  background: linear-gradient(90deg, #262626 0%, #3b3b3b 69%, #5c5c5c 100%);
+  box-shadow: 0 0 10px black;
+}
+.topHeader .linksContainer {
+  display: flex;
+  padding-right: 20px;
+}
+
+.bottomHeader {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 3px 20px;
+  background: #0c3850;
+  background: linear-gradient(90deg, #001634 0%, #0c3850 100%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/*# sourceMappingURL=Header.module.css.map */

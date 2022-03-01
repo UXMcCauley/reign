@@ -1,0 +1,47 @@
+.container {
+  width: 75px;
+  height: 26px;
+  display: flex;
+  background: #ececec;
+  border-radius: 100px;
+  padding: 6px;
+  font-size: 11px;
+  position: relative;
+  margin: 10px auto;
+  border: 1px solid #c9c9c9;
+}
+.container .slider {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  background: #0070f3;
+  transition: 0.2s;
+}
+.container div {
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.container div.active {
+  color: #ffffff;
+}
+.container .y {
+  position: absolute;
+  left: -2px;
+  top: 5px;
+}
+.container .m {
+  position: absolute;
+  left: 23px;
+  top: 4px;
+}
+.container .q {
+  position: absolute;
+  left: 44px;
+  top: 4px;
+}
+
+/*# sourceMappingURL=YMQToggle.module.css.map */

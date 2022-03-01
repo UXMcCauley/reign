@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 13px;
+  padding: 10px 0 20px 10px;
+  margin: 10px 0;
+}
+.container .textContent {
+  width: 100%;
+}
+.container .textContent .description {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.container .textContent .time {
+  font-size: 11px;
+  align-self: center;
+  font-weight: 300;
+  color: #9b9b9b;
+}
+.container .textContent .nameAndTimeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.container .textContent .nameAndTimeContainer .name {
+  color: #0070f3;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.container .avatar {
+  align-self: flex-start;
+  margin-right: 12px;
+}
+
+/*# sourceMappingURL=FeedActivityItem.module.css.map */

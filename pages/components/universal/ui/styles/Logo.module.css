@@ -1,0 +1,14 @@
+.logoContainer {
+  display: flex;
+}
+.logoContainer .logo {
+  align-self: center;
+  padding: 10px 2px 5px 15px;
+}
+.logoContainer .title {
+  align-self: center;
+  color: #ffffff;
+  font-weight: 100;
+}
+
+/*# sourceMappingURL=Logo.module.css.map */

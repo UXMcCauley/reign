@@ -9,12 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/core": "^10.1.1",
+    "@emotion/styled": "^11.8.1",
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "@mui/material": "^5.4.4",
+    "@mui/x-data-grid": "^5.5.1",
+    "material-ui-breadcrumbs": "^0.1.6",
     "next": "12.1.0",
+    "phosphor-icons": "^1.4.2",
+    "phosphor-react": "^1.4.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-chartjs-2": "^4.0.1",
+    "react-data-table-component": "^7.4.7",
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.0",
+    "faker": "^5.5.3"
   }
 }

@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  align-content: start;
+  margin: 0 0 30px 0;
+  border-bottom: 1px solid #166eeb;
+}
+
+/*# sourceMappingURL=DashboardMenu.module.css.map */

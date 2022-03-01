@@ -1,0 +1,8 @@
+.footerContainer {
+  background: #0c3850;
+  background: linear-gradient(90deg, #001634 0%, #0c3850 100%);
+  padding: 40px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=Footer.module.css.map */
