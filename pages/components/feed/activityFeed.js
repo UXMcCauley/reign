@@ -1,5 +1,5 @@
 import FeedActivityItem from "./feedActivityItem";
-import {generateFeed} from "../universal/ui/helpers";
+import generateFeed from "../universal/ui/helpers";
 
 export default function ActivityFeed(props) {
     return (

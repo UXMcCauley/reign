@@ -49,7 +49,7 @@ export function employeeTableColumns() {
     ];
 }
 
-export function generateFeed(length) {
+export default function generateFeed(length) {
     let users = []
     for (let id = 1; id <= length; id++) {
 

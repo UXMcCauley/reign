@@ -1,4 +1,4 @@
-import {DashboardMenuButton} from "../universal/ui/buttons"
+import DashboardMenuButton from "../universal/ui/dashboardMenuButton"
 import styles from "./styles/DashboardMenu.module.css"
 
 export default function DashboardMenu() {
