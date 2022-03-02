@@ -1,13 +1,19 @@
-import {Gauge, Person, ListBullets, Key, Calendar, Database, Gear, Question} from "phosphor-react"
+import {Gauge, Person, ListBullets, Key, Calendar, Database, Gear, Question, Alien} from "phosphor-react"
 import styles from "./styles/VerticalIconMenu.module.scss"
 import Link from "next/link"
 import {useRouter} from "next/router";
+import {useState} from "react";
 
 export default function VerticalIconMenu(props) {
     const router = useRouter()
-
+    const [state, setState] = useState(false)
     return (
         <div className={styles.container}>
+            <div className={styles.menuControl} onClick={() => {
+                setState(state === false)
+            }}>
+                <Alien size={30}/>
+            </div>
             <div className={`${styles.link} ${router.pathname === "/dashboards/executive" ? styles.active : ''}`}>
                 <Link href={"/dashboards/executive"} passHref>
                     <div>

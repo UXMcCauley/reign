@@ -1,4 +1,4 @@
-import styles from "./NumericDisplay.module.scss"
+import styles from "./styles/NumericDisplay.module.scss"
 import YMQToggle from "./ymqToggle";
 import {useState} from "react";
 

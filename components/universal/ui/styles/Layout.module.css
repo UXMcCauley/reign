@@ -12,10 +12,19 @@
   display: flex;
   background: #ffffff;
   padding: 30px;
-  width: 90%;
+  width: 80%;
   margin: 30px auto;
   border-radius: 6px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 1000px) {
+  .contentContainer .content {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=Layout.module.css.map */

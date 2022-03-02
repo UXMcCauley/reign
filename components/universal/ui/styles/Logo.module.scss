@@ -1,5 +1,9 @@
 .logoContainer {
   display: flex;
+  @media only screen and (max-width: 1000px){
+    margin: auto;
+  }
+
   .logo {
     align-self: center;
     padding: 10px 2px 5px 15px;

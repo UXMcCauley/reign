@@ -12,11 +12,38 @@
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 12px;
+  transition: 0.2s;
+}
+@media only screen and (max-width: 1000px) {
+  .container {
+    left: -80px;
+  }
+}
+.container .open {
+  left: 0;
+}
+.container .menuControl {
+  display: block;
+  background: #349d16;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -153px;
+  right: -60px;
+}
+@media only screen and (min-width: 1000px) {
+  .container .menuControl {
+    display: none;
+    left: -300px;
+    opacity: 0;
+  }
 }
 .container .link {
   text-align: center;
-  margin-bottom: 20px;
   cursor: pointer;
+}
+.container .link:not(:last-child) {
+  margin-bottom: 20px;
 }
 .container .link:hover {
   color: #a9a9a9;
