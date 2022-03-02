@@ -42,7 +42,7 @@ export default function Employees(props) {
 export async function getServerSideProps({req}) {
     const protocol = req.headers['x-forwarded-proto'] || 'http'
     const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
-    const res = await fetch("https://reign.vercel.app/" + 'api/employees')
+    const res = await fetch(baseUrl + '/api/employees')
     const data = await res.json()
     return { props: { data } }
 }
