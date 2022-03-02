@@ -5,6 +5,7 @@ export default async (req, res) => {
     const employees = await db
         .collection("employees")
         .find()
+        .limit(30)
         .sort()
         .toArray()
     res.json(employees)
