@@ -3,6 +3,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["cloudflare-ipfs.com"]
+    domains: ["cloudflare-ipfs.com", "robohash.org"]
   }
 }

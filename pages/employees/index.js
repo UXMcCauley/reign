@@ -1,15 +1,14 @@
 import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DataTable from 'react-data-table-component';
-import {generateEmployees, employeeTableColumns} from "../../public/helpers";
+import {employeeTableColumns} from "../../public/helpers";
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import ContentLayoutContainer from "../../components/ContentLayoutContainer";
-import Link from "next/link"
-import {PlusCircle} from "phosphor-react";
-
+import IconButton from "../../components/universal/ui/iconButton";
 import styles from "./Employees.module.scss"
 
-export default function Employees() {
+export default function Employees(props) {
+    console.log(props.data)
     return (
         <Layout>
             <Head>
@@ -22,19 +21,12 @@ export default function Employees() {
                 <ContentLayoutContainer>
                     <div className={styles.stack}>
                         <div className={styles.addNewEmployeeContainer}>
-                            <Link href={"/"} passHref>
-                                <div className={styles.addFlex}>
-                                    <div className={styles.addNewEmployee}>
-                                        <PlusCircle size={30}/>
-                                        <div>Add a new employee</div>
-                                    </div>
-                                </div>
-                            </Link>
+                            <IconButton icon={"add"} label={"Add a new employee"} size={30} link={"/employees/add-new-employee"}/>
                         </div>
                         <div className={styles.tableContainer}>
                             <DataTable
                                 columns={employeeTableColumns()}
-                                data={generateEmployees().data}
+                                data={props.data}
                                 theme="default"
                                 pagination
                                 selectableRows
@@ -46,4 +38,13 @@ export default function Employees() {
             </ContentContainer>
         </Layout>
     )
+}
+// This gets called on every request
+export async function getServerSideProps() {
+    // Fetch data from external API
+    const res = await fetch(`http://localhost:3000/api/employees`)
+    const data = await res.json()
+    console.log(data)
+    // Pass data to the page via props
+    return { props: { data } }
 }

@@ -1,6 +1,6 @@
 {
   "name": "reign_workforce_analytics",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,11 +14,15 @@
     "@faker-js/faker": "^6.0.0-alpha.7",
     "@mui/material": "^5.4.4",
     "@mui/x-data-grid": "^5.5.1",
+    "@nokacreative/generic-react-form": "^1.1.15",
     "material-ui-breadcrumbs": "^0.1.6",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.4",
     "next": "12.1.0",
     "phosphor-icons": "^1.4.2",
     "phosphor-react": "^1.4.1",
     "react": "17.0.2",
+    "react-awesome-form": "^2.0.4",
     "react-chartjs-2": "^4.0.1",
     "react-data-table-component": "^7.4.7",
     "react-dom": "17.0.2",
