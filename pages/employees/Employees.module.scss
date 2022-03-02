@@ -1,0 +1,16 @@
+.addNewEmployeeContainer {
+  flex: 0 0 auto;
+  padding: 0 0 30px;
+  display: flex;
+}
+.tableContainer {
+  width: 100%;
+  box-sizing: border-box;
+}
+.addFlex {
+  display: flex;
+  flex-direction: row;
+}
+.addNewEmployee {
+  align-content: center;
+}

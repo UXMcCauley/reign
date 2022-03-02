@@ -11,7 +11,7 @@ export default function Home() {
             </Head>
             <DashboardTitle label={"Schedules"} icon={"Calendar"}/>
             <ContentContainer>
-
+                Content
             </ContentContainer>
         </Layout>
     )

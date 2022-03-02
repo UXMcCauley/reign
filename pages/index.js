@@ -3,6 +3,7 @@ import Layout, {ContentContainer} from "../components/universal/ui/layout"
 import styles from "./Home.module.scss"
 import ActivityFeed from "../components/feed/activityFeed";
 import DashboardTitle from "../components/dashboards/dashboardTitle";
+import ContentLayoutContainer from "../components/ContentLayoutContainer";
 
 export default function Home() {
     return (
@@ -13,14 +14,12 @@ export default function Home() {
             </Head>
             <DashboardTitle label={"Activity Feed & News"} icon={"ListBullets"}/>
             <ContentContainer>
-                <div className={styles.container}>
-                    <div className={styles.left}>
-                        <ActivityFeed feedLength={50}/>
-                    </div>
+                <ContentLayoutContainer>
+                    <ActivityFeed feedLength={50}/>
                     <div className={styles.right}>
-Right Content
+                        Right Content
                     </div>
-                </div>
+                </ContentLayoutContainer>
             </ContentContainer>
 
         </Layout>

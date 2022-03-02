@@ -13,7 +13,6 @@ export default function Home() {
             <ContentContainer>
                 Content
             </ContentContainer>
-
         </Layout>
     )
 }
