@@ -4,7 +4,7 @@ export default function Donuts(props){
     return (
         props.data.map((chart, i) => {
                 return <div style={{width: 100 / props.data.length -2 + "%"}} key={i}>
-                    <div style={{textAlign: "center", padding: "12px 0", textTransform: "uppercase", fontSize: "14px"}}>
+                    <div style={{textAlign: "center", padding: "12px 0", textTransform: "uppercase", fontSize: "16px"}}>
                         {chart.fields.Name}
                     </div>
                     <Doughnut type={"Doughnut"} data={{
@@ -21,8 +21,8 @@ export default function Donuts(props){
                                   responsive: true,
                                   plugins: {
                                       legend: {
-                                          position: 'top',
-                                          display: false
+                                          position: 'bottom',
+                                          display: true
                                       },
                                       title: {
                                           display: false,

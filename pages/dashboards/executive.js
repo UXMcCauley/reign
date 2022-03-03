@@ -14,15 +14,16 @@ import {
     LineElement,
     Title
 } from 'chart.js';
-import {Line, Bar} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./Executive.module.scss"
 import Donuts from "../../components/dashboards/donuts";
 import Numeric from "../../components/dashboards/numeric";
+import LineChart from "../../components/dashboards/line";
+import styles from "./Executive.module.scss"
 
 export default function Executive(props) {
-    console.log(props.airtableNumeric)
+    console.log( props.airtableLine)
     ChartJS.register(ArcElement,
         BarElement,
         Tooltip,
@@ -33,42 +34,6 @@ export default function Executive(props) {
         LineElement,
         Title);
 
-    const lineOptions = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom',
-            },
-            title: {
-                display: true,
-                text: 'Chart.js Line Chart',
-            },
-        },
-    };
-    const labels = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"]
-    const lineChartData = {
-        labels,
-        datasets: [
-            {
-                label: 'Terminations',
-                data: [11, 4, 18, 21, 3],
-                borderColor: 'rgb(22,110,235)',
-                backgroundColor: 'rgb(22,110,235)',
-            },
-            {
-                label: 'New Hires',
-                data: [4, 13, 11, 4, 4],
-                borderColor: 'rgb(204,242,12)',
-                backgroundColor: 'rgb(204,242,12)',
-            },
-            {
-                label: 'Promotions',
-                data: [15, 2, 7, 18, 1],
-                borderColor: 'rgb(181,90,187)',
-                backgroundColor: 'rgb(181,90,187)',
-            },
-        ],
-    };
     const barOptions = {
         indexAxis: 'x',
         elements: {
@@ -115,17 +80,15 @@ export default function Executive(props) {
                            <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
-
                     <div>
                         <div className={styles.flexRow}>
                             <Donuts data={props.airtableDonuts.records}/>
                         </div>
                     </div>
-
                     <div>
                         <div className={styles.flexRow}>
                             <div className={styles.half}>
-                                <Line options={lineOptions} data={lineChartData} type={"Line"}/>
+                                <LineChart data={props.airtableLine.records}/>
                             </div>
                             <div className={styles.half}>
                                 <Bar type={"Bar"} data={barData} options={barOptions}/>
@@ -177,10 +140,23 @@ export default function Executive(props) {
     )
 }
 export async function getServerSideProps() {
-    const atBase = "https://api.airtable.com/v0/"
-    const donuts = await fetch(atBase + "apppbpS0rK10adQYh/Chart%20-%20Donut?api_key=keyYCtVdqu5KWRkCr&view=Executive")
-    const numeric = await fetch(atBase + "apppbpS0rK10adQYh/NumericDisplays?api_key=keyYCtVdqu5KWRkCr&view=Executive")
+    // set up variables
+    const url = "https://api.airtable.com/v0/"
+    const app = "apppbpS0rK10adQYh/"
+    const key = "?api_key=keyYCtVdqu5KWRkCr&view="
+
+    // fetch data
+    const bar = await fetch(url + app + "Bars" + key + "Executive")
+    const donuts = await fetch(url + app + "Donuts" + key + "Executive")
+    const line = await fetch(url + app + "Lines" + key + "Executive")
+    const numeric = await fetch(url + app + "Numerics" + key + "Executive")
+
+    // cast data to json
+    const airtableBar = await bar.json()
     const airtableDonuts = await donuts.json()
+    const airtableLine = await line.json()
     const airtableNumeric = await numeric.json()
-    return {props: {airtableDonuts, airtableNumeric}}
+
+    // return data as component props on render
+    return {props: {airtableBar, airtableDonuts, airtableLine, airtableNumeric}}
 }
