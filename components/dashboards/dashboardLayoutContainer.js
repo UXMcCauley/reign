@@ -1,4 +1,4 @@
-import styles from "./DashboardLayoutContainer.module.scss"
+import styles from "./styles/DashboardLayoutContainer.module.scss"
 import Link from "next/link"
 import {useRouter} from "next/router";
 import DashboardStatusLine from "./dashboardStatusLine";
