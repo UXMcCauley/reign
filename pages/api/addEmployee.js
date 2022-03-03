@@ -6,10 +6,18 @@ export default async (req, res) => {
     const newEmployee = await db
         .collection("employees")
         .insertOne({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
             email: req.body.email,
-            phone: req.body.phone,
+            cell: req.body.cell,
+            home: req.body.home,
+            birthdate: req.body.birthdate,
+            street: req.body.street,
+            city: req.body.city,
+            state: req.body.state,
+            zipCode: req.body.zipCode,
+            gender: req.body.gender,
+            pronouns: req.body.pronouns,
             timestamp: new Date()
         })
 

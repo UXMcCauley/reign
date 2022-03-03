@@ -1,103 +1,119 @@
-import React, { Component } from 'react';
-export default class FormDataComponent extends Component {
-    userData;
-    constructor(props) {
-        super(props);
-        this.onChangeFirst = this.onChangeFirst.bind(this);
-        this.onChangeLast = this.onChangeLast.bind(this);
-        this.onChangeEmail = this.onChangeEmail.bind(this);
-        this.onChangePhone = this.onChangePhone.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        this.state = {
-            first: "",
-            last: "",
-            email: "",
-            phone: ""
-        }
-    }
-    // send to api
+import {useState} from "react";
+import styles from "./AddEmployeeForm.module.scss"
+import {useRouter} from "next/router";
 
-    // Form Events
-    onChangeFirst(e) {
-        this.setState({ first: e.target.value })
-    }
-    onChangeLast(e) {
-        this.setState({ last: e.target.value })
-    }
-    onChangeEmail(e) {
-        this.setState({ email: e.target.value })
-    }
-    onChangePhone(e) {
-        this.setState({ phone: e.target.value })
-    }
-    onSubmit(e) {
+export default function AddEmployeeForm(props){
+    const router = useRouter()
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [cell, setCell] = useState("")
+    const [home, setHome] = useState("")
+    const [birthdate, setBirthdate] = useState("")
+    const [street, setStreet] = useState("")
+    const [city, setCity] = useState("")
+    const [state, setState] = useState("")
+    const [zip, setZip] = useState("")
+    const [gender, setGender] = useState("")
+    const [pronouns, setPronouns] = useState("")
 
-        e.preventDefault()
-        this.createEmployee({
-            first_name: this.state.first,
-            last_name: this.state.last,
-            email: this.state.email,
-            phone: this.state.phone
+    const createEmployee = async (body) => {
+        await fetch("/api/addEmployee", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        }).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
         })
-        console.log(this.state)
-        // this.setState({
-        //     first: "",
-        //     last: "",
-        //     email: "",
-        //     phone: ""
-        // })
+    }
+    return (
+        <div className={`${styles.container} ${props.open === "open" ? styles.open : "closed"}`}>
+            <a onClick={() => {
+                setOpen("closed")
+            }}>Cancel</a>
+            <h1>Add an Employee</h1>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                createEmployee({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    cell: cell,
+                    home: home,
+                    birthdate: birthdate,
+                    street: street,
+                    city: city,
+                    state: state,
+                    zipCode: zip,
+                    gender: gender,
+                    pronouns: pronouns,
+                    createdAt: "date"
+                })
+                router.reload(window.location.pathname)
+            }}>
+                <label>First Name</label>
+                <input type={"text"} id={"firstName"} onChange={(e) => {
+                    setFirstName(e.target.value)
+                }} required={true}/>
+                <label>Last Name</label>
+                <input type={"text"} id={"lastName"} onChange={(e) => {
+                    setLastName(e.target.value)
+                }}/>
+                <label>Email Address</label>
+                <input type={"email"} id={"email"} onChange={(e) => {
+                    setEmail(e.target.value)
+                }}/>
+                <label>Cell Phone</label>
+                <input type={"text"} id={"phone"} onChange={(e) => {
+                    setCell(e.target.value)
+                }}/>
+                <label>Home Phone (optional)</label>
+                <input type={"text"} id={"phone"} onChange={(e) => {
+                    setHome(e.target.value)
+                }}/>
+                <label>Birthdate</label>
+                <input type={"date"} id={"phone"} onChange={(e) => {
+                    setBirthdate(e.target.value)
+                }}/>
+                <label>Street Address</label>
+                <input id={"text"} onChange={(e) => {
+                    setStreet(e.target.value)
+                }}/>
+                <label>City</label>
+                <input id={"text"} onChange={(e) => {
+                    setCity(e.target.value)
+                }}/>
+                <label>State</label>
+                <input id={"text"} onChange={(e) => {
+                    setState(e.target.value)
+                }}/>
+                <label>Zip Code</label>
+                <input id={"text"} onChange={(e) => {
+                    setZip(e.target.value)
+                }}/>
+                <label>Gender</label>
+                <select id={"Preferred Pronouns"} onChange={(e) => {
+                    setGender(e.target.value)
+                }}>
+                    <option value={"Female"}>Female</option>
+                    <option value={"Male"}>Male</option>
+                    <option value={"Other"}>Other</option>
+                </select>
+                <label>Preferred Pronouns</label>
+                <select id={"Preferred Pronouns"} onChange={(e) => {
+                    setPronouns(e.target.value)
+                }}>
+                    <option value={"She/Her"}>She/Her</option>
+                    <option value={"He/Him"}>He/Him</option>
+                    <option value={"They/Them"}>They/Them</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
 
-    }
-    // React Life Cycle
-    componentDidMount() {
-        this.userData = JSON.parse(localStorage.getItem('user'));
-        if (localStorage.getItem('user')) {
-            this.setState({
-                first: this.userData.first,
-                last: this.userData.last,
-                email: this.userData.email,
-                phone: this.userData.phone
-            })
-        } else {
-            this.setState({
-                first: "",
-                last: "",
-                email: "",
-                phone: ""
-            })
-        }
-    }
-    UNSAFE_componentWillUpdate(nextProps, nextState) {
-        localStorage.setItem('user', JSON.stringify(nextState));
-    }
-
-    render() {
-        return (
-            <div className="container">
-                {this.state.first}
-                {this.state.last}
-                {this.state.email}
-                {this.state.phone}
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>First</label>
-                        <input type="text" className="form-control" value={this.state.first} onChange={this.onChangeFirst} />
-                    </div>
-                    <div className="form-group">
-                        <label>Last</label>
-                        <input type="text" className="form-control" value={this.state.last} onChange={this.onChangeLast} />
-                    </div>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
-                    </div>
-                    <div className="form-group">
-                        <label>Phone</label>
-                        <input type="tel" className="form-control" value={this.state.phone} onChange={this.onChangePhone} />
-                    </div>
-                    <button type="submit" className="btn btn-primary btn-block">Submit</button>
-                </form>
-            </div>
-        )
-    }
+        </div>
+    )
 }

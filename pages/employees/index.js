@@ -7,9 +7,11 @@ import ContentLayoutContainer from "../../components/ContentLayoutContainer";
 import IconButton from "../../components/universal/ui/iconButton";
 import styles from "./Employees.module.scss"
 import ButtonFlex from "../../components/universal/ui/buttonFlex";
+import AddEmployeeForm from "../../components/employees/addEmployeeForm";
+import {useState} from "react";
 
 export default function Employees(props) {
-    console.log(props.data)
+    const [open, setOpen] = useState("closed")
     return (
         <Layout>
             <Head>
@@ -21,11 +23,15 @@ export default function Employees(props) {
             <ContentContainer>
                 <ContentLayoutContainer>
                     <div className={styles.stack}>
+                        {open}
                         <ButtonFlex>
                             <IconButton icon={"download"} label={"Download Employees CSV"} size={30}
                                         link={"/employees/add-employee"}/>
-                            <IconButton icon={"add"} label={"Add a new employee"} size={30}
-                                        link={"/employees/add-employee"}/>
+
+                            <button onClick={() => {
+                                setOpen(open === "closed" ? "open" : "closed")
+                            }}>Open Me
+                            </button>
                         </ButtonFlex>
                         <div className={styles.tableContainer}>
                             <DataTable
@@ -38,6 +44,7 @@ export default function Employees(props) {
                             />
                         </div>
                     </div>
+                    <AddEmployeeForm open={open}/>
                 </ContentLayoutContainer>
             </ContentContainer>
         </Layout>

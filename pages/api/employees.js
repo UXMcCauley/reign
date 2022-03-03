@@ -5,7 +5,7 @@ export default async (req, res) => {
     const employees = await db
         .collection("employees")
         .find()
-        .sort()
+        .sort({timestamp: -1})
         .toArray()
     res.json(employees)
 }

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  position: absolute;
+  top: 65px;
+  right: -600px;
+  width: 500px;
+  padding: 50px;
+  background: #eeeeee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+}
+.container.open {
+  right: 0;
+}
+.container h1 {
+  flex: 0 0 auto;
+}
+.container label {
+  margin: 6px 0;
+  display: block;
+}
+.container input {
+  padding: 7px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.container select {
+  padding: 7px;
+  width: 100%;
+}
+.container button {
+  background: #0070f3;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+/*# sourceMappingURL=AddEmployeeForm.module.css.map */
