@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import {TreeMapComponent} from '@syncfusion/ej2-react-treemap';
+import {TreeMapComponent} from '@syncfusion/ej2-react-treemap'
 
 import {
     Chart as ChartJS,
@@ -14,13 +14,15 @@ import {
     LineElement,
     Title
 } from 'chart.js';
-import {Doughnut, Line, Bar} from 'react-chartjs-2';
+import {Line, Bar} from 'react-chartjs-2';
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import NumericDisplay from "../../components/dashboards/numericDisplay";
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./Executive.module.scss"
+import Donuts from "../../components/dashboards/donuts";
+import Numeric from "../../components/dashboards/numeric";
 
-export default function Executive() {
+export default function Executive(props) {
+    console.log(props.airtableNumeric)
     ChartJS.register(ArcElement,
         BarElement,
         Tooltip,
@@ -31,44 +33,6 @@ export default function Executive() {
         LineElement,
         Title);
 
-    const donutOptions = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-                display: false
-            },
-            title: {
-                display: true,
-                text: 'Performance by Rating',
-            },
-        },
-    }
-    const donutData = {
-        labels: ['<5', '5-6', '6-7', '7-8', '8-9', '9-10'],
-        datasets: [
-            {
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgb(204,242,12)',
-                    'rgb(23,108,228)',
-                    'rgb(238,252,4)',
-                    'rgb(176,89,182)',
-                    'rgb(79,10,231)',
-                    'rgb(255, 159, 64)',
-                ],
-                borderColor: [
-                    'rgb(204,242,12)',
-                    'rgb(23,108,228)',
-                    'rgb(255, 206, 86)',
-                    'rgb(176,89,182)',
-                    'rgb(79,10,231)',
-                    'rgb(255, 159, 64)',
-                ],
-                borderWidth: 1,
-            },
-        ],
-    };
     const lineOptions = {
         responsive: true,
         plugins: {
@@ -148,29 +112,13 @@ export default function Executive() {
                 <DashboardLayoutContainer>
                     <div>
                         <div className={styles.flexRow}>
-                            <NumericDisplay title={"Employees"} number={1128}/>
-                            <NumericDisplay title={"Payroll Average"} number={41541} isMoney={true}/>
-                            <NumericDisplay title={"New Hires"} number={101}/>
-                            <NumericDisplay title={"Training Hours"} number={20113} toggle={false}/>
-                            <NumericDisplay title={"Production Hours"} number={66925}/>
-                            <NumericDisplay title={"Raises"} number={"577"}/>
+                           <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
 
                     <div>
                         <div className={styles.flexRow}>
-                            <div style={{width: "24%"}}>
-                                <Doughnut data={donutData} type={"doughnut"} options={donutOptions}/>
-                            </div>
-                            <div style={{width: "24%"}}>
-                                <Doughnut data={donutData} type={"doughnut"} options={donutOptions}/>
-                            </div>
-                            <div style={{width: "24%"}}>
-                                <Doughnut data={donutData} type={"doughnut"} options={donutOptions}/>
-                            </div>
-                            <div style={{width: "24%"}}>
-                                <Doughnut data={donutData} type={"doughnut"} options={donutOptions}/>
-                            </div>
+                            <Donuts data={props.airtableDonuts.records}/>
                         </div>
                     </div>
 
@@ -219,13 +167,20 @@ export default function Executive() {
                                                       labelTemplate: '<div>{{:GDP}}hrs</div>',
                                                       templatePosition: 'Center'
                                                   }}>
-                                </TreeMapComponent></div>
-
+                                </TreeMapComponent>
+                            </div>
                         </div>
                     </div>
                 </DashboardLayoutContainer>
-
             </ContentContainer>
         </Layout>
     )
+}
+export async function getServerSideProps() {
+    const atBase = "https://api.airtable.com/v0/"
+    const donuts = await fetch(atBase + "apppbpS0rK10adQYh/Chart%20-%20Donut?api_key=keyYCtVdqu5KWRkCr&view=Executive")
+    const numeric = await fetch(atBase + "apppbpS0rK10adQYh/NumericDisplays?api_key=keyYCtVdqu5KWRkCr&view=Executive")
+    const airtableDonuts = await donuts.json()
+    const airtableNumeric = await numeric.json()
+    return {props: {airtableDonuts, airtableNumeric}}
 }
