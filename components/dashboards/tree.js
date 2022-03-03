@@ -10,7 +10,6 @@ export default function TreeMap(props){
             Rank: record.fields.Rank
         })
     })
-    console.log(dataset)
     return (
         <TreeMapComponent id='treemap'
                           dataSource={dataset} weightValuePath='Hours'

@@ -41,7 +41,7 @@ export default function Donuts(props){
                                   plugins: {
                                       legend: {
                                           position: 'bottom',
-                                          display: true
+                                          display: eval(chart.fields.Key)
                                       },
                                       title: {
                                           display: false,
