@@ -9,7 +9,8 @@ export default async (req, res) => {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            phone: req.body.phone
+            phone: req.body.phone,
+            timestamp: new Date()
         })
 
 
