@@ -15,6 +15,8 @@ export default class FormDataComponent extends Component {
             phone: ""
         }
     }
+    // send to api
+
     // Form Events
     onChangeFirst(e) {
         this.setState({ first: e.target.value })
@@ -29,13 +31,22 @@ export default class FormDataComponent extends Component {
         this.setState({ phone: e.target.value })
     }
     onSubmit(e) {
+
         e.preventDefault()
-        this.setState({
-            first: "",
-            last: "",
-            email: "",
-            phone: ""
+        this.createEmployee({
+            first_name: this.state.first,
+            last_name: this.state.last,
+            email: this.state.email,
+            phone: this.state.phone
         })
+        console.log(this.state)
+        // this.setState({
+        //     first: "",
+        //     last: "",
+        //     email: "",
+        //     phone: ""
+        // })
+
     }
     // React Life Cycle
     componentDidMount() {

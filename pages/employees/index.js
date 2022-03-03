@@ -23,9 +23,9 @@ export default function Employees(props) {
                     <div className={styles.stack}>
                         <ButtonFlex>
                             <IconButton icon={"download"} label={"Download Employees CSV"} size={30}
-                                        link={"/employees/add-new-employee"}/>
+                                        link={"/employees/add-employee"}/>
                             <IconButton icon={"add"} label={"Add a new employee"} size={30}
-                                        link={"/employees/add-new-employee"}/>
+                                        link={"/employees/add-employee"}/>
                         </ButtonFlex>
                         <div className={styles.tableContainer}>
                             <DataTable

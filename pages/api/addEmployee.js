@@ -1,8 +1,17 @@
-const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://<username>:<password>@cluster0.aqfvn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    client.close();
-});
+import {connectToDatabase} from "../../lib/dbConnect";
+
+export default async (req, res) => {
+
+    const {db} = await connectToDatabase()
+    const newEmployee = await db
+        .collection("employees")
+        .insertOne({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            phone: req.body.phone
+        })
+
+
+    res.json(newEmployee)
+}
