@@ -1,68 +1,15 @@
 import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import {TreeMapComponent} from '@syncfusion/ej2-react-treemap'
-
-import {
-    Chart as ChartJS,
-    ArcElement,
-    BarElement,
-    Tooltip,
-    Legend,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title
-} from 'chart.js';
-import {Bar} from 'react-chartjs-2';
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import Donuts from "../../components/dashboards/donuts";
-import Numeric from "../../components/dashboards/numeric";
-import LineChart from "../../components/dashboards/line";
+import DashboardTitle from "../../components/dashboards/dashboardTitle"
+import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer"
+import Donuts from "../../components/dashboards/donuts"
+import Numeric from "../../components/dashboards/numeric"
+import LineChart from "../../components/dashboards/line"
 import styles from "./Executive.module.scss"
+import BarChart from "../../components/dashboards/bar"
 
 export default function Executive(props) {
-    console.log( props.airtableLine)
-    ChartJS.register(ArcElement,
-        BarElement,
-        Tooltip,
-        Legend,
-        CategoryScale,
-        LinearScale,
-        PointElement,
-        LineElement,
-        Title);
-
-    const barOptions = {
-        indexAxis: 'x',
-        elements: {
-            bar: {
-                borderWidth: 2,
-            },
-        },
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom',
-                display: false,
-            },
-            title: {
-                display: true,
-                text: 'Total Employee by Keycard',
-            },
-        },
-    };
-    const barData = {
-        labels: ['Res Roofer', 'Carpenter', 'Concrete', 'Gen Labor', 'Siding Inst', "Comm. Roofer", 'Painter', 'Flooring Inst', "HVAC", "Manufacturing"],
-        datasets: [
-            {
-                label: 'Employees',
-                data: [650, 563, 321, 210, 200, 165, 121, 99, 84, 13],
-                backgroundColor: 'rgb(24,106,221)',
-            }
-        ],
-    };
     return (
         <Layout>
             <Head>
@@ -73,7 +20,6 @@ export default function Executive(props) {
             </Head>
             <DashboardTitle label={"Executive Overview"} icon={"Gauge"}/>
             <ContentContainer>
-
                 <DashboardLayoutContainer>
                     <div>
                         <div className={styles.flexRow}>
@@ -91,13 +37,11 @@ export default function Executive(props) {
                                 <LineChart data={props.airtableLine.records}/>
                             </div>
                             <div className={styles.half}>
-                                <Bar type={"Bar"} data={barData} options={barOptions}/>
+                                <BarChart data={props.airtableBar}/>
                             </div>
                         </div>
                     </div>
-
                     <div>
-
                         <div>
                             <h1>Production Hours per Keycard</h1>
                             <div style={{width: "100%"}}>

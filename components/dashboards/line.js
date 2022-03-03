@@ -1,6 +1,25 @@
 import {Line} from "react-chartjs-2";
+import {
+    ArcElement,
+    BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LinearScale, LineElement,
+    PointElement, Title,
+    Tooltip
+} from "chart.js";
 
 export default function LineChart(props) {
+    ChartJS.register(ArcElement,
+        BarElement,
+        Tooltip,
+        Legend,
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Title);
     const datasets = []
     props.data.map((dataset) => {
         datasets.push({

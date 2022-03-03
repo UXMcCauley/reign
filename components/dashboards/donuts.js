@@ -1,6 +1,25 @@
 import {Doughnut} from "react-chartjs-2";
+import {
+    ArcElement,
+    BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LinearScale, LineElement,
+    PointElement, Title,
+    Tooltip
+} from "chart.js";
 
 export default function Donuts(props){
+    ChartJS.register(ArcElement,
+        BarElement,
+        Tooltip,
+        Legend,
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        Title);
     return (
         props.data.map((chart, i) => {
                 return <div style={{width: 100 / props.data.length -2 + "%"}} key={i}>
