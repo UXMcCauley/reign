@@ -5,7 +5,7 @@ import DashboardLayoutContainer from "../../components/dashboards/dashboardLayou
 import Donuts from "../../components/dashboards/donuts"
 import Numeric from "../../components/dashboards/numeric"
 import LineChart from "../../components/dashboards/line"
-import styles from "./Executive.module.scss"
+import styles from "./styles/Executive.module.scss"
 import BarChart from "../../components/dashboards/bar"
 import TreeMap from "../../components/dashboards/tree";
 

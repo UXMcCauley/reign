@@ -2,10 +2,9 @@ import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DashboardTitle from "../../components/dashboards/dashboardTitle"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./Executive.module.scss";
+import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
-import LineChart from "../../components/dashboards/line";
 import BarChart from "../../components/dashboards/bar";
 import TreeMap from "../../components/dashboards/tree";
 
@@ -33,10 +32,7 @@ export default function WorkforceDiversity(props) {
                     </div>
                     <div>
                         <div className={styles.flexRow}>
-                            <div className={styles.half}>
-                                <LineChart data={props.airtableLine.records}/>
-                            </div>
-                            <div className={styles.half}>
+                            <div style={{width: "100%"}}>
                                 <BarChart data={props.airtableBar}/>
                             </div>
                         </div>

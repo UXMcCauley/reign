@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import ContentLayoutContainer from "../../components/ContentLayoutContainer";
+import VendorGrid from "../../components/data/vendorGrid";
 
 export default function Home() {
     return (
@@ -13,7 +14,7 @@ export default function Home() {
             <DashboardTitle label={"Data"} icon={"Database"}/>
             <ContentContainer>
                 <ContentLayoutContainer>
-                    Data Here
+                    <VendorGrid/>
                 </ContentLayoutContainer>
             </ContentContainer>
 

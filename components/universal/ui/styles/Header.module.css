@@ -20,6 +20,11 @@
   background: #0c3850;
   background: linear-gradient(90deg, #001634 0%, #0c3850 100%);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /*# sourceMappingURL=Header.module.css.map */

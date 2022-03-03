@@ -4,7 +4,7 @@ import {Line} from "react-chartjs-2";
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./Executive.module.scss";
+import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import TreeMap from "../../components/dashboards/tree";

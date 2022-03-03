@@ -1,8 +1,10 @@
-.container {
-  height: 100%;
-  box-sizing: border-box;
-  margin: 20px 40px;
-  .title {
+.flexRow {
+display: flex;
+  justify-content: space-between;
+  padding: 30px 0 40px 0;
+  border-bottom: 1px solid #ececec;
 
+  .half {
+    width: 50%;
   }
 }

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./Executive.module.scss";
+import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import LineChart from "../../components/dashboards/line";
