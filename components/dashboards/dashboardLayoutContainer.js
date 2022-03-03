@@ -29,6 +29,10 @@ export default function DashboardLayoutContainer({children}) {
                     className={`${styles.link} ${router.pathname === "/dashboards/salary-overview" ? styles.active : null}`}>
                     <Link href={"/dashboards/salary-overview"}>Salary Overview</Link>
                 </div>
+                <div
+                    className={`${styles.link} ${router.pathname === "/dashboards/group-dynamics" ? styles.active : null}`}>
+                    <Link href={"/dashboards/group-dynamics"}>Group Dynamics</Link>
+                </div>
             </div>
 
             <div>{children}</div>
