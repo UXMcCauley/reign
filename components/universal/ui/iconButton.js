@@ -1,4 +1,4 @@
-import {PlusCircle, MinusCircle,} from "phosphor-react"
+import {PlusCircle, MinusCircle, Eye, Upload, Download} from "phosphor-react"
 import Link from "next/link"
 import styles from "./IconButton.module.scss"
 
@@ -12,6 +12,12 @@ export default function IconButton(props) {
                 return <PlusCircle size={props.size}/>
             case "minus":
                 return <MinusCircle size={props.size}/>
+            case "eye":
+                return <Eye size={props.size}/>
+            case "upload":
+                return <Upload size={props.size}/>
+            case "download":
+                return <Download size={props.size}/>
         }
     }
 

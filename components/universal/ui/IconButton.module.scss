@@ -1,11 +1,10 @@
 .container {
   display: flex;
-  align-content: center;
   cursor: pointer;
   color: #0070f3;
   .icon {
     align-self: center;
-    margin-right: 3px;
+    margin-right: 6px;
   }
   .label{
     align-self: center;

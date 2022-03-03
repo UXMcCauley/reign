@@ -1,0 +1,49 @@
+.container {
+  padding: 8px 20px;
+  display: flex;
+  flex-direction: column;
+  background: #e3e3e3;
+  margin-bottom: 8px;
+  border-left: 4px solid #c9c9c9;
+  transition: 0.1s;
+  position: relative;
+  cursor: pointer;
+
+  .iconsContainer {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 0;
+    width: 46px;
+
+
+    div{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  &:hover {
+    border-left: 4px solid #a1a1a1;
+  }
+
+  &.unread {
+    border-left: 4px solid #6aa8ff;
+    &:hover {
+      border-left: 4px solid #166eeb;
+    }
+  }
+
+  .name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .preview {
+    font-size: 12px;
+  }
+}

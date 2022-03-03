@@ -10,7 +10,8 @@ import {
     Database,
     Question,
     Calendar,
-    ListBullets
+    ListBullets,
+    Envelope
 
 } from "phosphor-react"
 import styles from "./styles/DashboardTitle.module.scss"
@@ -43,6 +44,8 @@ export default function DashboardTitle(props) {
                 return <Calendar size={42} className={styles.icon}/>
             case "ListBullets":
                 return <ListBullets size={42} className={styles.icon}/>
+            case "Envelope":
+                return <Envelope size={42} className={styles.icon}/>
         }
     }
 

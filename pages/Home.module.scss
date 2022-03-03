@@ -1,9 +1,12 @@
+.container {
+  display: flex;
+}
 .left {
   padding: 30px;
 }
 
 .right {
-  min-width: 33%;
+  min-width: 40%;
   padding: 30px;
   margin-left: 60px;
   background: #f3f3f3;

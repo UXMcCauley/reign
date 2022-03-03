@@ -15,9 +15,10 @@ export default function Home() {
             <DashboardTitle label={"Activity Feed & News"} icon={"ListBullets"}/>
             <ContentContainer>
                 <ContentLayoutContainer>
-                    <ActivityFeed feedLength={50}/>
-                    <div className={styles.right}>
-                        Right Content
+                    <div className={styles.container}><ActivityFeed feedLength={50}/>
+                        <div className={styles.right}>
+                            Right Content
+                        </div>
                     </div>
                 </ContentLayoutContainer>
             </ContentContainer>

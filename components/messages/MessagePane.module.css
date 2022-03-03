@@ -1,0 +1,23 @@
+.container {
+  padding: 30px 50px;
+  font-size: 14px;
+}
+
+.icons {
+  align-self: center;
+}
+.icons svg {
+  margin-left: 15px;
+}
+
+.sender {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.message {
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+/*# sourceMappingURL=MessagePane.module.css.map */

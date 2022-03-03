@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/ui/layout"
 import DataTable from 'react-data-table-component';
-import {employeeTableColumns} from "../../public/helpers";
+import {employeeTableColumns} from "../../lib/helpers";
 import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import ContentLayoutContainer from "../../components/ContentLayoutContainer";
 import IconButton from "../../components/universal/ui/iconButton";
 import styles from "./Employees.module.scss"
+import ButtonFlex from "../../components/universal/ui/buttonFlex";
 
 export default function Employees(props) {
     console.log(props.data)
@@ -20,9 +21,12 @@ export default function Employees(props) {
             <ContentContainer>
                 <ContentLayoutContainer>
                     <div className={styles.stack}>
-                        <div className={styles.addNewEmployeeContainer}>
-                            <IconButton icon={"add"} label={"Add a new employee"} size={30} link={"/employees/add-new-employee"}/>
-                        </div>
+                        <ButtonFlex>
+                            <IconButton icon={"download"} label={"Download Employees CSV"} size={30}
+                                        link={"/employees/add-new-employee"}/>
+                            <IconButton icon={"add"} label={"Add a new employee"} size={30}
+                                        link={"/employees/add-new-employee"}/>
+                        </ButtonFlex>
                         <div className={styles.tableContainer}>
                             <DataTable
                                 columns={employeeTableColumns()}
@@ -45,5 +49,5 @@ export async function getServerSideProps({req}) {
     const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
     const res = await fetch(baseUrl + '/api/employees')
     const data = await res.json()
-    return { props: { data } }
+    return {props: {data}}
 }

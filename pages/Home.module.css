@@ -1,13 +1,17 @@
+.container {
+  display: flex;
+}
+
 .left {
   padding: 30px;
 }
 
 .right {
-  min-width: 33%;
+  min-width: 40%;
   padding: 30px;
   margin-left: 60px;
   background: #f3f3f3;
   border-radius: 8px;
 }
 
-/*# sourceMappingURL=Employees.module.css.map */
+/*# sourceMappingURL=Home.module.css.map */
