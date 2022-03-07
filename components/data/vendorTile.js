@@ -1,4 +1,4 @@
-import styles from "./VendorTile.module.scss"
+import styles from "./styles/VendorTile.module.scss"
 
 export default function VendorTile(props){
     return (

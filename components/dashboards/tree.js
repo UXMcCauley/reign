@@ -12,8 +12,20 @@ export default function TreeMap(props){
     })
     return (
         <TreeMapComponent id='treemap'
+                          background={"transparent"}
                           dataSource={dataset} weightValuePath='Hours'
-                          palette={['rgb(211,250,0)', 'rgb(23,108,228)', 'rgb(4,215,252)', 'rgb(255,0,183)', 'rgb(79,10,231)', 'rgb(255, 159, 64)', 'rgb(255, 159, 64)']}
+                          palette={[
+                              'rgba(86, 213, 184, 0.5)',
+                              'rgba(96, 193, 134, 0.5)',
+                              'rgba(225, 33, 98, 0.5)',
+                              'rgba(188, 26, 90, 0.5)',
+                              'rgba(152, 41, 171, 0.5)',
+                              'rgba(85, 40, 171, 0.5)',
+                              'rgba(40, 43, 171, 0.5)',
+                              'rgba(39, 105, 170, 0.5)',
+                              'rgba(86, 168, 215, 0.5)',
+
+                          ]}
                           leafItemSettings={{
                               labelPath: 'Keycard',
                               labelTemplate: '<div>{{:Hours}}hrs</div>',

@@ -30,12 +30,12 @@ export default function DashboardLayoutContainer({children}) {
                     <Link href={"/dashboards/salary-overview"}>Salary Overview</Link>
                 </div>
                 <div
-                    className={`${styles.link} ${router.pathname === "/dashboards/group-dynamics" ? styles.active : null}`}>
-                    <Link href={"/dashboards/group-dynamics"}>Group Dynamics</Link>
+                    className={`${styles.link} ${router.pathname === "/dashboards/project-dynamics" ? styles.active : null}`}>
+                    <Link href={"/dashboards/project-dynamics"}>Project Dynamics</Link>
                 </div>
             </div>
 
-            <div>{children}</div>
+            <div className={styles.contentContainer}>{children}</div>
         </div>
     )
 }

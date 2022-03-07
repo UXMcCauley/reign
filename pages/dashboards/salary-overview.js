@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
@@ -17,7 +16,6 @@ export default function SalaryOverview(props) {
                 <meta name="description" content="REIGN"/>
                 <title>Dashboards - Salary Overview</title>
             </Head>
-            <DashboardTitle label={"Salary Overview"} icon={"Money"}/>
             <ContentContainer>
                 <DashboardLayoutContainer>
                     <div>

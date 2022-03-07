@@ -1,27 +1,32 @@
-.container {
-  padding: 0 40px 36px  ;
+@import "styles/globalStyles";
 
+.container {
+
+  .contentContainer {
+    background: rgba(0, 0, 0, 0.29);
+    padding: 40px;
+  }
 
   .link {
-    border: 1px solid #0070f3;
+    border: 1px solid $gray;
     border-bottom: none;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     padding: 6px 14px;
     margin-right: 4px;
     font-size: 12px;
-    color: #0070f3;
+    color: $gray;
 
     &.active {
-      background: #0070f3;
-      color:#ffffff;
+      background: $purple;
+      color: #ffffff;
+      border-color: $purple;
     }
 
   }
 
   .links {
     display: flex;
-    border-bottom: 1px solid #0070f3;
-    margin-bottom: 40px;
+    border-bottom: 1px solid $purple;
   }
 }

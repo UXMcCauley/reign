@@ -1,4 +1,4 @@
-import styles from "./ButtonFlex.module.scss"
+import styles from "./styles/ButtonFlex.module.scss"
 
 export default function ButtonFlex({children}){
     return (

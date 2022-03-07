@@ -1,19 +1,22 @@
+@import "styles/globalStyles";
+
 .container {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
   margin: 40px 0;
+  color: $white;
   .left {
     display: flex;
 
     .refreshLink {
-      color: #0070f3;
+      color: $lightBlue;
       text-decoration: underline;
       margin: 0 20px;
     }
 
     .connected {
-      color: #118f00;
+      color: $green;
     }
   }
 
@@ -21,7 +24,7 @@
     display: flex;
 
     .editLayout {
-      color: #0070f3;
+      color: $lightBlue;
       text-decoration: underline;
     }
 

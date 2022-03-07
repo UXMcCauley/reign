@@ -1,19 +1,17 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import ContentLayoutContainer from "../../components/ContentLayoutContainer";
+import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentLayoutContainer from "../../components/universal/ContentLayoutContainer";
 
 export default function Home() {
     return (
         <Layout>
             <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN Analytics and Employee Management Software"/>
+                <title>REIGN Workforce Intelligence - Help</title>
+                <meta name="description" content=" Help Center"/>
             </Head>
-            <DashboardTitle label={"Help Center"} icon={"Question"}/>
             <ContentContainer>
                 <ContentLayoutContainer>
-                    Help Here
+
                 </ContentLayoutContainer>
             </ContentContainer>
         </Layout>

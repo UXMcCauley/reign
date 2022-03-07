@@ -1,59 +1,17 @@
-.container {
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background: #0c3850;
-  background: linear-gradient(90deg, #001634 0%, #0c3850 100%);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  position: fixed;
-  left: 0;
-  top: 166px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  padding: 12px;
-  transition: 0.2s;
-}
-@media only screen and (max-width: 1000px) {
-  .container {
-    left: -80px;
-  }
-}
-.container .open {
-  left: 0;
-}
-.container .menuControl {
-  display: block;
-  background: #349d16;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -153px;
-  right: -60px;
-}
-@media only screen and (min-width: 1000px) {
-  .container .menuControl {
-    display: none;
-    left: -300px;
-    opacity: 0;
-  }
-}
-.container .link {
-  text-align: center;
-  cursor: pointer;
-}
-.container .link:not(:last-child) {
-  margin-bottom: 20px;
-}
-.container .link:hover {
-  color: #a9a9a9;
-}
-.container .link.active {
-  color: #f4e50f;
-}
-.container .link .label {
-  font-size: 9px;
-  cursor: pointer;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "styles/globalStyles";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   VerticalIconMenu.module.scss 1:9  root stylesheet */
 
-/*# sourceMappingURL=VerticalIconMenu.module.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"styles/globalStyles\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   VerticalIconMenu.module.scss 1:9  root stylesheet";
+}

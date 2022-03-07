@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import DataTable from 'react-data-table-component';
 import {employeeTableColumns} from "../../lib/helpers";
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
-import ContentLayoutContainer from "../../components/ContentLayoutContainer";
+import ContentLayoutContainer from "../../components/universal/ContentLayoutContainer";
 import IconButton from "../../components/universal/ui/iconButton";
-import styles from "./Employees.module.scss"
+import styles from "./styles/Employees.module.scss"
 import ButtonFlex from "../../components/universal/ui/buttonFlex";
 import AddEmployeeForm from "../../components/employees/addEmployeeForm";
 import {useState} from "react";
@@ -15,11 +14,10 @@ export default function Employees(props) {
     return (
         <Layout>
             <Head>
-                <title>REIGN - Employees</title>
-                <meta name="description" content="REIGN Analytics and Employee Management Software"/>
+                <title>REIGN Workforce Intelligence - Employees</title>
+                <meta name="description" content="Employees"/>
                 <link rel="icon" href="/public/favicon.ico"/>
             </Head>
-            <DashboardTitle label={"Employees"} icon={"Person"}/>
             <ContentContainer>
                 <ContentLayoutContainer>
                     <div className={styles.stack}>

@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import ButtonFlex from "../../components/universal/ui/buttonFlex";
 import IconButton from "../../components/universal/ui/iconButton";
-import styles from "./Messages.module.scss"
+import styles from "./styles/Messages.module.scss"
 import MessagePreview from "../../components/messages/messagePreview";
-import ContentLayoutContainer from "../../components/ContentLayoutContainer";
+import ContentLayoutContainer from "../../components/universal/ContentLayoutContainer";
 import {useState} from "react";
 import MessagePane from "../../components/messages/messagePane";
 
@@ -76,10 +75,9 @@ export default function Messages() {
     return (
         <Layout>
             <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN Analytics and Employee Management Software"/>
+                <title>REIGN Workforce Intelligence - Messages</title>
+                <meta name="description" content="Messages"/>
             </Head>
-            <DashboardTitle label={"Messages"} icon={"Envelope"}/>
             <ContentContainer>
                 <ContentLayoutContainer><ButtonFlex>
                     <IconButton icon={"add"} label={"Compose a Message"} link={"/"} size={30}/>

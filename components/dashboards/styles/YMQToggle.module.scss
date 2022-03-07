@@ -1,14 +1,16 @@
+@import "styles/globalStyles";
+
 .container {
   width: 75px;
   height: 26px;
   display: flex;
-  background: #ececec;
+  background: $black;
   border-radius: 100px;
   padding: 6px;
   font-size: 11px;
   position: relative;
   margin: 10px auto;
-  border: 1px solid #c9c9c9;
+  border: 1px solid $black;
 
   .slider {
     position: absolute;
@@ -17,7 +19,7 @@
     width: 20px;
     height: 20px;
     border-radius: 30px;
-    background: #0070f3;
+    background: $purple;
     transition: 0.2s;
   }
 
@@ -27,7 +29,7 @@
     cursor: pointer;
 
     &.active {
-      color: #ffffff;
+      color: $white;
     }
   }
 
@@ -35,6 +37,7 @@
     position: absolute;
     left: -2px;
     top: 5px;
+    color: $gray
 
   }
 
@@ -42,11 +45,13 @@
     position: absolute;
     left: 23px;
     top: 4px;
+    color: $gray
   }
 
   .q {
     position: absolute;
     left: 44px;
     top: 4px;
+    color: $gray
   }
 }

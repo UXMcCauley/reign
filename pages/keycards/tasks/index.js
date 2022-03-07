@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout from "../../../components/universal/ui/layout";
-import DashboardTitle from "../../../components/dashboards/dashboardTitle";
-import {ContentContainer} from "../../../components/universal/ui/layout";
+import Layout from "../../../components/universal/layout";
+import PageTitle from "../../../components/universal/pageTitle";
+import {ContentContainer} from "../../../components/universal/layout";
 import IconButton from "../../../components/universal/ui/iconButton";
 import DataTable from "react-data-table-component";
 import {keycardsTableColumns} from "../../../lib/helpers";
@@ -15,7 +15,7 @@ export default function Home(props) {
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN - Tasks"/>
             </Head>
-            <DashboardTitle label={"Tasks"} icon={"Key"}/>
+            <PageTitle label={"Tasks"} icon={"Key"}/>
             <ContentContainer>
                 <ButtonFlex>
                     <BackButton/>

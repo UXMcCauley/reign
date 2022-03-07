@@ -1,5 +1,5 @@
 import {Bar} from "react-chartjs-2";
-
+import styles from "./styles/BarChart.module.scss"
 import {
     ArcElement,
     BarElement,
@@ -23,7 +23,7 @@ export default function BarChart(props){
         Title);
     return (
         <div>
-            <div style={{textAlign: "center", padding: "12px 0", textTransform: "uppercase", fontSize: "16px"}}>{props.data.records[0].fields.Name}</div>
+            <div className={styles.title}>{props.data.records[0].fields.Name}</div>
             <Bar type={"Bar"} data={{
                 labels: props.data.records[0].fields.XAxis.split(","),
                 datasets: [

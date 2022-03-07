@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import DashboardTitle from "../../components/dashboards/dashboardTitle"
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer"
 import Donuts from "../../components/dashboards/donuts"
 import Numeric from "../../components/dashboards/numeric"
@@ -18,7 +17,6 @@ export default function Executive(props) {
                 <link rel="icon" href="/public/favicon.ico"/>
                 <title>Dashboards - Executive Overview</title>
             </Head>
-            <DashboardTitle label={"Executive Overview"} icon={"Gauge"}/>
             <ContentContainer>
                 <DashboardLayoutContainer>
                     <div>

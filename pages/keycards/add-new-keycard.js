@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import IconButton from "../../components/universal/ui/iconButton";
 import BackButton from "../../components/universal/ui/backButton";
 
@@ -8,10 +7,9 @@ export default function AddNewKeycard() {
     return (
         <Layout>
             <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN - Add a new keycard"/>
+                <title>REIGN Workforce Intelligence - Add a Keycard</title>
+                <meta name="description" content="Add a new keycard"/>
             </Head>
-            <DashboardTitle label={"Keycards"} icon={"Key"}/>
             <ContentContainer>
                 <div>
                     <BackButton/>

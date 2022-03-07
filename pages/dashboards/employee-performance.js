@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/ui/layout"
+import Layout, {ContentContainer} from "../../components/universal/layout"
 import {Line} from "react-chartjs-2";
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
-import DashboardTitle from "../../components/dashboards/dashboardTitle";
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
@@ -98,7 +97,6 @@ export default function EmployeePerformance(props) {
                 <meta name="description" content="REIGN"/>
                 <title>Dashboards - Employee Performance</title>
             </Head>
-            <DashboardTitle label={"Employee Performance"} icon={"HandsClapping"}/>
             <ContentContainer>
                 <DashboardLayoutContainer>
                     <div>

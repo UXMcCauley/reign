@@ -1,13 +1,12 @@
+@import "styles/globalStyles";
+
 .container {
-  color: #ffffff;
+  color: $white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: rgb(12, 56, 80);
-  background: linear-gradient(90deg, rgb(0, 22, 52) 0%, rgb(12, 56, 80) 100%);
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
   position: fixed;
-  left: 0;
+  left: 20px;
   top: 166px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -26,7 +25,7 @@
 
   .menuControl {
     display: block;
-    background: #349d16;
+    background: $green;
     width: 40px;
     height: 40px;
     position: absolute;
@@ -50,11 +49,11 @@
     }
 
     &:hover{
-      color: #a9a9a9;
+      color: $gray;
     }
 
     &.active {
-      color: #f4e50f;
+      color: $purple;
     }
 
     .label {

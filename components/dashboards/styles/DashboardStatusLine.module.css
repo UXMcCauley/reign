@@ -1,26 +1,17 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  margin: 40px 0;
-}
-.container .left {
-  display: flex;
-}
-.container .left .refreshLink {
-  color: #0070f3;
-  text-decoration: underline;
-  margin: 0 20px;
-}
-.container .left .connected {
-  color: #118f00;
-}
-.container .right {
-  display: flex;
-}
-.container .right .editLayout {
-  color: #0070f3;
-  text-decoration: underline;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "styles/globalStyles";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   DashboardStatusLine.module.scss 1:9  root stylesheet */
 
-/*# sourceMappingURL=DashboardStatusLine.module.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"styles/globalStyles\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   DashboardStatusLine.module.scss 1:9  root stylesheet";
+}

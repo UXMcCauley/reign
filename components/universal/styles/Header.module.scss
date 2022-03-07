@@ -1,0 +1,13 @@
+@import "../../../styles/globalStyles";
+
+.bottomHeader {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  color: $white;
+  padding: 3px 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}

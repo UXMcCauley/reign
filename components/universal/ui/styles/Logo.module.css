@@ -9,6 +9,7 @@
 .logoContainer .logo {
   align-self: center;
   padding: 10px 2px 5px 15px;
+  margin-right: 8px;
 }
 .logoContainer .title {
   align-self: center;
