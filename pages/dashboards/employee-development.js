@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
@@ -10,7 +10,7 @@ import TreeMap from "../../components/dashboards/tree";
 
 export default function EmployeeDevelopment(props) {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN"/>
@@ -45,7 +45,7 @@ export default function EmployeeDevelopment(props) {
                     </div>
                 </DashboardLayoutContainer>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }
 

@@ -75,10 +75,10 @@ export default function  LineChartWithReferenceLines (){
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <ReferenceLine x="Page C" stroke="red" label="Max PV PAGE" />
-                    <ReferenceLine y={9800} label="Max" stroke="red" />
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <ReferenceLine x="Page C" stroke="rgba(225, 33, 98, 0.5)" label="Max PV PAGE" />
+                    <ReferenceLine y={9800} label="Max" stroke="rgba(225, 33, 98, 0.5)" />
+                    <Line type="monotone" dataKey="pv" stroke="rgba(39, 105, 170, 0.5)" />
+                    <Line type="monotone" dataKey="uv" stroke="rgba(86, 213, 184, 0.5)" />
                 </LineChart>
             </ResponsiveContainer>
         );

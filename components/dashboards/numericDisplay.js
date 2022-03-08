@@ -8,11 +8,11 @@ export default function NumericDisplay(props) {
         setState(value)
     }
     const evaluateNumber = () => {
-        if(state === "Year"){
+        if (state === "Year") {
             return Math.round(props.number).toLocaleString("en-US")
-        }else if(state === "Month"){
+        } else if (state === "Month") {
             return Math.round(props.number / 12).toLocaleString("en-US")
-        }else{
+        } else {
             return Math.round(props.number / 4).toLocaleString("en-US")
         }
     }
@@ -29,7 +29,7 @@ export default function NumericDisplay(props) {
     }
 
     const select = (check) => {
-        switch (check){
+        switch (check) {
             case "ethnicity":
                 return (
                     <select>
@@ -85,7 +85,7 @@ export default function NumericDisplay(props) {
             <div className={styles.number}>{props.isMoney === true ? "$" : null}{evaluateNumber()}</div>
             <div className={styles.label}>{state}</div>
             {
-              checkInteraction(props.interaction, props.selectCategory)
+                checkInteraction(props.interaction, props.selectCategory)
             }
 
         </div>

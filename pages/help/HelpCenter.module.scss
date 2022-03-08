@@ -1,0 +1,54 @@
+@import "styles/globalStyles";
+
+.h1 {
+  padding: 60px 0 0 40px;
+}
+
+.container {
+  padding: 0 60px 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
+
+.form {
+  flex-direction: column;
+  display: flex;
+
+  input {
+    padding: 20px;
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    width: 52%;
+  }
+
+  textarea {
+    padding: 20px;
+    height: 200px;
+    color: white;
+    background-color: black;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    width: 52%;
+
+    .button {
+      width: 50%;
+    }
+  }
+
+}
+.innerContent {
+  padding: 60px;
+  background-color: $blackO;
+  display: none;
+  width: 100%;
+}
+.open {
+  display: block;
+}

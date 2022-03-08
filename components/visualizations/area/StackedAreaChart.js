@@ -67,9 +67,9 @@ export default class StackedAreaChart extends PureComponent {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    <Area type="monotone" dataKey="uv" stackId="1" stroke="#8884d8" fill="#8884d8" />
-                    <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-                    <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#ffc658" />
+                    <Area type="monotone" dataKey="uv" stackId="1" stroke="#e12162" fill="rgba(225, 33, 98, 0.5)" />
+                    <Area type="monotone" dataKey="pv" stackId="1" stroke="#56a8d7" fill="rgba(86, 168, 215, 0.5)" />
+                    <Area type="monotone" dataKey="amt" stackId="1" stroke="#60c186" fill="rgba(96, 193, 134, 0.5)" />
                 </AreaChart>
             </ResponsiveContainer>
         );

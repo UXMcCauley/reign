@@ -7,7 +7,7 @@ export default function MessagePane(props) {
         <div className={styles.container}>
             <ButtonFlex>
                 <div>
-                    <div>
+                    <div className={styles.date}>
                         {props.received}
                     </div>
                     <div className={styles.sender}>

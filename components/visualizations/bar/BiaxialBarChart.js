@@ -65,12 +65,12 @@ export default class BiaxialBarChart extends PureComponent {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
-                    <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-                    <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                    <YAxis yAxisId="left" orientation="left" stroke="rgba(40, 43, 171, 0.5)" />
+                    <YAxis yAxisId="right" orientation="right" stroke="rgba(152, 41, 171, 0.5)" />
                     <Tooltip />
                     <Legend />
-                    <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
-                    <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+                    <Bar yAxisId="left" dataKey="pv" fill="rgba(40, 43, 171, 0.5)" />
+                    <Bar yAxisId="right" dataKey="uv" fill="rgba(152, 41, 171, 0.5)" />
                 </BarChart>
             </ResponsiveContainer>
         );

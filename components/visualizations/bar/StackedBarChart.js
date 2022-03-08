@@ -68,8 +68,8 @@ export default class StackedBarChart extends PureComponent {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-                    <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+                    <Bar dataKey="pv" stackId="a" fill="rgba(152, 41, 171, 0.5)" />
+                    <Bar dataKey="uv" stackId="a" fill="rgba(86, 168, 215, 0.5)" />
                 </BarChart>
             </ResponsiveContainer>
         );

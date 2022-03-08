@@ -1,7 +1,6 @@
 import NumericDisplay from "./numericDisplay";
 
 export default function Numeric(props){
-    console.log(props)
     return (
         props.data.map((chart, i) => {
             return <NumericDisplay title={chart.fields.Name}

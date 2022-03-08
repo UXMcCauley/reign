@@ -64,8 +64,8 @@ export default function SimpleLineChart() {
                 <YAxis/>
                 <Tooltip/>
                 <Legend/>
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{r: 8}}/>
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d"/>
+                <Line type="monotone" dataKey="pv" stroke="rgba(85, 40, 171, 0.5)" activeDot={{r: 8}}/>
+                <Line type="monotone" dataKey="uv" stroke="rgba(86, 213, 184, 0.5)"/>
             </LineChart>
         </ResponsiveContainer></div>
     );

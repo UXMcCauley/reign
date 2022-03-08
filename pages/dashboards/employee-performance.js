@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import {Line} from "react-chartjs-2";
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
@@ -91,7 +91,7 @@ export default function EmployeePerformance(props) {
     }
     ChartJS.register(ArcElement, Tooltip, Legend);
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN"/>
@@ -121,7 +121,7 @@ export default function EmployeePerformance(props) {
                     </div>
                 </DashboardLayoutContainer>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }
 

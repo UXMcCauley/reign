@@ -75,14 +75,14 @@ export default class LineBarAreaComposedChart extends PureComponent {
                         left: 20,
                     }}
                 >
-                    <CartesianGrid stroke="#f5f5f5" />
+                    <CartesianGrid stroke="rgba(225, 33, 98, 0.5)" />
                     <XAxis dataKey="name" scale="band" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-                    <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-                    <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+                    <Area type="monotone" dataKey="amt" fill="rgba(152, 41, 171, 0.5)" stroke="#9829ab" />
+                    <Bar dataKey="pv" barSize={20} fill="rgba(39, 105, 170, 0.5)" />
+                    <Line type="monotone" dataKey="uv" stroke="rgba(96, 193, 134, 0.5)" />
                     <Scatter dataKey="cnt" fill="red" />
                 </ComposedChart>
             </ResponsiveContainer>

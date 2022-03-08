@@ -1,10 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { scaleOrdinal } from 'd3-scale';
-import { schemeCategory10 } from 'd3-scale-chromatic';
 
-const colors = scaleOrdinal(schemeCategory10).range();
+const colors = [
+    "rgba(225, 33, 98, 0.5)",
+    "rgba(188, 26, 90, 0.5)" ,
+    "rgba(152, 41, 171, 0.5)",
+    "rgba(85, 40, 171, 0.5)",
+    "rgba(40, 43, 171, 0.5)",
+    "rgba(39, 105, 170, 0.5)",
+    "rgba(86, 168, 215, 0.5)",
+    "rgba(86, 213, 184, 0.5)",
+    "rgba(96, 193, 134, 0.5)"
+];
 
 const data = [
     {
@@ -90,7 +98,7 @@ export default class CustomShapeBarChart extends PureComponent {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
-                    <Bar dataKey="female" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                    <Bar dataKey="female" fill="rgba(152, 41, 171, 0.5)" shape={<TriangleBar />} label={{ position: 'top' }}>
                         {data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={colors[index % 20]} />
                         ))}

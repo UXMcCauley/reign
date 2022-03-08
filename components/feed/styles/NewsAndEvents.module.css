@@ -1,9 +1,17 @@
-.container .newsItem {
-  padding: 30px;
-  margin: 30px 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #f4e50f;
-  border-radius: 6px;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "styles/globalStyles";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   NewsAndEvents.module.scss 1:9  root stylesheet */
 
-/*# sourceMappingURL=NewsAndEvents.module.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"styles/globalStyles\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   NewsAndEvents.module.scss 1:9  root stylesheet";
+}

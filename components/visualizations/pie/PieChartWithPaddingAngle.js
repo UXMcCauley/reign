@@ -7,7 +7,17 @@ const data = [
     { name: 'Group C', value: 300 },
     { name: 'Group D', value: 200 },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = [
+    "rgba(225, 33, 98, 0.5)",
+    "rgba(188, 26, 90, 0.5)" ,
+    "rgba(152, 41, 171, 0.5)",
+    "rgba(85, 40, 171, 0.5)",
+    "rgba(40, 43, 171, 0.5)",
+    "rgba(39, 105, 170, 0.5)",
+    "rgba(86, 168, 215, 0.5)",
+    "rgba(86, 213, 184, 0.5)",
+    "rgba(96, 193, 134, 0.5)"
+];
 
 export default class PieChartWithPaddingAngle
     extends PureComponent {

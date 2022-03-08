@@ -14,8 +14,8 @@ export default function MessagePreview(props) {
         }}>
             <div className={styles.iconsContainer}>
                 <div>
-                    {props.urgent ?  <HandWaving size={20} color={"red"}/> : null}
-                    {props.flagged ? <Flag size={20} color={"orange"}/> : null}
+                    {props.urgent ?  <HandWaving size={20} color={"#bc1a5a"}/> : null}
+                    {props.flagged ? <Flag size={20} color={"#56a8d7"}/> : null}
                 </div>
             </div>
             <div className={styles.name}>{props.sender}</div>

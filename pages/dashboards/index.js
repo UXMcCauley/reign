@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer"
 import Donuts from "../../components/dashboards/donuts"
 import Numeric from "../../components/dashboards/numeric"
@@ -8,9 +8,9 @@ import styles from "./styles/Executive.module.scss"
 import BarChart from "../../components/dashboards/bar"
 import TreeMap from "../../components/dashboards/tree";
 
-export default function Executive(props) {
+export default function Index(props) {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN"/>
@@ -46,7 +46,7 @@ export default function Executive(props) {
                     </div>
                 </DashboardLayoutContainer>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }
 export async function getServerSideProps() {

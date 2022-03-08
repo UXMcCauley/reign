@@ -29,7 +29,7 @@ export default function LineChartConnectNulls() {
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
-                        <Line type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                        <Line type="monotone" dataKey="uv" stroke="#bc1a5a" fill="rgba(188, 26, 90, 0.5)" />
                     </LineChart>
                 </ResponsiveContainer>
 
@@ -49,7 +49,7 @@ export default function LineChartConnectNulls() {
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
-                        <Line connectNulls type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                        <Line connectNulls type="monotone" dataKey="uv" stroke="#5528ab" fill="rgba(85, 40, 171, 0.5)" />
                     </LineChart>
                 </ResponsiveContainer>
             </div>

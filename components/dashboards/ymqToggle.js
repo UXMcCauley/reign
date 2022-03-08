@@ -15,12 +15,12 @@ export default function YMQToggle(props) {
             }} className={`${styles.y} ${active === "y" ? styles.active : ""}`}>Y</div>
             <div onClick={() => {
                 setActive("m")
-                setSlidePosition("28px")
+                setSlidePosition("30px")
                 props.getActive("Month")
             }} className={`${styles.m} ${active === "m" ? styles.active : ""}`}>M</div>
             <div onClick={() => {
                 setActive("q")
-                setSlidePosition("49px")
+                setSlidePosition("56px")
                 props.getActive("Quarter")
             }} className={`${styles.q} ${active === "q" ? styles.active : ""}`}>Q</div>
         </div>

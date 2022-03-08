@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';
 
 const data = [
     {
@@ -41,8 +41,6 @@ const data = [
 ];
 
 export default class SimpleRadarChart extends PureComponent {
-    static demoUrl = 'https://codesandbox.io/s/simple-radar-chart-rjoc6';
-
     render() {
         return (
             <ResponsiveContainer width="100%" height="100%">
@@ -50,7 +48,7 @@ export default class SimpleRadarChart extends PureComponent {
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis />
-                    <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Employees by Keycard" dataKey="A" stroke={this.props.stroke} fill={this.props.fill} fillOpacity={0.6} />
                 </RadarChart>
             </ResponsiveContainer>
         );

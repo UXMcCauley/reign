@@ -1,85 +1,36 @@
-import {Gauge, Person, ListBullets, Key, Calendar, Database, Gear, Question, Alien, Envelope} from "phosphor-react"
 import styles from "./styles/VerticalIconMenu.module.scss"
 import Link from "next/link"
 import {useRouter} from "next/router";
-import {useState} from "react";
 
-export default function VerticalIconMenu(props) {
+const LINKS = [
+    {path: "/dashboards", label: "Dashboards", color: 'rgba(225, 33, 98, 0.2)'},
+    {path: "/messages", label: "Messages", color: 'rgba(85, 40, 171, 0.5)'},
+    {path: "/", label: "Feed", color: 'rgba(40, 43, 171, 0.2)'},
+    {path: "/keycards", label: "Keycards", color: 'rgba(188, 26, 90, 0.2)'},
+    {path: "/schedules", label: "Schedules", color: 'rgba(152, 41, 171, 0.2)'},
+    {path: "/employees", label: "Employees", color: 'rgba(39, 105, 170, 0.2)'},
+    {path: "/settings", label: "Settings", color: 'rgba(86, 213, 184, 0.2)'},
+    {path: "/help", label: "Help Center", color: 'rgba(96, 193, 134, 0.2)'},
+]
+
+export default function VerticalIconMenu() {
     const router = useRouter()
-    const [state, setState] = useState(false)
     return (
         <div className={styles.container}>
-            <div className={styles.menuControl} onClick={() => {
-                setState(state === false)
-            }}>
-                <Alien size={30}/>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/dashboards/executive" ? styles.active : ''}`}>
-                <Link href={"/dashboards/executive"} passHref>
-                    <div>
-                        <Gauge size={props.size}/>
-                        <div className={styles.label}>Dashboards</div>
+            {LINKS.map((link, i) => {
+                return (
+                    <div key={i}
+                         style={{backgroundColor:` ${router.pathname.split("/")[1] === link.path.split("/")[1] ? link.color : null}`}}
+                         className={`${styles.link} ${router.pathname === link.path ? styles.active : ''}`}>
+                        <Link href={link.path} passHref>
+                            <div>
+                                <div className={styles.label}>{link.label}</div>
+                            </div>
+                        </Link>
                     </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/messages" ? styles.active : ''}`}>
-                <Link href={"/messages"} passHref>
-                    <div>
-                        <Envelope size={props.size}/>
-                        <div className={styles.label}>Messages</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/" ? styles.active : ''}`}>
-                <Link href={"/"} passHref>
-                    <div>
-                        <ListBullets size={props.size}/>
-                        <div className={styles.label}>Feed</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/employees" ? styles.active : ''}`}>
-                <Link href={"/employees"} passHref>
-                    <div><Person size={props.size}/>
-                        <div className={styles.label}>Employees</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/keycards" ? styles.active : ''}`}>
-                <Link href={"/keycards"} passHref>
-                    <div><Key size={props.size}/>
-                        <div className={styles.label}>Keycards</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/schedules" ? styles.active : ''}`}>
-                <Link href={"/schedules"} passHref>
-                    <div><Calendar size={props.size}/>
-                        <div className={styles.label}>Schedules</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/data" ? styles.active : ''}`}>
-                <Link href={"/data"} passHref>
-                    <div><Database size={props.size}/>
-                        <div className={styles.label}>Data</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/settings" ? styles.active : ''}`}>
-                <Link href={"/settings"} passHref>
-                    <div><Gear size={props.size}/>
-                        <div className={styles.label}>Settings</div>
-                    </div>
-                </Link>
-            </div>
-            <div className={`${styles.link} ${router.pathname === "/help" ? styles.active : ''}`}>
-                <Link href={"/help"} passHref>
-                    <div><Question size={props.size}/>
-                        <div className={styles.label}>Help Center</div>
-                    </div>
-                </Link>
-            </div>
+                )
+            })}
+
         </div>
     )
 }

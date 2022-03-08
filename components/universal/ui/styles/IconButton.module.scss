@@ -1,7 +1,10 @@
+@import "styles/globalStyles";
+
 .container {
   display: flex;
   cursor: pointer;
-  color: #0070f3;
+  color: $lightBlue;
+  font-size: 12px;
   .icon {
     align-self: center;
     margin-right: 6px;

@@ -68,9 +68,9 @@ export default class MixBarChart extends PureComponent {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-                    <Bar dataKey="amt" stackId="a" fill="#82ca9d" />
-                    <Bar dataKey="uv" fill="#ffc658" />
+                    <Bar dataKey="pv" stackId="a" fill="rgba(152, 41, 171, 0.5)" />
+                    <Bar dataKey="amt" stackId="a" fill="rgba(86, 213, 184, 0.5)" />
+                    <Bar dataKey="uv" fill="rgba(225, 33, 98, 0.5)" />
                 </BarChart>
             </ResponsiveContainer>
         );

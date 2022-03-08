@@ -85,8 +85,8 @@ export default class AreaChartFillByValue extends PureComponent {
                     <Tooltip />
                     <defs>
                         <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset={off} stopColor="green" stopOpacity={1} />
-                            <stop offset={off} stopColor="red" stopOpacity={1} />
+                            <stop offset={off} stopColor="rgba(152, 41, 171, 0.5)" stopOpacity={1} />
+                            <stop offset={off} stopColor="rgba(40, 43, 171, 0.5)" stopOpacity={1} />
                         </linearGradient>
                     </defs>
                     <Area type="monotone" dataKey="uv" stroke="#000" fill="url(#splitColor)" />

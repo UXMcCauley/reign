@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import ButtonFlex from "../../components/universal/ui/buttonFlex";
 import IconButton from "../../components/universal/ui/iconButton";
 import styles from "./styles/Messages.module.scss"
 import MessagePreview from "../../components/messages/messagePreview";
-import ContentLayoutContainer from "../../components/universal/ContentLayoutContainer";
 import {useState} from "react";
+import { Scrollbar } from "react-scrollbars-custom";
 import MessagePane from "../../components/messages/messagePane";
 
 export default function Messages() {
@@ -73,41 +73,43 @@ export default function Messages() {
         setActiveMessage(messageContent)
     }
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Intelligence - Messages</title>
                 <meta name="description" content="Messages"/>
             </Head>
             <ContentContainer>
-                <ContentLayoutContainer><ButtonFlex>
-                    <IconButton icon={"add"} label={"Compose a Message"} link={"/"} size={30}/>
-                </ButtonFlex>
-                    <div className={styles.container}>
-                        <div className={styles.messagesList}>
+
+                <div className={styles.container}>
+                    <div className={styles.messagesList}>
+                        <ButtonFlex>
+                            <IconButton icon={"add"} label={"Compose a Message"} link={"/"} size={30}/>
+                        </ButtonFlex>
+                        <Scrollbar style={{ width: 320, height: 600 }}>
                             {
                                 messages.map((message, i) => {
                                     return <MessagePreview key={i}
-                                               sender={message.sender}
-                                               message={message.message}
-                                               received={message.received}
-                                               read={message.read}
-                                               getMessageContent={getMessageContent}
-                                               urgent={message.urgent}
-                                               flagged={message.flagged}
+                                                           sender={message.sender}
+                                                           message={message.message}
+                                                           received={message.received}
+                                                           read={message.read}
+                                                           getMessageContent={getMessageContent}
+                                                           urgent={message.urgent}
+                                                           flagged={message.flagged}
                                     />
                                 })
                             }
-                        </div>
-                        <div className={styles.previewPane}>
-                            <MessagePane message={activeMessage.message}
-                                         sender={activeMessage.sender}
-                                         received={activeMessage.received}
-                                         read={activeMessage.read}
-                            />
-                        </div>
+                        </Scrollbar>
                     </div>
-                </ContentLayoutContainer>
+                    <div className={styles.previewPane}>
+                        <MessagePane message={activeMessage.message}
+                                     sender={activeMessage.sender}
+                                     received={activeMessage.received}
+                                     read={activeMessage.read}
+                        />
+                    </div>
+                </div>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }

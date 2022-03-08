@@ -1,51 +1,140 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
-import Donuts from "../../components/dashboards/donuts";
-import LineChart from "../../components/dashboards/line";
-import BarChart from "../../components/dashboards/bar";
-import TreeMap from "../../components/dashboards/tree";
+import { useState} from "react";
+import {Modal} from 'react-responsive-modal';
+import {Chart} from "react-google-charts";
+
+export const data = [
+    ["Task", "Hours per Day"],
+    ["Work", 11],
+    ["Eat", 2],
+    ["Commute", 2],
+    ["Watch TV", 2],
+    ["Sleep", 7],
+];
+
+const chartEvents = [
+    {
+        callback: ({ chartWrapper }) => {
+            const chart = chartWrapper.getChart();
+            chart.container.addEventListener("click", (ev) => console.log(ev))
+        },
+        eventName: "ready"
+    }
+];
+
+const colors = [
+    "#e12162",
+    "#bc1a5a",
+    "#9829ab",
+    "#5528ab",
+    "#282bab",
+    "#2769aa",
+    "#56a8d7",
+    "#56d5b8",
+    "#60c186",
+]
+export const modalOptions = {
+    backgroundColor: "transparent",
+    pieHole: 0.6,
+    stroke: "black",
+    border: "none",
+    // legend: 'none',
+    chartArea: {'width': '100%', 'height': '80%'},
+    width: 600,
+    height: 600,
+    colors: colors
+};
+
+export const bodyOptions = {
+    backgroundColor: "transparent",
+    pieHole: 0.6,
+    stroke: "black",
+    border: "none",
+    legend: 'none',
+    chartArea: {'width': '100%', 'height': '80%'},
+    width: 300,
+    height: 300,
+    colors: colors,
+    pieSliceBorderColor: "black"
+};
+
 
 export default function ProjectDynamics(props) {
+    const [open, setOpen] = useState(false);
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
+
     return (
-        <Layout>
+        <>
             <Head>
-                <title>REIGN Workforce Analytics</title>
+                <title>REIGN Workforce Intelligence</title>
                 <meta name="description" content="REIGN"/>
                 <title>Dashboards - Project Dynamics</title>
             </Head>
             <ContentContainer>
                 <DashboardLayoutContainer>
                     <div>
+                        <button onClick={onOpenModal}>Open modal</button>
+
+                    </div>
+                    <div>
                         <div className={styles.flexRow}>
                             <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
                     <div>
-                        <div className={styles.flexRow}>
-                            <Donuts data={props.airtableDonuts.records}/>
+                        <div className={styles.flexRow} style={{opacity: 0.8}}>
+                            <Chart
+                                chartType="PieChart"
+                                data={data}
+                                options={bodyOptions}
+                                chartEvents={chartEvents}
+                            />
+                            <Chart
+                                chartType="PieChart"
+                                data={data}
+                                options={bodyOptions}
+                            />
+                            <Chart
+                                chartType="PieChart"
+                                data={data}
+                                options={bodyOptions}
+                            />
                         </div>
                     </div>
                     <div>
                         <div className={styles.flexRow}>
                             <div className={styles.half}>
-                                <LineChart data={props.airtableLine.records}/>
+                                <div style={{height: 350, width: "100%"}}>
+                                </div>
                             </div>
                             <div className={styles.half}>
-                                <BarChart data={props.airtableBar}/>
+                                <div style={{height: 350, width: "100%"}}>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <TreeMap data={props.airtableTree}/>
+                            <div style={{height: 500}}>
+                            </div>
                         </div>
                     </div>
+                    <Modal open={open} onClose={onCloseModal} center>
+                        <Chart
+                            chartType="PieChart"
+                            data={data}
+                            options={modalOptions}
+                        />
+                    </Modal>
                 </DashboardLayoutContainer>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }
 

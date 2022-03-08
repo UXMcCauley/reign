@@ -65,8 +65,8 @@ export default function VerticalLineChartWithSpecifiedDomain() {
                 <YAxis dataKey="name" type="category"/>
                 <Tooltip/>
                 <Legend/>
-                <Line dataKey="pv" stroke="#8884d8"/>
-                <Line dataKey="uv" stroke="#82ca9d"/>
+                <Line dataKey="pv" stroke="rgba(96, 193, 134, 0.5)"/>
+                <Line dataKey="uv" stroke="rgba(86, 168, 215, 0.5)"/>
             </LineChart>
         </ResponsiveContainer>
     );

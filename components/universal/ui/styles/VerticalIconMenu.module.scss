@@ -5,34 +5,31 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: fixed;
   left: 20px;
-  top: 166px;
+  top: 245px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  padding: 12px;
+  padding: 60px 0 0 20px;
   transition: 0.2s;
-
-
+  z-index: 1000;
 
   @media only screen and (max-width: 1000px) {
     left: -80px;
   }
 
-  .open{
-    left:0;
+  .open {
+    left: 0;
   }
 
   .menuControl {
     display: block;
-    background: $green;
     width: 40px;
     height: 40px;
     position: absolute;
     top: -153px;
     right: -60px;
 
-    @media only screen and (min-width: 1000px){
+    @media only screen and (min-width: 1000px) {
       display: none;
       left: -300px;
       opacity: 0;
@@ -41,23 +38,25 @@
 
   .link {
     text-align: center;
-
     cursor: pointer;
+    padding: 12px 40px;
+    border-radius: 100px;
+    color: $white;
 
-    &:not(:last-child){
-      margin-bottom: 20px;
+    &:not(:last-child) {
+      margin-bottom: 15px;
     }
 
-    &:hover{
-      color: $gray;
+    &:hover {
+      background-color: $whiteO;
     }
 
     &.active {
-      color: $purple;
+      color: $white;
     }
 
     .label {
-      font-size: 9px;
+      font-size: 12px;
       cursor: pointer;
     }
   }

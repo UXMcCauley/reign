@@ -65,8 +65,8 @@ export default function BiaxialLineChart() {
                     <YAxis yAxisId="right" orientation="right" />
                     <Tooltip />
                     <Legend />
-                    <Line yAxisId="left" type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line yAxisId="right" type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line yAxisId="left" type="monotone" dataKey="pv" stroke="rgba(40, 43, 171, 0.5)" activeDot={{ r: 8 }} />
+                    <Line yAxisId="right" type="monotone" dataKey="uv" stroke="rgba(225, 33, 98, 0.5)" />
                 </LineChart>
             </ResponsiveContainer>
         );

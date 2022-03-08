@@ -135,8 +135,17 @@ const data = [
     },
 ];
 
-const COLORS = ['#8889DD', '#9597E4', '#8DC77B', '#A5D297', '#E2CF45', '#F8C12D'];
-
+const COLORS = [
+    "rgba(225, 33, 98, 0.5)",
+    "rgba(188, 26, 90, 0.5)" ,
+    "rgba(152, 41, 171, 0.5)",
+    "rgba(85, 40, 171, 0.5)",
+    "rgba(40, 43, 171, 0.5)",
+    "rgba(39, 105, 170, 0.5)",
+    "rgba(86, 168, 215, 0.5)",
+    "rgba(86, 213, 184, 0.5)",
+    "rgba(96, 193, 134, 0.5)"
+];
 class CustomizedContent extends PureComponent {
     render() {
         const { root, depth, x, y, width, height, index, colors, name } = this.props;
@@ -183,7 +192,7 @@ export default class CustomContentTreemap extends PureComponent {
                     dataKey="size"
                     ratio={4 / 3}
                     stroke="#fff"
-                    fill="#8884d8"
+                    fill="#000000"
                     content={<CustomizedContent colors={COLORS} />}
                 />
             </ResponsiveContainer>

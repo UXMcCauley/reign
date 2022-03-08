@@ -70,7 +70,7 @@ export default class SynchronizedAreaChart extends PureComponent {
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
-                        <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                        <Area type="monotone" dataKey="uv" stroke="#9829ab" fill="rgba(152, 41, 171, 0.5)" />
                     </AreaChart>
                 </ResponsiveContainer>
                 <p>Maybe some other content</p>
@@ -92,7 +92,7 @@ export default class SynchronizedAreaChart extends PureComponent {
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
-                        <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
+                        <Area type="monotone" dataKey="pv" stroke="#56d5b8" fill="rgba(86, 213, 184, 0.5)" />
                     </AreaChart>
                 </ResponsiveContainer>
             </div>

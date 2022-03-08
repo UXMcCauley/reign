@@ -1,23 +1,17 @@
-.container {
-  padding: 30px 50px;
-  font-size: 14px;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "styles/globalStyles";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   MessagePane.module.scss 1:9  root stylesheet */
 
-.icons {
-  align-self: center;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"styles/globalStyles\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   MessagePane.module.scss 1:9  root stylesheet";
 }
-.icons svg {
-  margin-left: 15px;
-}
-
-.sender {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.message {
-  line-height: 1.8;
-  font-size: 13px;
-}
-
-/*# sourceMappingURL=MessagePane.module.css.map */

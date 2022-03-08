@@ -1,7 +1,10 @@
-.container {
-  padding: 30px 50px;
-  font-size: 14px;
+@import "styles/globalStyles";
 
+.container {
+  padding: 90px 50px 0 50px;
+  font-size: 14px;
+  color: white;
+  width: 800px;
 }
 
 .icons {
@@ -9,6 +12,11 @@
   svg {
     margin-left: 15px;
   }
+}
+.date {
+  font-size: 11px;
+  color: $teal;
+  margin-bottom: 10px;
 }
 
 .sender {

@@ -76,10 +76,10 @@ export default class BrushBarChart extends PureComponent {
                     <YAxis />
                     <Tooltip />
                     <Legend verticalAlign="top" wrapperStyle={{ lineHeight: '40px' }} />
-                    <ReferenceLine y={0} stroke="#000" />
-                    <Brush dataKey="name" height={30} stroke="#8884d8" />
-                    <Bar dataKey="pv" fill="#8884d8" />
-                    <Bar dataKey="uv" fill="#82ca9d" />
+                    <ReferenceLine y={0} stroke="rgba(225, 33, 98, 0.5)" />
+                    <Brush dataKey="name" height={30} stroke="rgba(86, 213, 184, 0.5)" />
+                    <Bar dataKey="pv" fill="rgba(86, 168, 215, 0.5)" />
+                    <Bar dataKey="uv" fill="rgba(40, 43, 171, 0.5)" />
                 </BarChart>
             </ResponsiveContainer>
         );

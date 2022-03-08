@@ -140,7 +140,7 @@ export default class SimpleTreemap extends PureComponent {
     render() {
         return (
             <ResponsiveContainer width="100%" height="100%">
-                <Treemap width={400} height={200} data={data} dataKey="size" ratio={4 / 3} stroke="#fff" fill="#8884d8" />
+                <Treemap width={400} height={200} data={data} dataKey="size" ratio={4 / 3} stroke="rgba(255, 255, 255, 0.5)" fill="#8884d8" />
             </ResponsiveContainer>
         );
     }

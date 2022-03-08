@@ -4,9 +4,14 @@
   min-height: 65%;
   box-sizing: border-box;
 }
+.container .previewsContainer {
+  height: 600px;
+  width: 330px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
 .container .messagesList {
-  background: #f1f1f1;
-  width: 35%;
+  width: auto;
   box-sizing: border-box;
   padding: 20px;
   border-radius: 8px;

@@ -1,23 +1,24 @@
 @import "styles/globalStyles";
 
 .container {
-  width: 75px;
-  height: 26px;
+  width: 85px;
+  height: 31px;
   display: flex;
   background: $black;
   border-radius: 100px;
   padding: 6px;
-  font-size: 11px;
+  font-size: 13px;
   position: relative;
   margin: 10px auto;
-  border: 1px solid $black;
+  border: 1px solid $purpleO;
+  color: $white;
 
   .slider {
     position: absolute;
     left: 3px;
     top: 2px;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 30px;
     background: $purple;
     transition: 0.2s;
@@ -27,6 +28,7 @@
     width: 30px;
     text-align: center;
     cursor: pointer;
+    color: $white;
 
     &.active {
       color: $white;
@@ -35,23 +37,23 @@
 
   .y {
     position: absolute;
-    left: -2px;
-    top: 5px;
-    color: $gray
+    left: 0;
+    top: 8px;
+
 
   }
 
   .m {
     position: absolute;
-    left: 23px;
-    top: 4px;
-    color: $gray
+    left: 27px;
+    top: 8px;
+
   }
 
   .q {
     position: absolute;
-    left: 44px;
-    top: 4px;
-    color: $gray
+    right: 0;
+    top: 8px;
+
   }
 }

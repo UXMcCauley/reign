@@ -4,9 +4,17 @@
   min-height: 65%;
   box-sizing: border-box;
 
+  .previewsContainer {
+    height: 600px;
+    width: 330px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+
+  }
+
   .messagesList {
-    background: #f1f1f1;
-    width: 35%;
+    //background: rgba(0, 0, 0, 0.2);
+    width: auto;
     box-sizing: border-box;
     padding: 20px;
     border-radius: 8px;

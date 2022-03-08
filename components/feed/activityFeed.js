@@ -1,10 +1,12 @@
 import FeedActivityItem from "./feedActivityItem";
 import {generateFeed} from "../../lib/helpers";
+import styles from "./styles/ActivityFeed.module.scss"
 
-export default function ActivityFeed() {
+export default function ActivityFeed(props) {
     return (
-        <div>
-            {generateFeed(50).data.map((item, i) => {
+        <div className={styles.container}>
+            <h1>Activity Feed</h1>
+            {generateFeed(props.feedLength).data.map((item, i) => {
                 return (
                     <FeedActivityItem
                         key={i}
