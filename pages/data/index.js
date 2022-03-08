@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/layout"
 import VendorGrid from "../../components/data/vendorGrid";
 
 export default function Home() {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Intelligence - Data Export</title>
                 <meta name="description" content="Data Export"/>
@@ -12,6 +12,6 @@ export default function Home() {
             <ContentContainer>
                 <VendorGrid/>
             </ContentContainer>
-        </Layout>
+        </>
     )
 }

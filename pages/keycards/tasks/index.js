@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import Layout from "../../../components/universal/layout";
 import PageTitle from "../../../components/universal/pageTitle";
-import {ContentContainer} from "../../../components/universal/layout";
+import ContentContainer from "../../../components/universal/layout";
 import IconButton from "../../../components/universal/ui/iconButton";
 import DataTable from "react-data-table-component";
 import {keycardsTableColumns} from "../../../lib/helpers";
@@ -10,7 +9,7 @@ import BackButton from "../../../components/universal/ui/backButton";
 
 export default function Home(props) {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN - Tasks"/>
@@ -30,7 +29,7 @@ export default function Home(props) {
                     persistTableHead
                 />
             </ContentContainer>
-        </Layout>
+        </>
     )
 }
 

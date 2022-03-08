@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import Layout, {ContentContainer} from "../components/universal/layout"
+import ContentContainer from "../components/universal/layout"
 import styles from "./Home.module.scss"
 
 export default function Notifications() {
     return (
-        <Layout>
+        <>
             <Head>
                 <title>REIGN Workforce Analytics</title>
                 <meta name="description" content="REIGN Workforce Analytics"/>
@@ -23,6 +23,6 @@ export default function Notifications() {
                 </div>
             </ContentContainer>
 
-        </Layout>
+        </>
     )
 }
