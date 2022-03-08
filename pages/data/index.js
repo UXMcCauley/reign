@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout, {ContentContainer} from "../../components/universal/layout"
-import ContentLayoutContainer from "../../components/universal/ContentLayoutContainer";
 import VendorGrid from "../../components/data/vendorGrid";
 
 export default function Home() {
@@ -11,11 +10,8 @@ export default function Home() {
                 <meta name="description" content="Data Export"/>
             </Head>
             <ContentContainer>
-                <ContentLayoutContainer>
-                    <VendorGrid/>
-                </ContentLayoutContainer>
+                <VendorGrid/>
             </ContentContainer>
-
         </Layout>
     )
 }
