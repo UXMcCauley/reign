@@ -7,8 +7,9 @@ import LineChart from "../../components/dashboards/line"
 import styles from "./styles/Executive.module.scss"
 import BarChart from "../../components/dashboards/bar"
 import TreeMap from "../../components/dashboards/tree";
+import DashboardStatusLine from "../../components/dashboards/dashboardStatusLine";
 
-export default function Index(props) {
+export default function ExecutiveSummary(props) {
     return (
         <>
             <Head>
@@ -18,33 +19,35 @@ export default function Index(props) {
                 <title>Dashboards - Executive Overview</title>
             </Head>
             <ContentContainer>
-                <DashboardLayoutContainer>
-                    <div>
-                        <div className={styles.flexRow}>
-                           <Numeric data={props.airtableNumeric.records}/>
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.flexRow}>
-                            <Donuts data={props.airtableDonuts.records}/>
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.flexRow}>
-                            <div className={styles.half}>
-                                <LineChart data={props.airtableLine.records}/>
-                            </div>
-                            <div className={styles.half}>
-                                <BarChart data={props.airtableBar}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
+                <div style={{display: "flex"}}>
+                    <DashboardLayoutContainer>
+                        <DashboardStatusLine/>
                         <div>
-                                <TreeMap data={props.airtableTree}/>
+                            <div className={styles.flexRow}>
+                                <Numeric data={props.airtableNumeric.records}/>
+                            </div>
                         </div>
-                    </div>
-                </DashboardLayoutContainer>
+                        <div>
+                            <div className={styles.flexRow}>
+                                <Donuts data={props.airtableDonuts.records}/>
+                            </div>
+                        </div>
+                        <div>
+                            <div className={styles.flexRow}>
+                                <div className={styles.half}>
+                                    <LineChart data={props.airtableLine.records}/>
+                                </div>
+                                <div className={styles.half}>
+                                    <BarChart data={props.airtableBar}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <TreeMap data={props.airtableTree}/>
+                            </div>
+                        </div>
+                    </DashboardLayoutContainer></div>
             </ContentContainer>
         </>
     )

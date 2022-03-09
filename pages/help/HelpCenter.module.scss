@@ -1,18 +1,10 @@
 @import "styles/globalStyles";
 
-.h1 {
-  padding: 60px 0 0 40px;
-}
-
 .container {
-  padding: 0 60px 40px 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
-
-
-
 .form {
   flex-direction: column;
   display: flex;
@@ -44,9 +36,8 @@
 
 }
 .innerContent {
-  padding: 60px;
+  padding: 30px;
   background-color: $blackO;
-  display: none;
   width: 100%;
 }
 .open {

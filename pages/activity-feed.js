@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import ContentContainer from "../components/universal/layout"
-import styles from "./Home.module.scss"
+import styles from "../styles/Home.module.scss"
 import ActivityFeed from "../components/feed/activityFeed";
 import NewsAndEvents from "../components/feed/NewsAndEvents";
 

@@ -2,63 +2,74 @@
 
 .container {
   color: $white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  left: 20px;
-  top: 245px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  padding: 60px 0 0 20px;
+  padding: 60px 0 0 0;
   transition: 0.2s;
-  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  //width: 50%;
 
-  @media only screen and (max-width: 1000px) {
-    left: -80px;
+  &.isMain {
+    //width: 100%;
+
   }
-
-  .open {
-    left: 0;
-  }
-
-  .menuControl {
-    display: block;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: -153px;
-    right: -60px;
-
-    @media only screen and (min-width: 1000px) {
-      display: none;
-      left: -300px;
-      opacity: 0;
-    }
-  }
-
   .link {
-    text-align: center;
+    text-align: left;
     cursor: pointer;
-    padding: 12px 40px;
-    border-radius: 100px;
+    padding: 12px 40px 12px 20px;
     color: $white;
+    border-left: 5px solid transparent;
+    font-weight: 100;
+    max-height: 40px;
 
-    &:not(:last-child) {
-      margin-bottom: 15px;
-    }
 
     &:hover {
-      background-color: $whiteO;
+      border-left: 5px solid $tealO;
     }
 
     &.active {
       color: $white;
+      font-weight: 700;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 5px solid $purple;
     }
 
     .label {
-      font-size: 12px;
+      font-size: 13px;
       cursor: pointer;
+      height: 100%;
     }
+  }
+  &.hasLinks {}
+  &.hideMe {display: none}
+  &.sub {
+    background-color: rgba(0, 0, 0, 0.12);
+    height: 100%;
+    float: right;
+    width: 60%;
+
+    .link {
+      padding: 12px 30px 12px 20px;
+
+      &:first-child {
+        margin-top: 40px;
+      }
+
+      &:hover {
+        border-left: 5px solid $tealO;
+      }
+
+      &.active {
+        border-left: 5px solid $blue;
+      }
+
+    }
+  }
+
+  .open {
+    left: 0;
   }
 
 }

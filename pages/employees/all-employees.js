@@ -2,39 +2,40 @@ import Head from 'next/head'
 import ContentContainer from "../../components/universal/layout"
 import DataTable from 'react-data-table-component';
 import {employeeTableColumns} from "../../lib/helpers";
-import IconButton from "../../components/universal/ui/iconButton";
 import styles from "./styles/Employees.module.scss"
-import ButtonFlex from "../../components/universal/ui/buttonFlex";
 import {useState} from "react";
 
 const customStyles = {
     table: {
       style: {
-          width: "100%"
+          boxSizing: "border-box",
+          width: "100%",
+          backgroundColor: "transparent",
       }
     },
     rows: {
         style: {
             minHeight: '72px', // override the row height
+            backgroundColor: "transparent",
         },
     },
     headCells: {
         style: {
             paddingLeft: '8px', // override the cell padding for head cells
             paddingRight: '8px',
-            backgroundColor: "black"
+            backgroundColor: "black",
         },
     },
     cells: {
         style: {
             paddingLeft: '8px', // override the cell padding for data cells
             paddingRight: '8px',
+            backgroundColor: "transparent",
         },
     },
 };
 
-export default function Employees(props) {
-    const [open, setOpen] = useState("closed")
+export default function AllEmployees(props) {
     return (
         <>
             <Head>
@@ -43,14 +44,6 @@ export default function Employees(props) {
             </Head>
             <ContentContainer>
                 <div className={styles.tableContainer}>
-                    <ButtonFlex>
-                    <IconButton icon={"download"} label={"Download Employees CSV"} size={30}
-                                link={"/employees/add-employee"}/>
-                    <button onClick={() => {
-                        setOpen(open === "closed" ? "open" : "closed")
-                    }}>Open Me
-                    </button>
-                </ButtonFlex>
                     <DataTable
                         columns={employeeTableColumns()}
                         data={props.data}

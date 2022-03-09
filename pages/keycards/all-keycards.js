@@ -6,7 +6,7 @@ import IconButton from "../../components/universal/ui/iconButton";
 import ButtonFlex from "../../components/universal/ui/buttonFlex";
 import styles from "../employees/styles/Employees.module.scss";
 
-export default function Home(props) {
+export default function AllKeycards(props) {
     return (
         <>
             <Head>
