@@ -1,4 +1,15 @@
+@import "styles/globalStyles";
 .tableContainer {
   max-width: 78%;
   box-sizing: border-box;
+}
+.searchField {
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid $violet;
+  background: $blackO;
+  color: white;
+  border-radius: 50px;
+  font-size: 14px;
+  min-width: 340px;
 }

@@ -1,0 +1,18 @@
+.fileInput {
+  visibility: hidden;
+}
+
+.label {
+  background: #e12162;
+  background: linear-gradient(335deg, #e12162 0%, #5528ab 100%);
+  padding: 20px;
+  text-align: center;
+  width: 260px;
+  height: 55px;
+  display: block;
+  border-radius: 100px;
+  margin: 20px;
+  font-weight: 100;
+}
+
+/*# sourceMappingURL=BulkImportSchedules.module.css.map */
