@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.1.1",
+    "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@faker-js/faker": "^6.0.0-alpha.7",
     "@mui/material": "^5.4.4",
