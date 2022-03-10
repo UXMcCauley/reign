@@ -8,19 +8,20 @@ import {useEffect, useState} from "react";
 export default function Header() {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [initials, setInitials] = useState("")
     const cookie = useCookie()
     const router = useRouter()
     useEffect(() => {
         setFirstName(cookie.get("firstName"))
         setLastName(cookie.get("lastName"))
+        // setInitials(firstName.split("")[0] + "" + lastName.split("")[0])
     }, [])
-    const initials = firstName.split("")[0] + lastName.split("")[0]
     return (
         <div className={styles.container}>
             <Logo/>
             <div className={styles.rightModule}><NotificationBell alert={false}/>
                 <div className={styles.avatar}>
-                    {initials}
+                    {/*{initials}*/}
                 </div>
                 <div className={styles.username}>
                     {firstName} {lastName}

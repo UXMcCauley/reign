@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@emotion/core": "^10.1.1",
@@ -15,9 +17,13 @@
     "@mui/material": "^5.4.4",
     "@mui/x-data-grid": "^5.5.1",
     "@nokacreative/generic-react-form": "^1.1.15",
+    "@storybook/theming": "^6.4.19",
     "@syncfusion/ej2-react-treemap": "^19.4.52",
+    "ably": "^1.2.5-beta.1",
     "airtable": "^0.11.2",
+    "chart.js": "^3.7.1",
     "chartjs-plugin-datalabels": "^2.0.0",
+    "core-js": "^3.21.1",
     "d3-scale": "^4.0.2",
     "d3-scale-chromatic": "^3.0.0",
     "framer": "^2.0.0",
@@ -41,11 +47,22 @@
     "react-scrollbars-custom": "^4.0.27",
     "recharts": "^2.1.9",
     "sass": "^1.49.9",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "webpack": "^4.46.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
+    "babel-loader": "^8.2.3",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
-    "faker": "^5.5.3"
+    "eslint-plugin-storybook": "^0.5.7",
+    "faker": "^5.5.3",
+    "storybook-dark-mode": "^1.0.9"
   }
 }

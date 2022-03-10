@@ -27,23 +27,23 @@ export default function SignIn() {
                 setError(false)
                 setIsLoading(true)
                 cookie.set("REIGN_username", data.username, {
-                    domain: window.location.hostname,
+                    domain: "localhost",
                     expires: 1,
                 })
                 cookie.set("REIGN_firstName", data.firstName, {
-                    domain: window.location.hostname,
+                    domain: "localhost",
                     expires: 1,
                 })
                 cookie.set("REIGN_lastName", data.lastName, {
-                    domain: window.location.hostname,
+                    domain: "localhost",
                     expires: 1,
                 })
                 cookie.set("REIGN_loggedIn", true, {
-                    domain: window.location.hostname,
+                    domain: "localhost",
                     expires: 1,
                 })
                 setTimeout(() => {
-                    router.push("/dashboards/executive-summary")
+                    router.push("/dashboards/executive-summary", null, { shallow: true })
                 }, 5000)
             })
             .catch(e => {
@@ -67,16 +67,16 @@ export default function SignIn() {
                 <div className={`${styles.formContainer} ${isLoading === true ? styles.hidden : null}`}>
                     <h1>Sign In</h1>
                     <span className={`${styles.error} ${error === true ? styles.active : null}`}>Username or password incorrect. Please try again.</span>
-                    <form>
-                        <input type={"text"} value={username} onChange={(event) => {
+                    <form onSubmit={() => {
+                        router.push("/dashboards/executive-summary", null, { shallow: true })
+                    }}>
+                        <input type={"text"} value={username} autoComplete={"current-username"} onChange={(event) => {
                             setUsername(event.target.value)
                         }}/>
-                        <input type={"password"} value={password} onChange={(event) => {
+                        <input type={"password"} value={password} autoComplete={"current-password"} onChange={(event) => {
                             setPassword(event.target.value)
                         }}/>
-                        <button onClick={() => {
-                            checkUser()
-                        }}>Log in
+                        <button type={"submit"} >Log in
                         </button>
                     </form>
 
