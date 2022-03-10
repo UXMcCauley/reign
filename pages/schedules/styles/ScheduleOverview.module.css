@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+}
+.container .flyin {
+  right: -2000px;
+  top: -74px;
+  height: 100vh;
+  position: absolute;
+  background: black;
+  z-index: 9999;
+}
+.container .flyin.open {
+  right: 0;
+}
+
+/*# sourceMappingURL=ScheduleOverview.module.css.map */

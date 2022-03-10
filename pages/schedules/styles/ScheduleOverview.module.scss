@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+
+  .flyin {
+    right: -2000px;
+    top: -74px;
+    height: 100vh;
+    position: absolute;
+    background: black;
+    z-index: 9999;
+
+    &.open {
+      right: 0;
+    }
+  }
+
+}
