@@ -3,7 +3,6 @@ import {useState} from "react";
 import styles from "../styles/SignIn.module.scss"
 import Image from "next/image";
 import {useRouter} from "next/router";
-import {useCookie} from 'next-cookie'
 
 export default function SignIn() {
     // const cookie = useCookie()
@@ -67,15 +66,17 @@ export default function SignIn() {
                     <h1>Sign In</h1>
                     <span className={`${styles.error} ${error === true ? styles.active : null}`}>Username or password incorrect. Please try again.</span>
                     <form onSubmit={() => {
-                        router.push("/dashboards/executive-summary")
+                        setIsLoading(true)
+                            router.push("/dashboards/executive-summary")
                     }}>
                         <input type={"text"} value={username} autoComplete={"current-username"} onChange={(event) => {
                             setUsername(event.target.value)
                         }}/>
-                        <input type={"password"} value={password} autoComplete={"current-password"} onChange={(event) => {
-                            setPassword(event.target.value)
-                        }}/>
-                        <button type={"submit"} >Log in
+                        <input type={"password"} value={password} autoComplete={"current-password"}
+                               onChange={(event) => {
+                                   setPassword(event.target.value)
+                               }}/>
+                        <button type={"submit"}>Log in
                         </button>
                     </form>
 
