@@ -67,16 +67,18 @@ export default function SignIn() {
                 <div className={`${styles.formContainer} ${isLoading === true ? styles.hidden : null}`}>
                     <h1>Sign In</h1>
                     <span className={`${styles.error} ${error === true ? styles.active : null}`}>Username or password incorrect. Please try again.</span>
-                    <input type={"text"} value={username} onChange={(event) => {
-                        setUsername(event.target.value)
-                    }}/>
-                    <input type={"password"} value={password} onChange={(event) => {
-                        setPassword(event.target.value)
-                    }}/>
-                    <button onClick={() => {
-                        checkUser()
-                    }}>Log in
-                    </button>
+                    <form>
+                        <input type={"text"} value={username} onChange={(event) => {
+                            setUsername(event.target.value)
+                        }}/>
+                        <input type={"password"} value={password} onChange={(event) => {
+                            setPassword(event.target.value)
+                        }}/>
+                        <button onClick={() => {
+                            checkUser()
+                        }}>Log in
+                        </button>
+                    </form>
 
                 </div>
             </div>

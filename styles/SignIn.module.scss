@@ -15,6 +15,11 @@
   display: flex;
   text-align: center;
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   &.hidden {
     display: none;
   }
