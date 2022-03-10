@@ -7,11 +7,12 @@ module.exports = {
     },
     experimental: {
         urlImports: ["https://framer.com/m/", "https://framerusercontent.com/modules/"]
-    }, async redirects() {
+    },
+    async redirects() {
         return [
             {
                 source: '/',
-                destination: '/dashboards/executive-summary',
+                destination: '/sign-in',
                 permanent: true,
             },
         ]

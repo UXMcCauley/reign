@@ -1,0 +1,68 @@
+@import "globalStyles";
+
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.formContainer {
+  align-self: center;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+
+  &.hidden {
+    display: none;
+  }
+
+  input {
+    margin-bottom: 30px;
+    padding: 12px;
+    min-width: 300px;
+    background: #000000;
+    border: none;
+    border-radius: 100px;
+    color: white;
+  }
+
+  button {
+    padding: 12px;
+    border-radius: 100px;
+    border: none;
+    background: rgb(225,33,98);
+    background: linear-gradient(335deg, rgba(225,33,98,1) 0%, rgba(85,40,171,1) 100%);
+    color: white;
+    width: 180px;
+    align-self: center;
+  }
+  .error {
+    padding: 20px;
+    color: $pink;
+    font-size: 12px;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+.loading {
+  display: none;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+
+  .image {
+    align-self: center;
+
+  }
+
+  &.active {
+    display: block;
+  }
+}

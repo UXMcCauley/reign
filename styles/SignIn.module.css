@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.formContainer {
+  align-self: center;
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+}
+.formContainer.hidden {
+  display: none;
+}
+.formContainer input {
+  margin-bottom: 30px;
+  padding: 12px;
+  min-width: 300px;
+  background: #000000;
+  border: none;
+  border-radius: 100px;
+  color: white;
+}
+.formContainer button {
+  padding: 12px;
+  border-radius: 100px;
+  border: none;
+  background: #e12162;
+  background: linear-gradient(335deg, #e12162 0%, #5528ab 100%);
+  color: white;
+  width: 180px;
+  align-self: center;
+}
+.formContainer .error {
+  padding: 20px;
+  color: #e12162;
+  font-size: 12px;
+  display: none;
+}
+.formContainer .error.active {
+  display: block;
+}
+
+.loading {
+  display: none;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+.loading .image {
+  align-self: center;
+}
+.loading.active {
+  display: block;
+}
+
+/*# sourceMappingURL=SignIn.module.css.map */

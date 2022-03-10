@@ -13,7 +13,7 @@ const MAIN_LINKS = [
     {path: "/activity-feed", label: "Feed"},
     {path: "/employees/all-employees", label: "Employees"},
     {path: "/keycards/all-keycards", label: "Keycards"},
-    {path: "/schedules", label: "Schedules"},
+    {path: "/schedules/schedule-overview", label: "Schedules"},
     {path: "/settings", label: "Settings"},
     {path: "/help/faq", label: "Help Center"},
 ]
@@ -28,13 +28,13 @@ const DASHBOARD_LINKS = [
 ]
 
 const KEYCARD_LINKS = [
-    {path: "/keycards", label: "View keycards"},
+    {path: "/keycards/all-keycards", label: "View keycards"},
     {path: "/keycards/add-new-keycard", label: "Add a keycard"},
     {path: "/keycards/tasks", label: "Add tasks to keycard"},
 ]
 
 const SCHEDULE_LINKS = [
-    {path: "/schedules", label: "View schedules"},
+    {path: "/schedules/schedule-overview", label: "View schedules"},
     {path: "/schedules/add-schedules", label: "Add a schedule"},
     {path: "/schedules/bulk-import-schedules", label: "Bulk import schedules"},
 ]
@@ -77,7 +77,7 @@ function MainNavigation() {
             <div className={styles.subMenu}>
                 {value.map((link, i) => {
                     return (
-                        <Link key={i} href={link.path}>
+                        <Link key={i} href={link.path} passHref>
                             <div className={styles.link}>{link.label}</div>
                         </Link>
                     )
