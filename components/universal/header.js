@@ -2,7 +2,7 @@ import {useState} from "react"
 import {useRouter} from "next/router"
 
 // my component imports
-import {PrimaryButton} from "./ui/Buttons"
+import {PrimaryButton} from "./ui/Buttons";
 import Logo from "./ui/logo"
 import NotificationBell from "./ui/notificationBell"
 
