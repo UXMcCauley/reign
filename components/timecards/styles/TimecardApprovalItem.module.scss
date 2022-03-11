@@ -1,0 +1,41 @@
+@import "styles/globalStyles.scss";
+
+.item {
+  display: flex;
+  padding: 20px;
+
+  &:hover {
+    background: $blackO;
+  }
+
+
+
+  .avatar {
+    width: 30px;
+  }
+
+  .rightContent {
+    flex: 1;
+    font-size: 14px;
+    align-self: center;
+    font-weight: 100;
+  }
+
+  .hours {
+    display: block;
+    //background: $violet;
+    padding: 7px;
+    width: 50px;
+    text-align: center;
+    border-radius: 100px;
+
+  }
+}
+
+.lightGray {
+  color: #9b9b9b;
+}
+.title {
+  color: $lightBlue
+}
+

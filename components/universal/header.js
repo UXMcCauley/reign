@@ -1,14 +1,18 @@
+import {useState} from "react"
+import {useRouter} from "next/router"
+
+// my component imports
+import {PrimaryButton} from "./ui/Buttons"
 import Logo from "./ui/logo"
 import NotificationBell from "./ui/notificationBell"
+
+
 import styles from "./styles/Header.module.scss"
-import {useRouter} from "next/router";
-import {useState} from "react";
 
 export default function Header() {
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [initials, setInitials] = useState("AM")
-    // const cookie = useCookie()
     const router = useRouter()
     return (
         <div className={styles.container}>
@@ -21,10 +25,7 @@ export default function Header() {
                     {firstName} {lastName}
                 </div>
                 <div className={styles.button}>
-                    <button onClick={() => {
-                        router.push("/sign-in")
-                    }}>Log out
-                    </button>
+                    <PrimaryButton label={"Log out"} color={"pink"} action={() => {router.push("/sign-in")}} icon={"LogOut"}/>
                 </div>
             </div>
         </div>

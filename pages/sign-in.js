@@ -1,54 +1,22 @@
-import Head from 'next/head'
 import {useState} from "react";
-import styles from "../styles/SignIn.module.scss"
-import Image from "next/image";
+
+// import Next modules and hooks
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
 import {useRouter} from "next/router";
 
+// import my components
+import {PrimaryButton} from "../components/universal/ui/Buttons";
+import styles from "../styles/SignIn.module.scss"
+
 export default function SignIn() {
-    // const cookie = useCookie()
-    const router = useRouter()
+
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-
-    // const checkUser = async () => {
-    //     await fetch('/api/users', {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({username: username, password: password})
-    //     })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setError(false)
-    //             setIsLoading(true)
-    //             cookie.set("REIGN_username", data.username, {
-    //                 domain: "localhost",
-    //                 expires: 1,
-    //             })
-    //             cookie.set("REIGN_firstName", data.firstName, {
-    //                 domain: "localhost",
-    //                 expires: 1,
-    //             })
-    //             cookie.set("REIGN_lastName", data.lastName, {
-    //                 domain: "localhost",
-    //                 expires: 1,
-    //             })
-    //             cookie.set("REIGN_loggedIn", true, {
-    //                 domain: "localhost",
-    //                 expires: 1,
-    //             })
-    //             setTimeout(() => {
-    //                 router.push("/dashboards/executive-summary", null, { shallow: true })
-    //             }, 5000)
-    //         })
-    //         .catch(e => {
-    //             setError(true)
-    //         })
-    //
-    // }
 
     return (
         <>
@@ -65,21 +33,16 @@ export default function SignIn() {
                 <div className={`${styles.formContainer} ${isLoading === true ? styles.hidden : null}`}>
                     <h1>Sign In</h1>
                     <span className={`${styles.error} ${error === true ? styles.active : null}`}>Username or password incorrect. Please try again.</span>
-                    <form onSubmit={() => {
-                        setIsLoading(true)
-                            router.push("/dashboards/executive-summary")
-                    }}>
-                        <input type={"text"} value={username} autoComplete={"current-username"} onChange={(event) => {
-                            setUsername(event.target.value)
-                        }}/>
-                        <input type={"password"} value={password} autoComplete={"current-password"}
-                               onChange={(event) => {
-                                   setPassword(event.target.value)
-                               }}/>
-                        <button type={"submit"}>Log in
-                        </button>
-                    </form>
-
+                    <input type={"text"} value={username} autoComplete={"current-username"} onChange={(event) => {
+                        setUsername(event.target.value)
+                    }}/>
+                    <input type={"password"} value={password} autoComplete={"current-password"}
+                           onChange={(event) => {
+                               setPassword(event.target.value)
+                           }}/>
+                    <Link passHref href={"/dashboards/executive-summary"}>
+                        <a><PrimaryButton label={"Log in"} color={"pink"}/></a>
+                    </Link>
                 </div>
             </div>
         </>

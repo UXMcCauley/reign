@@ -10,7 +10,7 @@ let USE_SUB_LINKS = []
 const MAIN_LINKS = [
     {path: "/dashboards/executive-summary", label: "Dashboards"},
     {path: "/messages/view-messages", label: "Messages"},
-    {path: "/activity-feed", label: "Feed"},
+    {path: "/timecards", label: "Timecards"},
     {path: "/employees/all-employees", label: "Employees"},
     {path: "/keycards/all-keycards", label: "Keycards"},
     {path: "/schedules/schedule-overview", label: "Schedules"},
@@ -89,13 +89,6 @@ function MainNavigation() {
     // return all menu items and container
     return (
         <div>
-            {/*<div className={styles.toggleContainer}*/}
-            {/*     onClick={() => {*/}
-            {/*         setMenuOpen(!menuOpen)*/}
-            {/*         console.log(menuOpen)*/}
-            {/*     }}>*/}
-            {/*    <div className={styles.icon}>X</div>*/}
-            {/*</div>*/}
             <div className={`${styles.container} 
                 ${USE_SUB_LINKS.length > 0 ? styles.hasSub : styles.hasNoSub}
                 ${!menuOpen ? styles.closed : null}
@@ -112,7 +105,7 @@ function MainNavigation() {
                         )
                     })}
                 </div>
-                {MAIN_LINKS.length > - 1 ? makeSubNav(USE_SUB_LINKS) : null}
+                {MAIN_LINKS.length > -1 ? makeSubNav(USE_SUB_LINKS) : null}
 
             </div>
         </div>

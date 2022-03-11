@@ -34,14 +34,5 @@
 .container .rightModule .button {
   align-self: center;
 }
-.container .rightModule .button button {
-  padding: 8px;
-  border: none;
-  background: #e12162;
-  background: linear-gradient(335deg, #e12162 0%, #5528ab 100%);
-  border-radius: 100px;
-  color: white;
-  min-width: 80px;
-}
 
 /*# sourceMappingURL=Header.module.css.map */

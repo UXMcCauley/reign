@@ -1,20 +1,48 @@
-.dashboardMenuButton {
-  font-family: "Montserrat", sans-serif;
-  border: 1px solid #0070f3;
-  border-bottom: none;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+.button {
   text-transform: uppercase;
   font-weight: 100;
-  font-size: 12px;
-  padding: 6px 12px;
-  margin-right: 12px;
-  color: #0070f3;
-  background: #ffffff;
+  padding: 8px;
+  border: none;
+  background: #e12162;
+  background: linear-gradient(335deg, #e12162 0%, #5528ab 100%);
+  border-radius: 100px;
+  color: white;
+  min-width: 130px;
+  max-width: 330px;
+  margin: auto;
+  font-size: 13px;
+  transition: 0.2s;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
-.dashboardMenuButton.active {
-  background: #0070f3;
-  color: #ffffff;
+.button .icon {
+  align-self: center;
+  height: 20px;
+  padding-right: 10px;
+}
+.button .label {
+  height: 14px;
+  align-self: center;
+}
+.button.pink {
+  background: #e12162;
+  background: linear-gradient(335deg, #e12162 0%, #5528ab 100%);
+  color: white;
+  transition: 0.2s;
+}
+.button.pink:hover {
+  background: #e12162;
+  background: linear-gradient(300deg, #e12162 0%, #5528ab 100%);
+  transition: 0.2s;
+}
+.button.blue {
+  background: #2769aa;
+  background: linear-gradient(335deg, #2769aa 0%, #56a8d7 100%);
+}
+.button.blue:hover {
+  background: #2769aa;
+  background: linear-gradient(300deg, #2769aa 0%, #56a8d7 100%);
 }
 
 /*# sourceMappingURL=Buttons.module.css.map */

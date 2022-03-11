@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import SignIn from "./sign-in";
-import ActivityFeedPage from "./activity-feed";
+import ActivityFeedPage from "./timecards";
 
 export default function Home() {
     const [isAuthenticated, setIsAuthenticated] = useState(true)
