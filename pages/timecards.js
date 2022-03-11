@@ -4,7 +4,15 @@ import TimecardApprovalItem from "../components/timecards/TimecardApprovalItem";
 import styles from "../styles/Timecards.module.scss"
 import TimecardDetails from "../components/timecards/TimecardDetails";
 
-export default function ActivityFeedPage({timecards}) {
+const timecards = [
+    {name: "James Mercer", title: "Level 1 HVAC", project: "Archdiocese of Milwaukee Project", hours: 8},
+    {name: "Christopher Ellison", title: "Level 2 Cement", project: "Archdiocese of Milwaukee Project", hours: 8},
+    {name: "Angelo Rodriguez", title: "Level 2 Framing", project: "Archdiocese of Milwaukee Project", hours: 10.5},
+    {name: "name", title: "title", project: "Archdiocese of Milwaukee Project", hours: 9},
+    {name: "name", title: "title", project: "Archdiocese of Milwaukee Project", hours: 8.25}
+]
+
+export default function Timecards() {
     return (
         <>
             <Head>
@@ -26,14 +34,3 @@ export default function ActivityFeedPage({timecards}) {
     )
 }
 
-export async function getServerSideProps(){
-    const timecards = [
-        {name: "James Mercer", title: "Level 1 HVAC", project: "Archdiocese of Milwaukee Project", hours: 8},
-        {name: "Christopher Ellison", title: "Level 2 Cement", project: "Archdiocese of Milwaukee Project", hours: 8},
-        {name: "Angelo Rodriguez", title: "Level 2 Framing", project: "Archdiocese of Milwaukee Project", hours: 10.5},
-        {name: "name", title: "title", project: "Archdiocese of Milwaukee Project", hours: 9},
-        {name: "name", title: "title", project: "Archdiocese of Milwaukee Project", hours: 8.25}
-    ]
-
-    return {props: {timecards: timecards}}
-}
