@@ -82,8 +82,10 @@ export default function NumericDisplay(props) {
     return (
         <div className={styles.container}>
             <div className={styles.title}>{props.title}</div>
-            <div className={styles.number}>{props.isMoney === true ? "$" : null}{evaluateNumber()}</div>
-            <div className={styles.label}>{state}</div>
+            <div className={styles.number}>{props.isMoney === true ? "$" : null}
+                {props.altLabel === undefined ? evaluateNumber() : props.altLabel}
+                {props.isPercent === true ? "%" : null}</div>
+            <div className={styles.label}>{props.hideLowerLabel === true ? null : state}</div>
             {
                 checkInteraction(props.interaction, props.selectCategory)
             }
