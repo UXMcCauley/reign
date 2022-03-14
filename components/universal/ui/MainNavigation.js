@@ -20,8 +20,8 @@ const MAIN_LINKS = [
 
 const DASHBOARD_LINKS = [
     {path: "/dashboards/executive-summary", label: "Executive Summary"},
-    {path: "/dashboards/employee-performance", label: "Employee Performance"},
-    {path: "/dashboards/employee-development", label: "Employee Development"},
+    {path: "/dashboards/employee-performance", label: "EmployeeId Performance"},
+    {path: "/dashboards/employee-development", label: "EmployeeId Development"},
     {path: "/dashboards/workforce-diversity", label: "Workforce Diversity"},
     {path: "/dashboards/salary-overview", label: "Salary Overview"},
     {path: "/dashboards/project-dynamics", label: "Project Dynamics"}
@@ -33,6 +33,13 @@ const KEYCARD_LINKS = [
     {path: "/keycards/tasks", label: "Add tasks to keycard"},
 ]
 
+// const TIMECARD_LINKS = [
+//     {path: "/keycards/all-keycards", label: "Timecard approval"},
+//     {path: "/keycards/add-new-keycard", label: "View approved timecards"},
+//     {path: "/keycards/tasks", label: "View rejected timecards"},
+//     {path: "/keycards/tasks", label: "View flagged timecards"},
+// ]
+
 const SCHEDULE_LINKS = [
     {path: "/schedules/schedule-overview", label: "View schedules"},
     {path: "/schedules/add-schedules", label: "Add a schedule"},
@@ -40,7 +47,7 @@ const SCHEDULE_LINKS = [
 ]
 
 const EMPLOYEE_LINKS = [
-    {path: "/employees", label: "View employees"},
+    {path: "/employees/all-employees", label: "View employees"},
     {path: "/employees/add-employee", label: "Add an employee"},
     {path: "/employees/bulk-import-employees", label: "Bulk import employees"},
 ]

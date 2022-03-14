@@ -6,14 +6,8 @@ import {customTableStyles, timecardColumns} from "../../lib/helpers";
 import {PrimaryButton} from "../universal/ui/Buttons";
 import {useState} from "react";
 
-const timecard = [
-    {keycard: "Framing", task: "task 1", hours: 4, id: 53676},
-    {keycard: "Framing", task: "task 2", hours: 1, id: 53676},
-    {keycard: "Framing", task: "task 3", hours: 2, id: 53676},
-    {keycard: "Framing", task: "task 4", hours: 1, id: 53676},
-]
-
-function TimecardDetails() {
+function TimecardDetails(props) {
+    console.log(props.timecard.punches)
     const [rating, setRating] = useState(1)
     const handleRating = (value) => {
         setRating(value)
@@ -24,8 +18,8 @@ function TimecardDetails() {
             <div className={styles.summaryTop}>
                 <Phone className={styles.phone} size={40} color={"white"}/>
                 <Chat className={styles.chat} size={40} color={"white"}/>
-                <h1>Reginald Reed</h1>
-                <p>Level 3 General Laborer</p>
+                <h1>{props.timecard.employeeName}</h1>
+
                 <div className={styles.avatar}>
                     <Image alt={"Avatar"} src={"/batman_hero_avatar_comics-512.webp"} layout={"fill"}/>
                 </div>
@@ -35,7 +29,7 @@ function TimecardDetails() {
                 <div style={{backgroundColor: "black", height: 70}}/>
                 <DataTable
                     columns={timecardColumns()}
-                    data={timecard}
+                    data={props.timecard.punches}
                     dense={false}
                     theme={"dark"}
                     customStyles={customTableStyles}/>

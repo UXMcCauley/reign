@@ -52,7 +52,7 @@ export default function BarChart(props){
                     },
                     title: {
                         display: false,
-                        text: 'Total Employee by Keycard',
+                        text: 'Total EmployeeId by Keycard',
                     },
                 },
             }}/>

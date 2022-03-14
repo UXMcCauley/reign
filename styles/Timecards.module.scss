@@ -13,11 +13,15 @@
   width: 41%;
   display: flex;
   flex-direction: column;
-  height: 100%;
   max-width: 600px;
+  border-radius: 20px;
+  margin: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px black;
+  background: black;
 
   .summaryTop {
-    background: $blackO;
+    background: #000000;
     flex: .75;
     position: relative;
     justify-content: center;
@@ -42,8 +46,8 @@
 
     .avatar {
       background: $green;
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       position: absolute;
       bottom: -120px;
       left: 50%;
@@ -56,14 +60,13 @@
   }
 
   .timesheet {
-    flex: 2;
     border: 1px solid $blackO;
-
+    padding: 40px;
 
   }
 
   .details {
-    flex: .5;
+    flex: .75;
     padding: 20px;
     background: $blackO;
 
@@ -80,6 +83,7 @@
   top: 30px;
   left: 30px;
 }
+
 .chat {
   position: absolute;
   top: 30px;
@@ -89,6 +93,7 @@
 .inputContainer {
   padding: 30px;
 }
+
 .slider {
   -webkit-appearance: none; /* Override default CSS styles */
   appearance: none;
@@ -123,4 +128,31 @@
   height: 25px; /* Slider handle height */
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
+}
+
+.pageTitle {
+  background: rgb(39, 105, 170);
+  background: linear-gradient(90deg, rgba(39, 105, 170, 1) 0%, rgba(86, 168, 215, 1) 100%);
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 100;
+  display: flex;
+  margin: 20px;
+  border-radius: 20px;
+
+  .pageTitleText {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .titleBarLink {
+    padding: 20px;
+    text-transform: capitalize;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background: $violet;
+    }
+  }
 }

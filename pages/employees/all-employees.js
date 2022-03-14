@@ -4,8 +4,13 @@ import DataTable from 'react-data-table-component';
 import {employeeTableColumns, customTableStyles} from "../../lib/helpers";
 import styles from "./styles/Employees.module.scss"
 import {useState} from "react";
+import {connectToDatabase} from "../../lib/dbConnect";
+import {ObjectId} from "mongodb";
+
+const orgURL = "61bf60ecddd910d9c0a18df1"
 
 export default function AllEmployees({employees}) {
+    const empData = JSON.parse(employees)
     const [searchTerm, setSearchTerm] = useState("")
     return (
         <>
@@ -19,12 +24,12 @@ export default function AllEmployees({employees}) {
                        value={searchTerm}
                        placeholder={"Search employees by last or first name..."}
                        onChange={(e) => {
-                    setSearchTerm(e.target.value)
-                }}/>
+                           setSearchTerm(e.target.value)
+                       }}/>
                 <div className={styles.tableContainer}>
                     <DataTable
                         columns={employeeTableColumns()}
-                        data={employees.filter((item) => {
+                        data={empData.filter((item) => {
                             if (searchTerm === "") {
                                 return item;
                             } else if (
@@ -48,9 +53,18 @@ export default function AllEmployees({employees}) {
 }
 
 export async function getServerSideProps({req}) {
-    const protocol = req.headers['x-forwarded-proto'] || 'http'
-    const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
-    const res = await fetch(baseUrl + '/api/employees')
-    const data = await res.json()
-    return {props: {employees: data}}
+
+    const {db} = await connectToDatabase()
+    const employees = await db
+        .collection("employees")
+        .find({"organization": ObjectId(orgURL)})
+        .toArray()
+
+        const returnData = JSON.stringify(employees)
+
+    return {
+        props: {
+            employees: returnData,
+        }
+    }
 }

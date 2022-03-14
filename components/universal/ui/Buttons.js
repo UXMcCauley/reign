@@ -1,7 +1,7 @@
 import styles from "./styles/Buttons.module.scss"
 import {MegaphoneSimple, Camera, ThumbsUp, ThumbsDown, DotsThree, SignOut, ArrowBendUpLeft} from "phosphor-react";
 
-export function PrimaryButton({color, label, action, icon}) {
+export function PrimaryButton({color, label, action, icon, disabled}) {
      const useIcon = () => {
          switch (icon) {
              case "Publish":
@@ -21,7 +21,7 @@ export function PrimaryButton({color, label, action, icon}) {
          }
      }
 
-    return (<div className={`${styles.button} ${styles[color]}`} onClick={action}>
+    return (<div className={`${styles.button} ${styles[color]}`} onClick={disabled === false ? action : null}>
         <div className={styles.icon}>
             {useIcon()}
         </div>

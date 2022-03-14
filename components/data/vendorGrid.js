@@ -7,7 +7,7 @@ export default function VendorGrid() {
         {img: "/partner-logos/adp.png", title: "ADP"},
         {img: "/partner-logos/ascentis.png", title: "Ascentis"},
         {img: "/partner-logos/ceridian.png", title: "Ceridian"},
-        {img: "/partner-logos/employeenavigator.svg", title: "Employee Navigator"},
+        {img: "/partner-logos/employeenavigator.svg", title: "EmployeeId Navigator"},
         {img: "/partner-logos/freshteam.png", title: "Freshteam"},
         {img: "/partner-logos/gusto.png", title: "Gusto"},
         {img: "/partner-logos/hrmantra.png", title: "HR Mantra"},
