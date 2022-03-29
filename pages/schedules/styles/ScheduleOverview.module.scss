@@ -1,5 +1,10 @@
+@import "styles/globalStyles";
+
 .container {
   position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
 
   .flyin {
     right: -2000px;
@@ -13,5 +18,67 @@
       right: 0;
     }
   }
+}
 
+.scheduleContainer {
+  display: flex;
+  flex: 1;
+
+  .left {
+    //border: 1px solid $white;
+    flex: .55;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 10px;
+    font-size: 12px;
+
+  }
+
+  .right {
+    //border: 1px solid $pink;
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+
+.header {
+  //border: 1px solid $blue;
+  flex: 1;
+}
+.under {
+  flex: 4;
+  position: relative;
+}
+
+.employeeNameBlock {
+  padding: 20px;
+}
+
+.calendarContainer {
+  height: 100%;
+  width: auto;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+.gridColumn {
+  border-right: 1px solid rgba(208, 208, 208, 0.13);
+  width: 50px;
+  display: inline-block;
+  height: 100%;
+}
+.gridColumnLabel {
+  position:absolute;
+  top: -20px;
+  font-size: 11px;
+}
+.calendarOverlay {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.05);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
