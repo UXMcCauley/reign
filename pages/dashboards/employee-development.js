@@ -1,12 +1,19 @@
+
+// components
 import Head from 'next/head'
 import ContentContainer from "../../components/universal/layout"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./styles/Executive.module.scss";
+
+//charts
 import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import LineChart from "../../components/dashboards/line";
 import BarChart from "../../components/dashboards/bar";
 import TreeMap from "../../components/dashboards/tree";
+
+// styles
+import styles from "./styles/Executive.module.scss";
+
 
 export default function EmployeeDevelopment(props) {
     return (

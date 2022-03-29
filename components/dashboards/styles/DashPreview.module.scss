@@ -1,0 +1,20 @@
+@import "styles/globalStyles";
+
+.container {
+  width: 220px;
+  margin: 40px 40px 20px 0;
+  display: inline-block;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: black;
+
+  a {
+    align-self: center;
+    font-weight: 100;
+    font-size: 13px;
+  }
+}

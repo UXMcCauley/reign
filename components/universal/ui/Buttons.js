@@ -1,5 +1,5 @@
 import styles from "./styles/Buttons.module.scss"
-import {MegaphoneSimple, Camera, ThumbsUp, ThumbsDown, DotsThree, SignOut, ArrowBendUpLeft} from "phosphor-react";
+import {MegaphoneSimple, Camera, ThumbsUp, ThumbsDown, DotsThree, SignOut, ArrowBendUpLeft, Plus} from "phosphor-react";
 
 export function PrimaryButton({color, label, action, icon, disabled}) {
      const useIcon = () => {
@@ -18,6 +18,8 @@ export function PrimaryButton({color, label, action, icon, disabled}) {
                  return <DotsThree size={20} color={"white"}/>
              case "Reply":
                  return <ArrowBendUpLeft size={20} color={"white"}/>
+             case "Plus":
+                 return <Plus size={20} color={"white"}/>
          }
      }
 

@@ -1,10 +1,16 @@
 .flexRow {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 30px 0 40px 0;
 }
 .flexRow .half {
   width: 50%;
+}
+
+.pieContainer {
+  padding: 30px;
+  width: 550px;
+  height: 550px;
 }
 
 /*# sourceMappingURL=Executive.module.css.map */

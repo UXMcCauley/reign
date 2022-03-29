@@ -1,0 +1,31 @@
+@import "globalStyles";
+
+.subMenu {
+  padding: 12px;
+  background: $purple;
+}
+.section {
+  padding: 30px;
+}
+.title {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+
+  .text {
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+  div {
+    align-self: center;
+    justify-self: center;
+    margin-right: 20px;
+  }
+}
+.left {
+flex: 3;
+}
+.right {
+flex: 1;
+  padding: 40px 40px 0 0;
+}

@@ -8,16 +8,12 @@ function DashboardLinks() {
     return (
         <div className={styles.links}>
             <div
-                className={`${styles.link} ${router.pathname === "/dashboards" ? styles.active : null}`}>
-                <Link href={"/dashboards"}>Executive View</Link>
+                className={`${styles.link} ${router.pathname === "/dashboards/executive-summary" ? styles.active : null}`}>
+                <Link href={"/dashboards/executive-summary"}>Executive Summary</Link>
             </div>
             <div
                 className={`${styles.link} ${router.pathname === "/dashboards/employee-performance" ? styles.active : null}`}>
                 <Link href={"/dashboards/employee-performance"}>Employee Performance</Link>
-            </div>
-            <div
-                className={`${styles.link} ${router.pathname === "/dashboards/employee-development" ? styles.active : null}`}>
-                <Link href={"/dashboards/employee-development"}>Employee Development</Link>
             </div>
             <div
                 className={`${styles.link} ${router.pathname === "/dashboards/workforce-diversity" ? styles.active : null}`}>
