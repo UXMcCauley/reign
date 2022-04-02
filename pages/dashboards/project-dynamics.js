@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./styles/Executive.module.scss";
-import Numeric from "../../components/dashboards/numeric";
 import { useState} from "react";
 import {Modal} from 'react-responsive-modal';
 import {Chart} from "react-google-charts";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
+import styles from "./styles/Executive.module.scss";
+import Heading from "../../components/headings/Heading";
 
 export const data = [
     ["Task", "Hours per Day"],
@@ -64,26 +61,21 @@ export const bodyOptions = {
 };
 
 
-export default function ProjectDynamics(props) {
+export default function ProjectDynamics() {
     const [open, setOpen] = useState(false);
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
 
     return (
         <>
-            <Head>
-                <title>REIGN Workforce Intelligence</title>
-                <meta name="description" content="REIGN"/>
-                <title>Dashboards - Project Dynamics</title>
-            </Head>
             <SingleColumnLayout>
+                <Heading label={"Project Dynamics"}/>
                     <div>
                         <button onClick={onOpenModal}>Open modal</button>
 
                     </div>
                     <div>
                         <div className={styles.flexRow}>
-                            <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
                     <div>

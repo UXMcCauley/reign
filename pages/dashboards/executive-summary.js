@@ -1,9 +1,8 @@
 // components
-import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer"
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
-import Select from "../../components/ui/Select"
+import Heading from "../../components/headings/Heading";
+import TopMetric from "../../components/dashboards/TopMetric";
+
 // charts
 import LineChart from "../../components/dashboards/line"
 import BarChart from "../../components/dashboards/bar"
@@ -11,9 +10,6 @@ import GooglePieChart from "../../components/dashboards/GooglePieChart";
 
 //styles
 import styles from "./styles/Executive.module.scss"
-import Heading from "../../components/headings/Heading";
-import TailwindNumeric from "../../components/tailwind/TailwindNumeric";
-import TopMetric from "../../components/dashboards/TopMetric";
 
 export default function ExecutiveSummary(props) {
     return (

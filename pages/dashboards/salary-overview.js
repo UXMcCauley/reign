@@ -1,21 +1,17 @@
-import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./styles/Executive.module.scss";
-import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import LineChart from "../../components/dashboards/line";
 import BarChart from "../../components/dashboards/bar";
-import TreeMap from "../../components/dashboards/tree";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
+import styles from "./styles/Executive.module.scss";
+import Heading from "../../components/headings/Heading";
 
 export default function SalaryOverview(props) {
     return (
         <>
             <SingleColumnLayout>
+                <Heading label={"Salary Overview"}/>
                     <div>
                         <div className={styles.flexRow}>
-                            <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
                     <div>
@@ -35,7 +31,6 @@ export default function SalaryOverview(props) {
                     </div>
                     <div>
                         <div>
-                            <TreeMap data={props.airtableTree}/>
                         </div>
                     </div>
             </SingleColumnLayout>

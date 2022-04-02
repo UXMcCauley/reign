@@ -1,25 +1,16 @@
-import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
-import styles from "./styles/Executive.module.scss";
-import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import BarChart from "../../components/dashboards/bar";
-import TreeMap from "../../components/dashboards/tree";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
+import Heading from "../../components/headings/Heading";
+import styles from "./styles/Executive.module.scss";
 
 export default function WorkforceDiversity(props) {
     return (
         <>
-            <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN"/>
-                <title>Dashboards - Workforce Diversity</title>
-            </Head>
                 <SingleColumnLayout>
+                    <Heading label={"Workforce Diversity"}/>
                     <div>
                         <div className={styles.flexRow}>
-                            <Numeric data={props.airtableNumeric.records}/>
                         </div>
                     </div>
                     <div>
@@ -36,7 +27,6 @@ export default function WorkforceDiversity(props) {
                     </div>
                     <div>
                         <div>
-                            <TreeMap data={props.airtableTree}/>
                         </div>
                     </div>
                 </SingleColumnLayout>
