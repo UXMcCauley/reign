@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import ContentContainer from "../components/universal/layout"
-import styles from "../styles/Timecards.module.scss"
+import ContentContainer from "../components/universal/ContentContainer"
+import styles from "./timecards/styles/Timecards.module.scss"
 
 export default function Notifications() {
     return (

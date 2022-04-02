@@ -5,7 +5,7 @@ function HelpCenterLinks(props) {
     const [state, setState] = useState("Questions")
 
     return (
-        <div className={styles.links}>
+        <div className={"helpCenterLinks"}>
             <div className={`${styles.link} ${state === "Questions" ? styles.active : null}`}
                  onClick={() => {
                      props.getState("Questions")

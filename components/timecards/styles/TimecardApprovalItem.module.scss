@@ -3,10 +3,10 @@
 .item {
   display: flex;
   padding: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid $transparentWhiteBg;
 
   &:hover {
-    background: $blackO;
+    background: $transparentBlackBg;
   }
 
   .avatar {
@@ -15,14 +15,13 @@
 
   .rightContent {
     flex: 1;
-    font-size: 14px;
+    font-size: size(p);
     align-self: center;
-    font-weight: 100;
+    font-weight: weight(light);
   }
 
   .hours {
     display: block;
-    //background: $violet;
     padding: 7px;
     width: 50px;
     text-align: center;
@@ -32,9 +31,9 @@
 }
 
 .lightGray {
-  color: #9b9b9b;
+  color: $grayText;
 }
 .title {
-  color: $lightBlue
+  color:  color(tertiary);
 }
 

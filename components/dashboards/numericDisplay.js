@@ -1,7 +1,6 @@
-import styles from "./styles/NumericDisplay.module.scss"
 import YMQToggle from "./ymqToggle";
 import {useState} from "react";
-
+import Select from "../../components/ui/Select"
 export default function NumericDisplay(props) {
     const [state, setState] = useState("Year")
     const getActive = (value) => {
@@ -32,13 +31,7 @@ export default function NumericDisplay(props) {
         switch (check) {
             case "ethnicity":
                 return (
-                    <select>
-                        <option value={"All"}>All</option>
-                        <option value={"Asian"}>Asian</option>
-                        <option value={"Black"}>Black</option>
-                        <option value={"Hispanic"}>Hispanic</option>
-                        <option value={"White"}>White</option>
-                    </select>
+                    <Select/>
                 )
 
             case "gender":
@@ -80,12 +73,12 @@ export default function NumericDisplay(props) {
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.title}>{props.title}</div>
-            <div className={styles.number}>{props.isMoney === true ? "$" : null}
+        <div className={"numericDisplayContainer"}>
+            <div className="chartTitle">{props.title}</div>
+            <div className={"number"}>{props.isMoney === true ? "$" : null}
                 {props.altLabel === undefined ? evaluateNumber() : props.altLabel}
                 {props.isPercent === true ? "%" : null}</div>
-            <div className={styles.label}>{props.hideLowerLabel === true ? null : state}</div>
+            <div className={"label"}>{props.hideLowerLabel === true ? null : state}</div>
             {
                 checkInteraction(props.interaction, props.selectCategory)
             }

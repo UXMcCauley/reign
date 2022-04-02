@@ -1,0 +1,90 @@
+//global variables
+$theme-colors: (
+        "primary": #9829ab,
+        "secondary": #56a8d7,
+        "tertiary": #56d5b8,
+);
+
+$whiteText: #ffffff;
+$blackText: #000000;
+$grayText: #878787;
+
+$transparentWhiteBg: rgba(255, 255, 255, 0.05);
+$transparentBlackBg: rgba(0, 0, 0, 0.05);
+
+$theme-weights: (
+        "light": 100,
+        "regular": 400,
+        "bold": 800,
+);
+
+$theme-font-sizes: (
+        "p": 13px,
+        "h1": 20px,
+        "h2": 16px,
+        "callout": 34px,
+);
+
+@function color($color-name) {
+  @return map-get($theme-colors, $color-name)
+}
+
+@function weight($weight-name) {
+  @return map-get($theme-weights, $weight-name)
+}
+
+@function size($size-name) {
+  @return map-get($theme-font-sizes, $size-name)
+}
+
+$bg: 'bg';
+$card-bg: 'card-bg';
+$text: 'text';
+$text-secondary: 'text-secondary';
+$link: 'link';
+$hover: 'hover';
+$logo: 'logo';
+$brand-blue: 'brand-blue';
+$brand-red: 'brand-red';
+$border: 'border';
+
+$themes: (
+        default: (
+                bg: white,
+                card-bg: $transparentWhiteBg,
+                text: $blackText,
+                text-secondary: gray,
+                link: color(secondary),
+                hover: color(primary),
+                border: color(primary)
+        ),
+        dark: (
+                bg: black,
+                card-bg: $transparentWhiteBg,
+                text: $whiteText,
+                text-secondary: gray,
+                link: color(secondary),
+                hover: color(primary),
+                border: color(primary)
+        )
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+

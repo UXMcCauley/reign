@@ -1,5 +1,5 @@
 import styles from "./MessagePane.module.scss"
-import ButtonFlex from "../universal/ui/buttonFlex";
+import ButtonFlex from "../ui/buttonFlex";
 import {Flag, Archive, ArrowFatLinesLeft} from "phosphor-react";
 
 export default function MessagePane(props) {

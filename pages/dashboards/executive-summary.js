@@ -1,109 +1,92 @@
 // components
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer"
-
+import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
+import Select from "../../components/ui/Select"
 // charts
-import Numeric from "../../components/dashboards/numeric"
 import LineChart from "../../components/dashboards/line"
 import BarChart from "../../components/dashboards/bar"
 import GooglePieChart from "../../components/dashboards/GooglePieChart";
 
 //styles
 import styles from "./styles/Executive.module.scss"
+import Heading from "../../components/headings/Heading";
+import TailwindNumeric from "../../components/tailwind/TailwindNumeric";
+import TopMetric from "../../components/dashboards/TopMetric";
 
 export default function ExecutiveSummary(props) {
     return (
         <>
-            <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN"/>
-                <link rel="icon" href="/public/favicon.ico"/>
-                <title>Dashboards - Executive Overview</title>
-            </Head>
-            <ContentContainer>
-                <div style={{display: "flex"}}>
-                    <DashboardLayoutContainer>
-                        <div>
-                            <div className={styles.flexRow}>
-                                <Numeric data={props.airtableNumeric.records}/>
-                            </div>
+            <SingleColumnLayout>
+                <Heading label={"Executive Summary"}/>
+                <div className={"justify-between w-full flex-row columns-6 items-start"}>
+                    <TopMetric value={20021} title={"employees"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                    <TopMetric value={20021} title={"training hours"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                    <TopMetric value={20021} title={"production hours"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                    <TopMetric value={20021} title={"payroll average"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                    <TopMetric value={20021} title={"new hires"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                    <TopMetric value={20021} title={"raises"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                </div>
+                <div>
+                    <div className={styles.flexRow}>
+
+                        <GooglePieChart label={"employees"} title={"performance/employee"} data={[
+                            ["Rating", "Number of employees"],
+                            ["<5", 6],
+                            ["5-6", 14],
+                            ["6-7", 19],
+                            ["7-8", 45],
+                            ["8-9", 51],
+                            ["9-10", 11]
+                        ]}/>
+
+                        <GooglePieChart label={"hours"} title={"training/keycard"} data={[
+                            ["Keycard", "Training hours"],
+                            ["Carpenter", 1103],
+                            ["Commercial Roofer", 1034],
+                            ["Concrete", 900],
+                            ["Flooring Installer", 1672],
+                            ["General Laborer", 783],
+                            ["Manufacturing", 1209],
+                            ["HVAC", 609],
+                            ["Painter", 399],
+                            ["Residential Roofer", 1478],
+                            ["Siding Installer", 230]
+                        ]}/>
+
+                        <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
+                            ["Keycard", "Late employees"],
+                            ["Carpenter", 12],
+                            ["Commercial Roofer", 5],
+                            ["Concrete", 7],
+                            ["Flooring Installer", 11],
+                            ["General Laborer", 7],
+                            ["Manufacturing", 4],
+                            ["HVAC", 1],
+                            ["Painter", 3],
+                            ["Residential Roofer", 9],
+                            ["Siding Installer", 6]
+                        ]}/>
+
+                    </div>
+                </div>
+                <div>
+                    <div className={styles.flexRow}>
+                        <div className={styles.half}>
+                            <LineChart data={props.airtableLine.records}/>
                         </div>
-                        <div>
-                            <div className={styles.flexRow}>
-                                <div className={styles.pieContainer}>
-                                    <GooglePieChart label={"employees"} title={"performance/employee"} data={[
-                                        ["Rating", "Number of employees"],
-                                        ["<5", 6],
-                                        ["5-6",14],
-                                        ["6-7",19],
-                                        ["7-8",45],
-                                        ["8-9",51],
-                                        ["9-10",11]
-                                    ]}/>
-                                </div>
-                                <div className={styles.pieContainer}>
-                                    <GooglePieChart label={"hours"} title={"training/keycard"} data={[
-                                        ["Keycard", "Training hours"],
-                                        ["Carpenter", 1103],
-                                        ["Commercial Roofer",1034],
-                                        ["Concrete",900],
-                                        ["Flooring Installer",1672],
-                                        ["General Laborer",783],
-                                        ["Manufacturing",1209],
-                                        ["HVAC",609],
-                                        ["Painter",399],
-                                        ["Residential Roofer",1478],
-                                        ["Siding Installer",230]
-                                    ]}/>
-                                </div>
-                            </div>
-                            <div className={styles.flexRow}>
-                                <div className={styles.pieContainer}>
-                                    <GooglePieChart label={"employees"} title={"attendance/keycard"} data={[
-                                        ["Rating", "Number of employees"],
-                                        ["<5", 6],
-                                        ["5-6",14],
-                                        ["6-7",19],
-                                        ["7-8",45],
-                                        ["8-9",51],
-                                        ["9-10",11]
-                                    ]}/>
-                                </div>
-                                <div className={styles.pieContainer}>
-                                    <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
-                                        ["Keycard", "Late employees"],
-                                        ["Carpenter", 12],
-                                        ["Commercial Roofer",5],
-                                        ["Concrete",7],
-                                        ["Flooring Installer",11],
-                                        ["General Laborer",7],
-                                        ["Manufacturing",4],
-                                        ["HVAC",1],
-                                        ["Painter",3],
-                                        ["Residential Roofer",9],
-                                        ["Siding Installer",6]
-                                    ]}/>
-                                </div>
-                            </div>
+                        <div className={styles.half}>
+                            <BarChart data={props.airtableBar}/>
                         </div>
-                        <div>
-                            <div className={styles.flexRow}>
-                                <div className={styles.half}>
-                                    <LineChart data={props.airtableLine.records}/>
-                                </div>
-                                <div className={styles.half}>
-                                    <BarChart data={props.airtableBar}/>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                {/*<TreeMap data={props.airtableTree}/>*/}
-                            </div>
-                        </div>
-                    </DashboardLayoutContainer></div>
-            </ContentContainer>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div className={styles.title}>Production Hours/Keycard</div>
+                    </div>
+                </div>
+            </SingleColumnLayout>
         </>
     )
 }

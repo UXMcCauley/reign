@@ -2,12 +2,9 @@ import {useState} from "react"
 import {useRouter} from "next/router"
 
 // my component imports
-import {PrimaryButton} from "./ui/Buttons";
-import Logo from "./ui/logo"
-import NotificationBell from "./ui/notificationBell"
-
-
-import styles from "./styles/Header.module.scss"
+import {PrimaryButton} from "../ui/Buttons";
+import Logo from "../ui/logo"
+import NotificationBell from "../ui/notificationBell"
 
 export default function Header() {
     const [firstName, setFirstName] = useState("")
@@ -15,16 +12,16 @@ export default function Header() {
     const [initials, setInitials] = useState("AM")
     const router = useRouter()
     return (
-        <div className={styles.container}>
+        <div className={"headerContainer"}>
             <Logo/>
-            <div className={styles.rightModule}><NotificationBell alert={false}/>
-                <div className={styles.avatar}>
+            <div className={"rightModule"}><NotificationBell alert={false}/>
+                <div className={"avatar"}>
                     {initials}
                 </div>
-                <div className={styles.username}>
+                <div className={"username"}>
                     {firstName} {lastName}
                 </div>
-                <div className={styles.button}>
+                <div className={"button"}>
                     <PrimaryButton label={"Log out"} color={"pink"} action={() => {router.push("/sign-in")}} icon={"LogOut"}/>
                 </div>
             </div>

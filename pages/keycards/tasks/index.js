@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import ContentContainer from "../../../components/universal/layout";
-import IconButton from "../../../components/universal/ui/iconButton";
+import ContentContainer from "../../../components/universal/ContentContainer";
+import IconButton from "../../../components/ui/iconButton";
 import DataTable from "react-data-table-component";
 import {keycardsTableColumns} from "../../../lib/helpers";
-import ButtonFlex from "../../../components/universal/ui/buttonFlex";
-import BackButton from "../../../components/universal/ui/backButton";
+import ButtonFlex from "../../../components/ui/buttonFlex";
+import BackButton from "../../../components/ui/backButton";
 
 export default function Home(props) {
     return (

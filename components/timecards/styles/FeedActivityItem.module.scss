@@ -3,24 +3,24 @@
 .container {
   display: flex;
   justify-content: flex-start;
-  font-size: 13px;
+  font-size: size(p);
   padding: 10px 0 20px 10px;
   margin: 10px 0;
-  color: $white;
+  color: $whiteText;
 
   .textContent {
     width: 100%;
 
     .description {
-      font-size: 13px;
+      font-size: size(p);
       margin-bottom: 4px;
     }
 
     .time {
-      font-size: 11px;
+      font-size: size(p);
       align-self: center;
       font-weight: 300;
-      color: $lightBlue;
+      color: color(secondary);
     }
 
     .nameAndTimeContainer {
@@ -28,7 +28,7 @@
       justify-content: space-between;
 
       .name {
-        color: $pink;
+        color: color(primary);
         font-weight: 700;
         margin-bottom: 6px;
       }

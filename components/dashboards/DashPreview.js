@@ -1,13 +1,12 @@
 import {useState} from "react";
 import Image from "next/image"
-import styles from "./styles/DashPreview.module.scss"
 import {Star} from "phosphor-react";
 import Link from "next/link";
 
 function DashPreview({label, link, active}) {
     const [star, setStar] = useState(active)
     return (
-        <div className={styles.container}>
+        <div className={"dashPreviewContainer"}>
             <Link href={link} passHref>
                 <a>
                     <Image alt={"placeholder"}
@@ -16,7 +15,7 @@ function DashPreview({label, link, active}) {
                            height={180}/>
                 </a>
             </Link>
-            <div className={styles.titleContainer}>
+            <div className={"titleContainer"}>
                 <Link href={link} passHref>
                     <a>
                         <div>

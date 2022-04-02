@@ -1,0 +1,336 @@
+.contentContainer {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-content: flex-start;
+  justify-content: center;
+  font-weight: 100;
+  flex-direction: column;
+  background: black;
+}
+.contentContainer .content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  margin: auto;
+  align-self: flex-start;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px black;
+}
+.contentContainer .content .menusHolder {
+  width: 180px;
+}
+.contentContainer .content .innerContent {
+  width: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 8px 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+}
+.headerContainer .rightModule {
+  min-width: 200px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.headerContainer .rightModule .avatar {
+  padding: 13px 10px;
+  background: #56d5b8;
+  border-radius: 40px;
+  align-self: center;
+  font-size: 12px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+}
+.headerContainer .rightModule .username {
+  align-self: center;
+  padding: 10px 20px;
+  font-weight: 100;
+  font-size: 14px;
+}
+.headerContainer .rightModule .button {
+  align-self: center;
+}
+
+.actionBadge {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #000000;
+  margin: 12px 0;
+}
+.actionBadge .label {
+  font-size: 13px;
+  align-self: center;
+}
+.actionBadge .number {
+  background: #9829ab;
+  padding: 4px;
+  border-radius: 20px;
+  width: 26px;
+  text-align: center;
+}
+
+.dashPreviewContainer {
+  width: 220px;
+  margin: 40px 40px 20px 0;
+  display: inline-block;
+}
+.dashPreviewContainer .titleContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: black;
+}
+.dashPreviewContainer .titleContainer a {
+  align-self: center;
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.dashboardContainer {
+  width: 100%;
+}
+.dashboardContainer .contentContainer {
+  padding: 40px;
+}
+
+.dashboardLinks {
+  display: flex;
+  border-bottom: 1px solid #9829ab;
+}
+.dashboardLinks .link {
+  border-bottom: none;
+  padding: 10px 20px;
+  margin-right: 4px;
+  font-size: 13px;
+  color: #ffffff;
+}
+.dashboardLinks .link:first-child {
+  margin-left: 20px;
+}
+.dashboardLinks .link.active {
+  background: #9829ab;
+  color: #ffffff;
+}
+
+.chartTitle {
+  text-align: center;
+  padding: 12px 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 100;
+  color: #ffffff;
+}
+
+.pieChartContainer .labelContainer {
+  position: absolute;
+  border-radius: 100px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 40%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.pieChartContainer .top {
+  font-size: 16px;
+  font-weight: 100;
+  align-self: center;
+  text-align: center;
+}
+.pieChartContainer .bottom {
+  align-self: center;
+  font-weight: 800;
+  font-size: 13px;
+}
+.pieChartContainer .title {
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 100;
+  text-align: center;
+  padding: 20px;
+}
+
+.numericDisplayContainer {
+  width: auto;
+  text-align: center;
+  align-content: center;
+}
+.numericDisplayContainer .title {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #ffffff;
+  font-weight: 100;
+  padding-bottom: 8px;
+}
+.numericDisplayContainer .number {
+  font-size: 34px;
+  font-weight: 400;
+  color: #ffffff;
+  padding-bottom: 8px;
+}
+.numericDisplayContainer .label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.05);
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.numericDisplayContainer select {
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: #000000;
+  color: rgba(255, 255, 255, 0.05);
+  border-color: #9829ab;
+  margin-top: 10px;
+}
+
+.vendorGridContainer {
+  text-align: center;
+}
+.vendorGridContainer .outerContainer {
+  padding: 20px;
+  width: 220px;
+  height: 120px;
+  background: #ffffff;
+  margin: 20px;
+  display: inline-block;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: 0.2s;
+}
+.vendorGridContainer .outerContainer:hover {
+  padding: 10px;
+}
+.vendorGridContainer .imgContainer {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.helpContainer {
+  width: 100%;
+  font-weight: 100;
+  box-sizing: border-box;
+  margin: 20px;
+  border-radius: 10px;
+}
+.helpContainer .question {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+.helpContainer .tag {
+  font-size: 13px;
+  max-width: 100px;
+  text-align: center;
+  padding: 4px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.helpContainer .Feed {
+  border: 1px solid #9829ab;
+}
+.helpContainer .Keycards {
+  border: 1px solid #56a8d7;
+}
+.helpContainer .Dashboards {
+  border: 1px solid #56d5b8;
+}
+.helpContainer .Messaging {
+  border: 1px solid #9829ab;
+}
+.helpContainer .Data {
+  border: 1px solid #56a8d7;
+}
+.helpContainer .Employees {
+  border: 1px solid #56d5b8;
+}
+.helpContainer .Scheduling {
+  border: 1px solid #9829ab;
+}
+.helpContainer .answer {
+  font-size: 13px;
+}
+
+.container {
+  width: 120px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  font-weight: 100;
+  font-size: 13px;
+  color: #ffffff;
+}
+.container.hasNoSub {
+  width: 130px;
+}
+.container.hasNoSub .subMenu {
+  display: none;
+}
+.container .mainMenu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 130px;
+}
+.container .subMenu {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+}
+.container .link {
+  padding: 20px 20px;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+}
+.container .link.active {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #9829ab;
+  font-weight: 700;
+  color: #ffffff;
+}
+.container .link:hover {
+  border-left: 4px solid #0070f3;
+  color: #ffffff;
+}
+.container .hasNoSub .subMenu {
+  display: none;
+}
+
+.toggleContainer {
+  width: 40px;
+  height: 40px;
+  background: #0070f3;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.toggleContainer .icon {
+  align-self: center;
+}
+
+/*# sourceMappingURL=MainNavigation.module.css.map */

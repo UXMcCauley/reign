@@ -7,7 +7,7 @@ import Link from "next/link"
 import {useRouter} from "next/router";
 
 // import my components
-import {PrimaryButton} from "../components/universal/ui/Buttons";
+import {PrimaryButton} from "../components/ui/Buttons";
 import styles from "../styles/SignIn.module.scss"
 
 export default function SignIn() {

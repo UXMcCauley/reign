@@ -7,10 +7,13 @@
   width: 50%;
 }
 
-.pieContainer {
-  padding: 30px;
-  width: 550px;
-  height: 550px;
+.title {
+  font-weight: 100;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=Executive.module.css.map */

@@ -1,10 +1,11 @@
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
+import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 
 function Index(props) {
     return (
-        <ContentContainer>
+        <SingleColumnLayout>
 
-        </ContentContainer>
+        </SingleColumnLayout>
     );
 }
 

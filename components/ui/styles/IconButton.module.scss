@@ -1,0 +1,15 @@
+@import "../../../styles/globalStyles";
+
+.container {
+  display: flex;
+  cursor: pointer;
+  color: color(tertiary);
+  font-size: size(p);
+  .icon {
+    align-self: center;
+    margin-right: 6px;
+  }
+  .label{
+    align-self: center;
+  }
+}

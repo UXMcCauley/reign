@@ -2,30 +2,51 @@
 
 .subMenu {
   padding: 12px;
-  background: $purple;
+  background: color(primary);
 }
+
 .section {
   padding: 30px;
 }
+
 .title {
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
 
   .text {
-    font-weight: 100;
+    font-weight: weight(light);
     text-transform: uppercase;
   }
+
   div {
     align-self: center;
     justify-self: center;
     margin-right: 20px;
   }
 }
+
 .left {
-flex: 3;
+  flex: 3;
+  max-width: 900px;
 }
+
 .right {
-flex: 1;
+  flex: 1;
   padding: 40px 40px 0 0;
+  max-width: 350px;
+}
+
+.spacer {
+  height: 40px;
+}
+
+.link {
+  padding: 8px 0;
+  font-weight: weight(light);
+  color: color(tertiary);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

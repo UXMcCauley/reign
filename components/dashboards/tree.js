@@ -15,15 +15,15 @@ export default function TreeMap(props){
                           background={"transparent"}
                           dataSource={dataset} weightValuePath='Hours'
                           palette={[
-                              'rgba(86, 213, 184, 0.5)',
-                              'rgba(96, 193, 134, 0.5)',
-                              'rgba(225, 33, 98, 0.5)',
-                              'rgba(188, 26, 90, 0.5)',
-                              'rgba(152, 41, 171, 0.5)',
-                              'rgba(85, 40, 171, 0.5)',
-                              'rgba(40, 43, 171, 0.5)',
-                              'rgba(39, 105, 170, 0.5)',
-                              'rgba(86, 168, 215, 0.5)',
+                              '#e12162',
+                              '#bc1a5a',
+                              '#9829ab',
+                              '#5528ab',
+                              '#282bab',
+                              '#2769aa',
+                              '#56a8d7',
+                              '#56d5b8',
+                              '#60c186',
 
                           ]}
                           leafItemSettings={{

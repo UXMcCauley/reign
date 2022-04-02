@@ -22,7 +22,7 @@
   textarea {
     padding: 20px;
     height: 200px;
-    color: white;
+    color: $whiteText;
     background-color: black;
     border-radius: 8px;
     border: none;
@@ -37,7 +37,7 @@
 }
 .innerContent {
   padding: 30px;
-  background-color: $blackO;
+  background-color: $transparentBlackBg;
   width: 100%;
 }
 .open {

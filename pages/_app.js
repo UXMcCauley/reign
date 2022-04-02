@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import "../styles/globalStyles.scss"
 import 'react-responsive-modal/styles.css';
 import {AppWrapper, useAppContext} from "../context/AppContext";
 

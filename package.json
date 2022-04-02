@@ -15,11 +15,15 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@faker-js/faker": "^6.0.0-alpha.7",
+    "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.6",
     "@mui/material": "^5.4.4",
     "@mui/x-data-grid": "^5.5.1",
     "@nokacreative/generic-react-form": "^1.1.15",
     "@storybook/theming": "^6.4.19",
     "@syncfusion/ej2-react-treemap": "^19.4.52",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
     "ably": "^1.2.5-beta.1",
     "airtable": "^0.11.2",
     "chart.js": "^3.7.1",
@@ -65,11 +69,14 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
+    "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.3",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
     "eslint-plugin-storybook": "^0.5.7",
     "faker": "^5.5.3",
-    "storybook-dark-mode": "^1.0.9"
+    "postcss": "^8.4.12",
+    "storybook-dark-mode": "^1.0.9",
+    "tailwindcss": "^3.0.23"
   }
 }

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
 import {Line} from "react-chartjs-2";
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
@@ -8,13 +8,16 @@ import Numeric from "../../components/dashboards/numeric";
 import Donuts from "../../components/dashboards/donuts";
 import TreeMap from "../../components/dashboards/tree";
 import faker from "@faker-js/faker";
+import GooglePieChart from "../../components/dashboards/GooglePieChart";
+import TwoColumnRightMenu from "../../components/layouts/TwoColumnRightMenu";
+import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 
 export default function EmployeePerformance(props) {
 
     const MLChartOptions = {
         responsive: true,
         interaction: {
-            mode: 'index' ,
+            mode: 'index',
             intersect: false,
         },
         stacked: false,
@@ -26,12 +29,12 @@ export default function EmployeePerformance(props) {
         },
         scales: {
             y: {
-                type: 'linear' ,
+                type: 'linear',
                 display: true,
                 position: 'left',
             },
             y1: {
-                type: 'linear' ,
+                type: 'linear',
                 display: true,
                 position: 'right',
                 grid: {
@@ -43,28 +46,28 @@ export default function EmployeePerformance(props) {
 
     const fakeNumbers = () => {
         const arr = []
-        for (let i = 0; i < 10; i++){
-            arr.push(faker.datatype.number({ min: 0, max: 100 }))
+        for (let i = 0; i < 10; i++) {
+            arr.push(faker.datatype.number({min: 0, max: 100}))
         }
         return arr
     }
     const fakeNumbers2 = () => {
         const arr = []
-        for (let i = 0; i < 10; i++){
-            arr.push(faker.datatype.number({ min: 0, max: 100 }))
+        for (let i = 0; i < 10; i++) {
+            arr.push(faker.datatype.number({min: 0, max: 100}))
         }
         return arr
     }
     const fakeNumbers3 = () => {
         const arr = []
-        for (let i = 0; i < 10; i++){
-            arr.push(faker.datatype.number({ min: 0, max: 100 }))
+        for (let i = 0; i < 10; i++) {
+            arr.push(faker.datatype.number({min: 0, max: 100}))
         }
         return arr
     }
 
     const MLChartData = {
-        labels:["Residential Roofer", "Carpenter", "Concrete", "General Laborer", "Siding Installer", "Commercial Roofer", "Painter", "Flooring Installer", "HVAC", "Manufacturing"],
+        labels: ["Residential Roofer", "Carpenter", "Concrete", "General Laborer", "Siding Installer", "Commercial Roofer", "Painter", "Flooring Installer", "HVAC", "Manufacturing"],
         datasets: [
             {
                 label: 'Level I',
@@ -97,8 +100,7 @@ export default function EmployeePerformance(props) {
                 <meta name="description" content="REIGN"/>
                 <title>Dashboards - Employee Performance</title>
             </Head>
-            <ContentContainer>
-                <DashboardLayoutContainer>
+                <SingleColumnLayout>
                     <div>
                         <div className={styles.flexRow}>
                             <Numeric data={props.airtableNumeric.records}/>
@@ -106,21 +108,60 @@ export default function EmployeePerformance(props) {
                     </div>
                     <div>
                         <div className={styles.flexRow}>
-                            <Donuts data={props.airtableDonuts.records}/>
+                            <GooglePieChart
+                                label={"employees"}
+                                title={"employee performance"}
+                                data={[
+                                    ["Rating", "Number of employees"],
+                                    ["<5", 6],
+                                    ["5-6", 14],
+                                    ["6-7", 19],
+                                    ["7-8", 45],
+                                    ["8-9", 51],
+                                    ["9-10", 11]
+                                ]}/>
+                            <GooglePieChart
+                                label={"employees"}
+                                title={"training/keycard"}
+                                data={[
+                                    ["Keycard", "Training hours"],
+                                    ["Carpenter", 1103],
+                                    ["Commercial Roofer",1034],
+                                    ["Concrete",900],
+                                    ["Flooring Installer",1672],
+                                    ["General Laborer",783],
+                                    ["Manufacturing",1209],
+                                    ["HVAC",609],
+                                    ["Painter",399],
+                                    ["Residential Roofer",1478],
+                                    ["Siding Installer",230]
+                                ]}/>
+                        </div>
+                        <div className={styles.flexRow}>
+                            <GooglePieChart
+                                label={"employees"}
+                                title={"employees/level"}
+                                data={[
+                                    ["Rating", "Number of employees"],
+                                    ["Level 1", 600],
+                                    ["Level 2", 541],
+                                    ["Level 3", 321],
+
+                                ]}/>
+
                         </div>
                     </div>
                     <div>
                         <div className={styles.flexRow}>
-                            <Line options={MLChartOptions} data={MLChartData} type={"Line"}/>
+                            {/*<Line options={MLChartOptions} data={MLChartData} type={"Line"}/>*/}
                         </div>
                     </div>
                     <div>
                         <div>
-                            <TreeMap data={props.airtableTree}/>
+                            {/*<TreeMap data={props.airtableTree}/>*/}
                         </div>
                     </div>
-                </DashboardLayoutContainer>
-            </ContentContainer>
+                </SingleColumnLayout>
         </>
     )
 }

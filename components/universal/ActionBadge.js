@@ -1,12 +1,10 @@
-import React from 'react';
-
 function ActionBadge({label, number}) {
     return (
-        <div style={{width: "100%", display: "flex", justifyContent: "space-between", padding: 12, background: "#000000", margin: "12px 0"}}>
-            <div style={{fontSize: 12, alignSelf: "center"}}>
+        <div className={"actionBadge"}>
+            <div className={"label"}>
                 {label}
             </div>
-            <div style={{background: "#e12162", padding: 4, borderRadius: 20, width: 26, textAlign: "center"}}>
+            <div className={"number"}>
                 {number}
             </div>
         </div>

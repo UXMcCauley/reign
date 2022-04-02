@@ -1,11 +1,10 @@
-import styles from "./styles/DashboardLayoutContainer.module.scss"
 import DashboardLinks from "./DashboardLinks";
-export default function DashboardLayoutContainer({children}) {
 
+export default function DashboardLayoutContainer({children}) {
     return (
-        <div className={styles.container}>
+        <div className={"dashboardContainer"}>
             <DashboardLinks/>
-            <div className={styles.contentContainer}>
+            <div className={"contentContainer"}>
                 {children}
             </div>
         </div>

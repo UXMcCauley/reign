@@ -1,26 +1,329 @@
-$pink: #e12162;
-$red: #bc1a5a;
-$purple: #9829ab;
-$violet: #5528ab;
-$blue: #282bab;
-$navy: #2769aa;
-$lightBlue: #56a8d7;
-$teal: #56d5b8;
-$green: #60c186;
-$black: rgba(75, 75, 75, 0.11);
-$white: #ffffff;
-$gray: #1d0224;
+@import "variables";
 
-$redO: rgba(188, 26, 90, 0.5);
-$pinkO: rgba(225, 33, 98, 0.5);
-$purpleO: rgba(152, 41, 171, 0.5);
-$violetO: rgba(85, 40, 171, 0.5);
-$blueO: rgba(40, 43, 171, 0.5);
-$navyO: rgba(39, 105, 170, 0.5);
-$lightBlueO: rgba(86, 168, 215, 0.5);
-$tealO: rgba(86, 213, 184, 0.5);
-$greenO: rgba(96, 193, 134, 0.5);
-$blackO: rgba(0, 0, 0, 0.24);
-$whiteO: rgba(255, 255, 255, 0.5);
+.contentContainer {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-content: flex-start;
+  justify-content: center;
+  font-weight: 100;
+  flex-direction: column;
+  background: black;
 
-$navyPanel :#001834;
+
+  .content {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    margin: auto;
+    align-self: flex-start;
+    background: $transparentBlackBg;
+    box-shadow: 0 0 10px black;
+
+
+    .menusHolder {
+      width: 180px;
+    }
+
+    .innerContent {
+      width: 100%;
+      border-left: 1px solid $transparentWhiteBg;
+    }
+
+  }
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  color: $whiteText;
+  padding: 8px 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+
+  .rightModule {
+    min-width: 200px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    .avatar {
+      padding: 13px 10px;
+      background: color(tertiary);
+      border-radius: 40px;
+      align-self: center;
+      font-size: 12px;
+      margin-left: 20px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .username {
+      align-self: center;
+      padding: 10px 20px;
+      font-weight: 100;
+      font-size: 14px;
+    }
+
+    .button {
+      align-self: center;
+    }
+  }
+
+}
+
+//action badge
+.actionBadge {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #000000;
+  margin: 12px 0;
+
+  .label {
+    font-size: size(p);
+    align-self: center;
+  }
+
+  .number {
+    background: color(primary);
+    padding: 4px;
+    border-radius: 20px;
+    width: 26px;
+    text-align: center
+  }
+}
+
+// dash preview
+.dashPreviewContainer {
+  width: 220px;
+  margin: 40px 40px 20px 0;
+  display: inline-block;
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: black;
+
+    a {
+      align-self: center;
+      font-weight: weight(light);
+      font-size: size(p);
+    }
+  }
+}
+
+//DASHBOARD STYLES
+.dashboardContainer {
+  width: 100%;
+
+  .contentContainer {
+    padding: 40px;
+  }
+}
+
+.dashboardLinks {
+  display: flex;
+  border-bottom: 1px solid color(primary);
+
+  .link {
+    border-bottom: none;
+    padding: 10px 20px;
+    margin-right: 4px;
+    font-size: size(p);
+    color: $whiteText;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+
+    &.active {
+      background: color(primary);
+      color: $whiteText;
+    }
+  }
+}
+
+//chart title
+.chartTitle {
+  text-align: center;
+  padding: 12px 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: size(h2);
+  font-weight: weight(light);
+  color: $whiteText;
+}
+
+// pie chart
+.pieChartContainer {
+  .labelContainer {
+    position: absolute;
+    border-radius: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  .top {
+    font-size: size(h2);
+    font-weight: weight(light);
+    align-self: center;
+    text-align: center;
+  }
+
+  .bottom {
+    align-self: center;
+    font-weight: weight(bold);
+    font-size: size(p);
+  }
+
+  .title {
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: weight(light);
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+//numeric display
+.numericDisplayContainer {
+  width: auto;
+  text-align: center;
+  align-content: center;
+
+  .title {
+    text-transform: uppercase;
+    font-size: size(p);
+    color: $whiteText;
+    font-weight: weight(light);
+    padding-bottom: 8px;
+  }
+
+  .number {
+    font-size: size(callout);
+    font-weight: weight(regular);
+    color: $whiteText;
+    padding-bottom: 8px;
+  }
+
+  .label {
+    font-size: size(p);
+    color: $transparentWhiteBg;
+    font-weight: weight(light);
+    text-transform: uppercase;
+  }
+
+  select {
+    padding: 6px 12px;
+    border-radius: 100px;
+    background: #000000;
+    color: $transparentWhiteBg;
+    border-color: color(primary);
+    margin-top: 10px;
+  }
+}
+
+//DATA EXPORT
+.vendorGridContainer {
+  text-align: center;
+
+  .outerContainer {
+    padding: 20px;
+    width: 220px;
+    height: 120px;
+    background: #ffffff;
+    margin: 20px;
+    display: inline-block;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: 0.2s;
+
+    &:hover {
+      padding: 10px;
+    }
+  }
+
+  .imgContainer {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+  }
+}
+
+//HELP PAGE
+.helpContainer {
+  width: 100%;
+  font-weight: weight(light);
+  box-sizing: border-box;
+  margin: 20px;
+  border-radius: 10px;
+
+  .question {
+    font-size: size(h2);
+    margin-bottom: 12px;
+    font-weight: weight(bold);
+
+  }
+
+  .tag {
+    font-size: size(p);
+    max-width: 100px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+
+  }
+
+  .Feed {
+    border: 1px solid color(primary);
+  }
+
+  .Keycards {
+    border: 1px solid color(secondary);
+  }
+
+  .Dashboards {
+    border: 1px solid color(tertiary);
+  }
+
+  .Messaging {
+    border: 1px solid color(primary);
+  }
+
+  .Data {
+    border: 1px solid color(secondary);
+  }
+
+  .Employees {
+    border: 1px solid color(tertiary);
+  }
+
+  .Scheduling {
+    border: 1px solid color(primary);
+  }
+
+  .answer {
+    font-size: size(p);
+  }
+}
+
+

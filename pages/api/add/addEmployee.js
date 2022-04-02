@@ -1,4 +1,5 @@
 import {connectToDatabase} from "../../../lib/dbConnect";
+import {ObjectId} from "mongodb";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
@@ -19,7 +20,19 @@ export default async (req, res) => {
             zipCode: req.body.zipCode,
             gender: req.body.gender,
             pronouns: req.body.pronouns,
-            timestamp: new Date()
+            organization: ObjectId(req.body.organization),
+            createdAt: new Date(),
+            startDate: req.body.startDate,
+            username: req.body.username,
+            password: req.body.password,
+            highSchool: req.body.highSchool,
+            college: req.body.college,
+            bio: req.body.bio,
+            kpi: req.body.kpi,
+            performance: req.body.performance,
+            wage: req.body.wage,
+            avatar: req.body.avatar,
+            attendance: req.body.attendance
         })
 
     res.json(newEmployee)

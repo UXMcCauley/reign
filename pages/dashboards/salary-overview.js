@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
 import DashboardLayoutContainer from "../../components/dashboards/dashboardLayoutContainer";
 import styles from "./styles/Executive.module.scss";
 import Numeric from "../../components/dashboards/numeric";
@@ -7,17 +7,12 @@ import Donuts from "../../components/dashboards/donuts";
 import LineChart from "../../components/dashboards/line";
 import BarChart from "../../components/dashboards/bar";
 import TreeMap from "../../components/dashboards/tree";
+import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 
 export default function SalaryOverview(props) {
     return (
         <>
-            <Head>
-                <title>REIGN Workforce Analytics</title>
-                <meta name="description" content="REIGN"/>
-                <title>Dashboards - Salary Overview</title>
-            </Head>
-            <ContentContainer>
-                <DashboardLayoutContainer>
+            <SingleColumnLayout>
                     <div>
                         <div className={styles.flexRow}>
                             <Numeric data={props.airtableNumeric.records}/>
@@ -43,8 +38,7 @@ export default function SalaryOverview(props) {
                             <TreeMap data={props.airtableTree}/>
                         </div>
                     </div>
-                </DashboardLayoutContainer>
-            </ContentContainer>
+            </SingleColumnLayout>
         </>
     )
 }

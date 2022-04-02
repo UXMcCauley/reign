@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
+import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 
 
 export default function Settings() {
@@ -9,9 +10,9 @@ export default function Settings() {
                 <title>REIGN Workforce Intelligence - Settings</title>
                 <meta name="description" content="Account Settings"/>
             </Head>
-            <ContentContainer>
+            <SingleColumnLayout>
 
-            </ContentContainer>
+            </SingleColumnLayout>
 
         </>
     )

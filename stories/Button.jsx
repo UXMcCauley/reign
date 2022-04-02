@@ -1,4 +1,4 @@
-import Buttons from "../components/universal/ui/Buttons"
+import Buttons from "../components/ui/Buttons"
 
 export default {
   title: "Buttons",

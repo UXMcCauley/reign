@@ -1,0 +1,48 @@
+.button {
+  text-transform: uppercase;
+  font-weight: 100;
+  padding: 8px;
+  border: none;
+  background: #e12162;
+  background: linear-gradient(335deg, #56a8d7 0%, #56d5b8 100%);
+  border-radius: 100px;
+  color: #ffffff;
+  min-width: 130px;
+  max-width: 330px;
+  font-size: 13px;
+  transition: 0.2s;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.button .icon {
+  align-self: center;
+  height: 20px;
+  padding-right: 10px;
+}
+.button .label {
+  height: 14px;
+  align-self: center;
+}
+.button.pink {
+  background: #9829ab;
+  background: linear-gradient(335deg, #9829ab 0%, #5528ab 100%);
+  color: white;
+  transition: 0.2s;
+}
+.button.pink:hover {
+  background: #5528ab;
+  background: linear-gradient(300deg, #9829ab 0%, #5528ab 50%);
+  transition: 0.2s;
+}
+.button.blue {
+  background: #56a8d7;
+  background: linear-gradient(335deg, #56a8d7 0%, #56d5b8 100%);
+}
+.button.blue:hover {
+  background: #56d5b8;
+  background: linear-gradient(300deg, #56a8d7 0%, #56d5b8 50%);
+}
+
+/*# sourceMappingURL=Buttons.module.css.map */

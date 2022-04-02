@@ -1,17 +1,18 @@
+@use "sass:map";
 @import "styles/globalStyles";
 
 .container {
   width: 85px;
   height: 31px;
   display: flex;
-  background: $black;
+  background: #000000;
   border-radius: 100px;
   padding: 6px;
   font-size: 13px;
   position: relative;
   margin: 10px auto;
-  border: 1px solid $purpleO;
-  color: $white;
+  border: 1px solid color(primary);
+  color: $whiteText;
 
   .slider {
     position: absolute;
@@ -20,7 +21,7 @@
     width: 25px;
     height: 25px;
     border-radius: 30px;
-    background: $purple;
+    background: color(primary);
     transition: 0.2s;
   }
 
@@ -28,10 +29,10 @@
     width: 30px;
     text-align: center;
     cursor: pointer;
-    color: $white;
+    color: $whiteText;
 
     &.active {
-      color: $white;
+      color: $whiteText;
     }
   }
 

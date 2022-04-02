@@ -1,0 +1,54 @@
+@import "../../../styles/variables";
+
+.button {
+  text-transform: uppercase;
+  font-weight: weight(light);
+  padding: 8px;
+  border: none;
+  background: rgb(225,33,98);
+  background: linear-gradient(335deg, color(secondary) 0%,  color(tertiary) 100%);
+  border-radius: 100px;
+  color: $whiteText;
+  min-width: 130px;
+  max-width: 330px;
+  font-size: size(p);
+  transition: 0.2s;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .icon {
+    align-self: center;
+    height: 20px;
+    padding-right: 10px;
+  }
+
+  .label {
+    height: 14px;
+    align-self: center;
+  }
+
+  &.pink {
+    background: color(primary);
+    background: linear-gradient(335deg, color(primary) 0%, rgba(85,40,171,1) 100%);
+    color: white;
+    transition: 0.2s;
+
+    &:hover{
+      background: rgba(85,40,171,1);
+      background: linear-gradient(300deg, color(primary) 0%, rgba(85,40,171,1) 50%);
+      transition: 0.2s;
+    }
+  }
+
+  &.blue {
+    background: color(secondary);
+    background: linear-gradient(335deg, color(secondary) 0%, color(tertiary) 100%);
+
+    &:hover {
+      background: color(tertiary);
+      background: linear-gradient(300deg, color(secondary) 0%, color(tertiary) 50%);
+    }
+  }
+}

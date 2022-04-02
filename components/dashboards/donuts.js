@@ -1,5 +1,4 @@
 import {Doughnut} from "react-chartjs-2";
-import styles from "./styles/Donuts.module.scss"
 import {
     ArcElement,
     BarElement,
@@ -24,7 +23,7 @@ export default function Donuts(props){
     return (
         props.data.map((chart, i) => {
                 return <div style={{width: 100 / props.data.length -2 + "%"}} key={i}>
-                    <div className={styles.chartTitle}>
+                    <div className="chartTitle">
                         {chart.fields.Name}
                     </div>
                     <Doughnut type={"Doughnut"} data={{

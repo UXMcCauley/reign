@@ -1,5 +1,4 @@
 import {Line} from "react-chartjs-2";
-import styles from "./styles/LineChart.module.scss"
 import {
     ArcElement,
     BarElement,
@@ -36,7 +35,7 @@ export default function LineChart(props) {
     }
     return (
         <div>
-            <div className={styles.title}>{props.data[0].fields.Title}</div>
+            <div className="chartTitle">{props.data[0].fields.Title}</div>
             <Line options={{
                 responsive: true,
                 plugins: {

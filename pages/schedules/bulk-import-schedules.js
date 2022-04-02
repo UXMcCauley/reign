@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
 import DataTable from "react-data-table-component";
 import {customTableStyles, scheduleUploadTableColumns} from "../../lib/helpers";
 import {useState} from "react";

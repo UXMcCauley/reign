@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/layout"
+import ContentContainer from "../../components/universal/ContentContainer"
 import VendorGrid from "../../components/data/vendorGrid";
 
 export default function Home() {

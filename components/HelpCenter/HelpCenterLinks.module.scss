@@ -1,29 +1,29 @@
 @import "styles/globalStyles";
 
-.links {
+.helpCenterLinks {
   display: flex;
-  border-bottom: 1px solid $purple;
+  border-bottom: 1px solid color(primary);
   width: 100%;
   cursor: pointer;
 
   .link {
-    border: 1px solid $purple;
+    border: 1px solid color(primary);
     border-bottom: none;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     padding: 6px 14px;
     margin-right: 4px;
     font-size: 12px;
-    color: $white;
+    color: $whiteText;
 
     &:first-child {
       margin-left: 20px;
     }
 
     &.active {
-      background: $purple;
-      color: $white;
-      border-color: $purple;
+      background: color(primary);
+      color: $whiteText;
+      border-color:  color(primary);
     }
 
   }

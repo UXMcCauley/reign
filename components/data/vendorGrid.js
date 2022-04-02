@@ -1,4 +1,3 @@
-import styles from "./styles/VendorTile.module.scss"
 import VendorTile from "./vendorTile";
 
 export default function VendorGrid() {
@@ -29,7 +28,7 @@ export default function VendorGrid() {
         {img: "/partner-logos/zoho.png", title: "Zoho"},
     ]
     return (
-        <div className={styles.gridContainer}>
+        <div className={"vendorGridContainer"}>
             <h1>Please select your preferred payroll vendor for export options.</h1>
             {
                 vendors.map((vendor, i) => {
