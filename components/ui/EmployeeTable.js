@@ -14,7 +14,8 @@ export default function EmployeeTable({
                                           searchTerm,
                                           selectedEmployees,
                                           setSelectedEmployees,
-                                          setFly
+                                          setFly,
+                                          buttonLink
                                       }) {
     const parsedPeople = JSON.parse(people)
 
@@ -27,7 +28,7 @@ export default function EmployeeTable({
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
                     <button onClick={() => {
-                        if(selectedEmployees.length === 2){
+                        if (selectedEmployees.length === 2) {
                             setFly(true)
                         } else {
                             alert("You need 2 employees to compare.")
@@ -41,11 +42,11 @@ export default function EmployeeTable({
                     <button onClick={() => {
                         setSelectedEmployees([])
                     }}
-                        type="button"
-                        className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                            type="button"
+                            className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
                     >{"Clear compare"}
                     </button>
-                    <a href={"/employees/add"}>
+                    <a href={buttonLink}>
                         <button
                             type="button"
                             className="ml-4 inline-flex items-center justify-center rounded-md border border-transparent bg-violet-700 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"

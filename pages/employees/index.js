@@ -20,11 +20,11 @@ export default function Index({employees}) {
             </Head>
             <LayoutWithSearch setSearchTerm={setSearchTerm}>
                 <EmployeeCompareFlyin flyIn={flyIn} setFly={setFlyIn} selectedEmployees={selectedEmployees}/>
-                <div className={`max-w-8xl mx-auto sm:px-6 lg:px-8 border-b mb-10 border-gray-800 divide-gray-800 ${selectedEmployees.length ? "visible" : "hidden"}`}>
-                    <h1 className={"mb-1"}>Compare Employees</h1>
-                    <ul role="list" className="divide-y divide-gray-800">
+                <div className={`max-w-8xl mx-auto sm:px-6 lg:px-8 border-b mb-10 border-gray-200 divide-gray-200 dark:border-gray-800 dark:divide-gray-800 ${selectedEmployees.length ? "visible" : "hidden"}`}>
+                    <h1 className={"mb-1 text-black dark:text-white"}>Compare Employees</h1>
+                    <ul role="list" className="divide-y divide-gray-200 dark:divide-gray-800">
                         {selectedEmployees.map((item) => (
-                            <li key={item.id} className="py-4">
+                            <li key={item.id} className="py-4 text-black dark:text-white">
                                 {item.name}
                             </li>
                         ))}
@@ -40,6 +40,7 @@ export default function Index({employees}) {
                     desc={"List of all employees in your organization."}
                     heads={["Last", "First", "Cell", "KPI", "Performance", "Attendance", "RTR"]}
                     buttonLabel={"Add employee"}
+                    buttonLink={"/employees/add"}
                     linkLabel={"Real-Time Resume"}/>
             </LayoutWithSearch>
         </>

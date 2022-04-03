@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import {Fragment, useEffect, useState} from 'react'
 import Navigation from "../ui/Navigation";
 import {MenuIcon} from '@heroicons/react/outline'
@@ -10,6 +9,14 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+const secondaryNavigation = [
+    {name: 'Inequity Gap Finder', href: '#'},
+    {name: 'Employee Comparison Tool', href: '/employees'},
+    {name: 'Team Comparison Component', href: '#'},
+    {name: 'Payroll Data Export', href: '#'},
+    {name: 'Add an employee', href: '#'},
+    {name: 'Generate a team', href: '#'},
+]
 export default function TwoColumnRightMenu({children}) {
     const [dark, setDark] = useState(false)
     const isSet = (val) => {
@@ -17,9 +24,8 @@ export default function TwoColumnRightMenu({children}) {
     }
     useEffect(() => {
         const setMode = localStorage.getItem("mode")
-        console.log(setMode)
         setDark(localStorage.getItem("mode"))
-    },[])
+    }, [])
     return (
         <>
             <div className={`h-screen flex ${eval(dark) ? "dark" : ""}`}>
@@ -37,10 +43,11 @@ export default function TwoColumnRightMenu({children}) {
                                         src="/img/Reignlogo.png"
                                         alt="Workflow"
                                     />
-                                    <div className={"text-black-100"}>REIGN</div>
+                                    <div className={"text-black dark:text-white ml-2"}>REIGN <span
+                                        className={`text-xs`}>Workforce
+                                        Intelligence</span></div>
                                 </div>
-                                <Navigation isSet={isSet}/>
-
+                                <Navigation/>
                             </div>
                             <div className="flex-shrink-0 flex border-t border-gray-900 p-4 dark:border-gray-800">
                                 <a href="#" className="flex-shrink-0 w-full group block">
@@ -101,6 +108,17 @@ export default function TwoColumnRightMenu({children}) {
                                 <Heading label={"Actions"}/>
                                 <Feed/>
                                 <Heading label={"Functions"}/>
+                                <div className="mt-1 space-y-1" aria-labelledby="projects-headline">
+                                    {secondaryNavigation.map((item) => (
+                                        <a
+                                            key={item.name}
+                                            href={item.href}
+                                            className="group flex items-center px-3 py-2 text-sm font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                        >
+                                            <span className="truncate">{item.name}</span>
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                         </aside>
                     </div>

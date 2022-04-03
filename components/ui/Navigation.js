@@ -1,11 +1,15 @@
 import React, {useEffect, useState} from 'react';
+import { useTheme } from 'next-themes'
 import {
+    AdjustmentsIcon,
     CalendarIcon,
+    ClockIcon,
     HomeIcon,
-    MapIcon,
-    SearchCircleIcon,
+    KeyIcon,
+    UserIcon,
     SpeakerphoneIcon,
-    UserGroupIcon
+    UserGroupIcon,
+    QuestionMarkCircleIcon
 } from "@heroicons/react/outline";
 import Toggle from "./Toggle";
 import {useRouter} from "next/router";
@@ -13,32 +17,23 @@ import {useRouter} from "next/router";
 const navigation = [
     {name: 'Home', href: '/', icon: HomeIcon, current: false},
     {name: 'Messages', href: '/messages', icon: CalendarIcon, current: false},
-    {name: 'Employees', href: '/employees', icon: UserGroupIcon, current: false},
-    {name: 'Teams', href: '/teams', icon: SearchCircleIcon, current: false},
+    {name: 'Employees', href: '/employees', icon: UserIcon, current: false},
+    {name: 'Teams', href: '/teams', icon: UserGroupIcon, current: false},
     {name: 'Projects', href: '/projects', icon: SpeakerphoneIcon, current: false},
-    {name: 'Timecards', href: '/timecards', icon: MapIcon, current: false},
-    {name: 'Keycards', href: '/keycards', icon: MapIcon, current: false},
-    {name: 'Schedules', href: '/schedules', icon: MapIcon, current: false},
-    {name: 'Settings', href: '/settings', icon: MapIcon, current: false},
-    {name: 'Help Center', href: '/help', icon: MapIcon, current: false},
+    {name: 'Timecards', href: '/timecards', icon: ClockIcon, current: false},
+    {name: 'Keycards', href: '/keycards', icon: KeyIcon, current: false},
+    {name: 'Schedules', href: '/schedules', icon: CalendarIcon, current: false},
+    {name: 'Settings', href: '/settings', icon: AdjustmentsIcon, current: false},
+    {name: 'Help Center', href: '/help', icon: QuestionMarkCircleIcon, current: false},
 ]
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function Navigation(props) {
+function Navigation({dark, setDark}) {
     const router = useRouter()
-    const [dark, setDark] = useState()
-    const [isDark, setIsDark] = useState("")
-    const isSet = (val) => {
-        props.isSet(val)
-    }
-    useEffect(() => {
-        const currentMode = localStorage.getItem("mode")
-        setIsDark(eval(currentMode))
-
-    }, [])
+    const { theme, setTheme } = useTheme()
 
     return (
         <nav className="mt-5 flex-1" aria-label="Sidebar">
@@ -67,8 +62,8 @@ function Navigation(props) {
             </div>
             <div className={"p-3"}>
                 <div
-                    className={"text-sm text-black dark:text-white mb-2"}>{eval(isDark) ? "Dark Mode" : "Light Mode"}</div>
-                <Toggle isSet={isSet}/>
+                    className={"text-sm text-black dark:text-white mb-2"}>{theme === "dark" ? "Dark Mode" : "Light Mode"}</div>
+                <Toggle/>
             </div>
 
         </nav>

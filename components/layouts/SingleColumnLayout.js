@@ -1,31 +1,25 @@
-/* This example requires Tailwind CSS v2.0+ */
 import {Fragment, useEffect, useState} from 'react'
 import {MenuIcon} from '@heroicons/react/outline'
 import Navigation from "../ui/Navigation";
 import TransitionRoot from "./TransitionRoot";
-import Breadcrumbs from "../ui/Breadcrumbs";
+import {useTheme} from 'next-themes'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function SingleColumnLayout({children}) {
-    const [dark, setDark] = useState("false")
-    const isSet = (val) => {
-        setDark(val)
-    }
-    useEffect(() => {
-        const setMode = localStorage.getItem("mode")
-        setDark(localStorage.getItem("mode"))
-    },[])
+    const {theme, setTheme} = useTheme()
+
     return (
         <>
-            <div className={`h-screen flex ${eval(dark) ? "dark" : ""}`}>
-               <TransitionRoot/>
+            <div className={`h-screen flex ${theme === "true" ? "dark" : "light"}`}>
+                <TransitionRoot/>
                 {/* Static sidebar for desktop */}
                 <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                    <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white dark:bg-black dark:border-gray-800">
+                    <div
+                        className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white dark:bg-black dark:border-gray-800">
                         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                             <div className="flex items-center flex-shrink-0 px-4">
                                 <img
@@ -33,8 +27,11 @@ export default function SingleColumnLayout({children}) {
                                     src="/img/Reignlogo.png"
                                     alt="Workflow"
                                 />
+                                <div className={"text-black dark:text-white ml-2"}>REIGN <span
+                                    className={`text-xs`}>Workforce
+                                        Intelligence</span></div>
                             </div>
-                            <Navigation isSet={isSet}/>
+                            <Navigation/>
                         </div>
                         <div className="flex-shrink-0 flex border-t border-gray-900 p-4 ">
                             <a href="#" className="flex-shrink-0 w-full group block">
@@ -74,7 +71,6 @@ export default function SingleColumnLayout({children}) {
 
                                 {/* Replace with your content */}
                                 <div className="py-4">
-
                                     {children}
                                 </div>
                                 {/* /End replace */}

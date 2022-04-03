@@ -49,11 +49,11 @@ function GooglePieChart({data, label, title}) {
     };
     return (
         <div className={"pieChartContainer"}>
-            <div className="chartTitle">{title}</div>
-            <div style={{position: "relative"}}>
-                <div className={"labelContainer"}>
-                    <div className={"top"}>{selected[0]}</div>
-                    <div className={"bottom"}>{selected[1]} {selected.length > 0 ? label : null}</div>
+            <div className={"text-black dark:text-white text-l uppercase font-light w-full text-center mt-14 mb-4"}>{title}</div>
+            <div className={`relative`}>
+                <div className={`text-black dark:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
+                    <div className={`text-center text-sm`}>{selected[0]}</div>
+                    <div className={`text-center`}>{selected[1]} {selected.length > 0 ? label : null}</div>
                 </div>
                 <Chart
                     chartType="PieChart"

@@ -1,26 +1,24 @@
 /* This example requires Tailwind CSS v2.0+ */
 import {useEffect, useState} from 'react'
 import { Switch } from '@headlessui/react'
+import { useTheme } from 'next-themes'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Toggle(props) {
-    const [enabled, setEnabled] = useState(false)
-useEffect(() => {
-    setEnabled(eval(localStorage.getItem("mode")))
-}, [])
+export default function Toggle({dark, setDark}) {
+    const { theme, setTheme } = useTheme()
+
     return (
         <Switch
-            checked={enabled}
+            checked={theme === "dark"}
             onChange={() => {
-                setEnabled(!enabled)
-                localStorage.setItem("mode", enabled)
-                props.isSet(enabled)
+                // localStorage.setItem("mode", enabled)
+                setTheme(theme === "light" ? "dark" : "light")
             }}
             className={classNames(
-                enabled ? 'bg-indigo-600' : 'bg-gray-200',
+                theme === "dark" ? 'bg-indigo-600' : 'bg-gray-200',
                 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
             )}
         >
@@ -28,7 +26,7 @@ useEffect(() => {
             <span
                 aria-hidden="true"
                 className={classNames(
-                    enabled ? 'translate-x-5' : 'translate-x-0',
+                    theme === "dark" ? 'translate-x-5' : 'translate-x-0',
                     'pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'
                 )}
             />

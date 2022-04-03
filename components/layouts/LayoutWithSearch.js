@@ -44,15 +44,18 @@ export default function LayoutWithSearch({children, setSearchTerm}) {
                 <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex-1 flex-col flex-grow pt-5 border-r border-gray-200 bg-white overflow-y-auto dark:bg-black dark:border-gray-800">
-                        <div className="flex items-center flex-shrink-0 px-4">
-                            <img
-                                className="h-8 w-auto"
-                                src="/img/Reignlogo.png"
-                                alt="Workflow"
-                            />
-                        </div>
-                        <div className="flex-1 flex flex-col">
-                            <Navigation isSet={isSet}/>
+                        <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                            <div className="flex items-center flex-shrink-0 px-4">
+                                <img
+                                    className="h-8 w-auto"
+                                    src="/img/Reignlogo.png"
+                                    alt="Workflow"
+                                />
+                                <div className={"text-black dark:text-white ml-2"}>REIGN <span
+                                    className={`text-xs`}>Workforce
+                                        Intelligence</span></div>
+                            </div>
+                            <Navigation/>
                         </div>
                     </div>
                 </div>

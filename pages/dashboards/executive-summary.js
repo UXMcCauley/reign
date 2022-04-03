@@ -16,17 +16,16 @@ export default function ExecutiveSummary(props) {
         <>
             <SingleColumnLayout>
                 <Heading label={"Executive Summary"}/>
-                <div className={"justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetric value={20021} title={"employees"} subtitle={"total"} options={["Option 1", "option 2"]}/>
-                    <TopMetric value={20021} title={"training hours"} subtitle={"total"} options={["Option 1", "option 2"]}/>
-                    <TopMetric value={20021} title={"production hours"} subtitle={"total"} options={["Option 1", "option 2"]}/>
-                    <TopMetric value={20021} title={"payroll average"} subtitle={"total"} options={["Option 1", "option 2"]}/>
-                    <TopMetric value={20021} title={"new hires"} subtitle={"total"} options={["Option 1", "option 2"]}/>
-                    <TopMetric value={20021} title={"raises"} subtitle={"total"} options={["Option 1", "option 2"]}/>
+                <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
+                    <TopMetric value={20021} title={"employees"} subtitle={""} options={[]}/>
+                    <TopMetric value={17324} title={"training hours"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
+                    <TopMetric value={347212} title={"production hours"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
+                    <TopMetric value={1904658} title={"payroll average"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
+                    <TopMetric value={399} title={"new hires"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
+                    <TopMetric value={7446} title={"raises"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
                 </div>
                 <div>
-                    <div className={styles.flexRow}>
-
+                    <div className={`flex justify-between`}>
                         <GooglePieChart label={"employees"} title={"performance/employee"} data={[
                             ["Rating", "Number of employees"],
                             ["<5", 6],
@@ -68,11 +67,11 @@ export default function ExecutiveSummary(props) {
                     </div>
                 </div>
                 <div>
-                    <div className={styles.flexRow}>
-                        <div className={styles.half}>
+                    <div className={`flex`}>
+                        <div className={`w-1/2`}>
                             <LineChart data={props.airtableLine.records}/>
                         </div>
-                        <div className={styles.half}>
+                        <div className={`w-1/2`}>
                             <BarChart data={props.airtableBar}/>
                         </div>
                     </div>
