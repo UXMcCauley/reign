@@ -1,8 +1,13 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function TopMetricYMQ({title, value, options}) {
-    const [selected, setSelected] = useState(options[0])
+    const [selected, setSelected] = useState("")
     const [number, setNumber] = useState(value)
+    useEffect(() => {
+        if(options.length > 0){
+            setSelected(options[0])
+        }
+    },[])
     return (
         <div className={`flex flex-col align-middle text-center justify-center `}>
             <div className={"text-xs text-black text-center uppercase font-light self-center dark:text-white mb-2"}>{title}</div>
