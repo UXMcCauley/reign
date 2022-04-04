@@ -1,7 +1,7 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function TeamsEmployeeList({employees}) {
-    const [employeeList, setEmployeeList] = useState(employees)
+    const [employeeList, setEmployeeList] = useState([employees])
     const [selectedEmployees, setSelectedEmployees] = useState([])
     const [teamName, setTeamName] = useState("")
     let [wages, setWages] = useState(0)
@@ -29,7 +29,9 @@ export default function TeamsEmployeeList({employees}) {
             console.log(err)
         })
     }
-
+    useEffect(() => {
+        setEmployeeList(employees)
+    }, [])
     return (
         <div className={`flex`}>
             <div className={`w-1/2`}>
@@ -112,19 +114,19 @@ export default function TeamsEmployeeList({employees}) {
                         <div>
                             <div className={"text-black dark:text-white"}>Avg/KPI</div>
                             <div className={"text-center text-3xl"}>
-                                {(KPI/selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
+                                {(KPI / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
                             </div>
                         </div>
                         <div>
                             <div className={"text-black dark:text-white"}>Avg/Performance</div>
                             <div className={"text-center text-3xl"}>
-                                {(performance/selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
+                                {(performance / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
                             </div>
                         </div>
                         <div>
                             <div className={"text-black dark:text-white"}>Avg/Attendance</div>
                             <div className={"text-center text-3xl"}>
-                                {(attendance/selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}%
+                                {(attendance / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}%
                             </div>
                         </div>
                     </div>
@@ -143,7 +145,7 @@ export default function TeamsEmployeeList({employees}) {
                     )
                 })}</div>
                 <button onClick={() => {
-                    if(teamName !== ""){
+                    if (teamName !== "") {
                         createTeam({
                             name: teamName,
                             kpi: KPI,
@@ -153,7 +155,7 @@ export default function TeamsEmployeeList({employees}) {
                             members: selectedEmployees,
                             orgId: orgId
                         })
-                    }else {
+                    } else {
                         alert("Please enter a unique team name.")
                     }
 

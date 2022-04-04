@@ -6,14 +6,14 @@ function TopMetricYMQ({title, value, options}) {
     useEffect(() => {
         if(options.length > 0){
             setSelected(options[0])
+            setNumber(value)
         }
     },[])
     return (
         <div className={`flex flex-col align-middle text-center justify-center `}>
             <div className={"text-xs text-black text-center uppercase font-light self-center dark:text-white mb-2"}>{title}</div>
             <div className={"flex text-center flex-col align-middle justify-center"}>
-                <div className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number.toLocaleString(undefined, {maximumFractionDigits: 2})}</div>
-                {/*<div className={`text-black text-center dark:text-white ${subtitle.length > 0 ? "visible" : "hidden"}`}>{selected}</div>*/}
+                <div className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}</div>
                 <div className={`self-center mt-3`}>
                     {options.length > 0 ? <select
                         onChange={(e) => {
