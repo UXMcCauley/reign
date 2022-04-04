@@ -1,7 +1,6 @@
-import Select from "../../../components/ui/Select";
 import {useState} from "react";
 
-function TopMetricYMQ({title, value, subtitle, options}) {
+function TopMetricYMQ({title, value, options}) {
     const [selected, setSelected] = useState(options[0])
     const [number, setNumber] = useState(value)
     return (
@@ -11,22 +10,22 @@ function TopMetricYMQ({title, value, subtitle, options}) {
                 <div className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number.toLocaleString(undefined, {maximumFractionDigits: 2})}</div>
                 {/*<div className={`text-black text-center dark:text-white ${subtitle.length > 0 ? "visible" : "hidden"}`}>{selected}</div>*/}
                 <div className={`self-center mt-3`}>
-                    <select
+                    {options.length > 0 ? <select
                         onChange={(e) => {
                             setSelected(e.target.value)
-                            if(e.target.value === options[0]){
+                            if (e.target.value === options[0]) {
                                 setNumber(value)
-                            }else if (e.target.value === options[1]){
-                                setNumber(value/4)
-                            }else if (e.target.value === options[2]){
-                                setNumber(value/12)
+                            } else if (e.target.value === options[1]) {
+                                setNumber(value / 4)
+                            } else if (e.target.value === options[2]) {
+                                setNumber(value / 12)
                             }
                         }}
                         className={`${options.length > 0 ? "visible" : "hidden"} text-black py-1 rounded-full`}>
                         {options.map((option, i) => {
                             return <option key={i}>{option}</option>
                         })}
-                    </select>
+                    </select> : null}
                 </div>
             </div>
         </div>
