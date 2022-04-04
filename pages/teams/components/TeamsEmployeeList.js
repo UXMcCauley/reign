@@ -1,7 +1,35 @@
 import {useEffect, useState} from "react";
+import faker from "@faker-js/faker";
 
 export default function TeamsEmployeeList({employees}) {
-    const [employeeList, setEmployeeList] = useState([employees])
+    const [employeeList, setEmployeeList] = useState([{
+        attendance: 0,
+        avatar: "",
+        bio: "bio",
+        birthdate: "2003-01-17T22:22:01.965Z",
+        cell: "cell",
+        city: "city",
+        college: "college",
+        createdAt: "2022-04-02T13:59:04.857Z",
+        email: "email",
+        firstName: "First",
+        gender: "gender",
+        highSchool: "high school",
+        home: "home",
+        kpi: 0,
+        lastName: "Last",
+        organization: "organization",
+        password: "password",
+        performance: 0,
+        pronouns: "pronouns",
+        startDate: "2017-01-01T04:56:08.187Z",
+        state: "state",
+        street: "street",
+        username: "username",
+        wage: 0,
+        zipCode: "zipCode",
+        _id: "00000000000000000",
+    }])
     const [selectedEmployees, setSelectedEmployees] = useState([])
     const [teamName, setTeamName] = useState("")
     let [wages, setWages] = useState(0)
@@ -9,6 +37,14 @@ export default function TeamsEmployeeList({employees}) {
     let [performance, setPerformance] = useState(0)
     let [attendance, setAttendance] = useState(0)
     const orgId = "61bf60ecddd910d9c0a18df1"
+
+    const generateRandomTeamName = () => {
+        const adjective = faker.word.adjective()
+        const color = faker.commerce.color()
+        const noun = faker.word.noun()
+        setTeamName(adjective + " " + color + " " + noun)
+        document.getElementById("teamName").value = teamName.toUpperCase()
+    }
 
     const removeFromArray = (id) => {
         setSelectedEmployees(prevState => {
@@ -31,7 +67,7 @@ export default function TeamsEmployeeList({employees}) {
     }
     useEffect(() => {
         setEmployeeList(employees)
-    }, [])
+    }, [employees])
     return (
         <div className={`flex`}>
             <div className={`w-1/2`}>
@@ -48,7 +84,7 @@ export default function TeamsEmployeeList({employees}) {
                                         name={employee._id}
                                         type="checkbox"
                                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
-                                        onChange={(e) => {
+                                        onChange={() => {
                                             let idx
                                             const found = selectedEmployees.find((item, i) => {
                                                 if (item.id === employee._id) {
@@ -100,9 +136,13 @@ export default function TeamsEmployeeList({employees}) {
             </div>
             <div className={`w-1/2`}>
                 <h1>Team</h1>
-                <input className={"text-black"} type={"text"} onChange={(e) => {
+                <input id={"teamName"} className={"text-black w-full rounded-xl"} type={"text"}
+                       placeholder={"Please enter a team name..."} onChange={(e) => {
                     setTeamName(e.target.value)
                 }}/>
+                <a className={"mb-5 mt-1 underline font-light block"} onClick={() => {
+                    generateRandomTeamName()
+                }}>Generate a random team name for me.</a>
                 <div>
                     <div className={"flex justify-between"}>
                         <div>
@@ -144,8 +184,12 @@ export default function TeamsEmployeeList({employees}) {
                         </div>
                     )
                 })}</div>
-                <button onClick={() => {
-                    if (teamName !== "") {
+                <button className={"text-white bg-violet-700 p-2 rounded-xl w-full"} onClick={() => {
+                    if (teamName === "") {
+                        alert("Please enter a unique team name.")
+                    } else if (selectedEmployees.length < 2) {
+                        alert("Please select at least 2 team members.")
+                    } else {
                         createTeam({
                             name: teamName,
                             kpi: KPI,
@@ -155,8 +199,9 @@ export default function TeamsEmployeeList({employees}) {
                             members: selectedEmployees,
                             orgId: orgId
                         })
-                    } else {
-                        alert("Please enter a unique team name.")
+                        if(!alert("Team " + teamName + " was added with " + selectedEmployees.length + " members!")){
+                            window.location.reload()
+                        }
                     }
 
                 }}>
