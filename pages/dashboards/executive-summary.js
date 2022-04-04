@@ -192,16 +192,16 @@ export default function ExecutiveSummary(props) {
             <SingleColumnLayout>
                 <Heading label={"Executive Summary"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={20021} title={"employees"} subtitle={""} options={["one"]}/>
-                    <TopMetricYMQ value={17324} title={"training hours"} subtitle={"total"}
+                    <TopMetricYMQ value={20021} title={"employees"} options={["one"]}/>
+                    <TopMetricYMQ value={17324} title={"training hours"}  showSelect={false}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={347212} title={"production hours"} subtitle={"total"}
+                    <TopMetricYMQ value={347212} title={"production hours"}  showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={1904658} title={"payroll average"} subtitle={"total"}
+                    <TopMetricYMQ value={1904658} title={"payroll average"}  showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={399} title={"new hires"} subtitle={"total"}
+                    <TopMetricYMQ value={399} title={"new hires"}  showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={7446} title={"raises"} subtitle={"total"}
+                    <TopMetricYMQ value={7446} title={"raises"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
                 </div>
                 <div>

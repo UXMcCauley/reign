@@ -1,12 +1,14 @@
 import {useEffect, useState} from "react";
 
-function TopMetricYMQ({title, value, options}) {
+function TopMetricYMQ({title, value, options, showSelect}) {
+    const [selectOptions, setSelectOptions] = useState(["one", "two", "three"])
     const [selected, setSelected] = useState("")
     const [number, setNumber] = useState(value)
     useEffect(() => {
         if(options.length > 1){
             setSelected(options[0])
             setNumber(value)
+            setSelectOptions(options)
         }
     },[])
     return (
@@ -15,7 +17,7 @@ function TopMetricYMQ({title, value, options}) {
             <div className={"flex text-center flex-col align-middle justify-center"}>
                 <div className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}</div>
                 <div className={`self-center mt-3`}>
-                    {options.length > 0 ? <select
+                    {showSelect === true ? <select
                         onChange={(e) => {
                             setSelected(e.target.value)
                             if (e.target.value === options[0]) {
@@ -26,7 +28,7 @@ function TopMetricYMQ({title, value, options}) {
                                 setNumber(value / 12)
                             }
                         }}
-                        className={`${options.length > 0 ? "visible" : "hidden"} text-black py-1 rounded-full`}>
+                        className={`${selectOptions.length > 0 ? "visible" : "hidden"} text-black py-1 rounded-full`}>
                         {options.map((option, i) => {
                             return <option key={i}>{option}</option>
                         })}
