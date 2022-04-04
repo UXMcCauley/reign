@@ -42,8 +42,7 @@ export default function TeamsEmployeeList({employees}) {
         const adjective = faker.word.adjective()
         const color = faker.commerce.color()
         const noun = faker.word.noun()
-        setTeamName(adjective + " " + color + " " + noun)
-        document.getElementById("teamName").value = teamName.toUpperCase()
+        setTeamName(adjective.toUpperCase(0) + " " + color.toUpperCase(0) + " " + noun.toUpperCase(0))
     }
 
     const removeFromArray = (id) => {
@@ -70,20 +69,20 @@ export default function TeamsEmployeeList({employees}) {
     }, [employees])
     return (
         <div className={`flex`}>
-            <div className={`w-1/2`}>
+            <div className={`flex-1`}>
                 <h1>Staff</h1>
                 <fieldset className="space-y-5">
                     <legend className="sr-only">Notifications</legend>
                     {employeeList.map((employee, i) => {
                         return (
                             <div key={i} className="relative flex items-start">
-                                <div className="flex items-center h-5">
+                                <div className="flex items-center self-center h-5">
                                     <input
                                         id={employee._id}
                                         aria-describedby={`${employee.firstName} ${employee.lastName}`}
                                         name={employee._id}
                                         type="checkbox"
-                                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
+                                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded self-center"
                                         onChange={() => {
                                             let idx
                                             const found = selectedEmployees.find((item, i) => {
@@ -116,8 +115,8 @@ export default function TeamsEmployeeList({employees}) {
                                     />
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label htmlFor="offers" className="text-white font-medium text-gray-700">
-                                        {employee.lastName} {employee.firstName}
+                                    <label htmlFor="offers" className="text-white font-medium text-sm text-gray-700">
+                                        {employee.firstName} {employee.lastName}
                                     </label>
                                     <p id="offers-description" className="text-gray-500">
                                         <span className={`text-pink-500`}>KPI:</span> {employee.kpi}
@@ -134,9 +133,9 @@ export default function TeamsEmployeeList({employees}) {
 
                 </fieldset>
             </div>
-            <div className={`w-1/2`}>
+            <div className={`flex-1`}>
                 <h1>Team</h1>
-                <input id={"teamName"} className={"text-black w-full rounded-xl"} type={"text"}
+                <input id={"teamName"} className={"text-black w-full rounded-xl capitalize"} type={"text"} value={teamName}
                        placeholder={"Please enter a team name..."} onChange={(e) => {
                     setTeamName(e.target.value)
                 }}/>
