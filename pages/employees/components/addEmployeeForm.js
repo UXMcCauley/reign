@@ -1,7 +1,7 @@
 import {useState} from "react";
-import styles from "./AddEmployeeForm.module.scss"
+import styles from "../../../components/employees/AddEmployeeForm.module.scss"
 import {useRouter} from "next/router";
-import {PrimaryButton} from "../ui/Buttons";
+import {PrimaryButton} from "../../../components/ui/Buttons";
 import faker from "@faker-js/faker";
 
 export default function AddEmployeeForm(props) {
@@ -87,23 +87,6 @@ export default function AddEmployeeForm(props) {
 
     const [overlay, setOverlay] = useState(false)
 
-    // BACKUP STATES BLANK DEFAULT
-    // const router = useRouter()
-    // const [firstName, setFirstName] = useState("")
-    // const [lastName, setLastName] = useState("")
-    // const [email, setEmail] = useState("")
-    // const [cell, setCell] = useState("")
-    // const [home, setHome] = useState("")
-    // const [birthdate, setBirthdate] = useState("")
-    // const [street, setStreet] = useState("")
-    // const [city, setCity] = useState("")
-    // const [state, setState] = useState("")
-    // const [zip, setZip] = useState("")
-    // const [gender, setGender] = useState("")
-    // const [pronouns, setPronouns] = useState("")
-    // const [orgId, setOrgId] = useState("61bf60ecddd910d9c0a18df1")
-    // const [overlay, setOverlay] = useState(false)
-
     const createEmployee = async (body) => {
         await fetch("/api/add/addEmployee", {
             method: "POST",
@@ -119,19 +102,6 @@ export default function AddEmployeeForm(props) {
     }
     return (
         <div className={styles.container}>
-            {/*<div className={`${styles.overlayContainer} ${overlay === true ? styles.open : null}`}>*/}
-            {/*    <div className={styles.overlayContentContainer}>*/}
-            {/*        <h1 style={{width: "100%", textAlign: "center"}}>employee added!</h1>*/}
-            {/*        <p style={{fontWeight: "100", padding: 20}}><strong*/}
-            {/*            style={{color: "yellowgreen"}}>{firstName} {lastName}</strong> has been added to your*/}
-            {/*            organization. You can close this window to add*/}
-            {/*            another employee, or click the button to see <strong*/}
-            {/*                style={{color: "yellowgreen"}}>{firstName}</strong> in your employee list.</p>*/}
-            {/*        <PrimaryButton color={"blue"} label={"View all employees"} disabled={false} action={() => {*/}
-            {/*            router.push("/employees/all-employees")*/}
-            {/*        }}/>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <h1>Add an Employee</h1>
             <form>
                 <PrimaryButton disabled={firstName === ""}

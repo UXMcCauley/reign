@@ -49,7 +49,7 @@ export default function TwoColumnRightMenu({children}) {
                                 </div>
                                 <Navigation/>
                             </div>
-                            <div className="flex-shrink-0 flex border-t border-gray-900 p-4 dark:border-gray-800">
+                            <div className="flex-shrink-0 flex border-t border-gray-200 p-4 dark:border-gray-800">
                                 <a href="#" className="flex-shrink-0 w-full group block">
                                     <div className="flex items-center">
                                         <div>

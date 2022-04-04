@@ -1,13 +1,14 @@
 import {useState} from "react";
-import {PrimaryButton} from "../ui/Buttons";
 
 export default function TeamsEmployeeList({employees}) {
     const [employeeList, setEmployeeList] = useState(employees)
     const [selectedEmployees, setSelectedEmployees] = useState([])
+    const [teamName, setTeamName] = useState("")
     let [wages, setWages] = useState(0)
     let [KPI, setKPI] = useState(0)
     let [performance, setPerformance] = useState(0)
     let [attendance, setAttendance] = useState(0)
+    const orgId = "61bf60ecddd910d9c0a18df1"
 
     const removeFromArray = (id) => {
         setSelectedEmployees(prevState => {
@@ -15,7 +16,20 @@ export default function TeamsEmployeeList({employees}) {
         })
     }
 
-    console.log(employees)
+    const createTeam = async (body) => {
+        await fetch("/api/add/team", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        }).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
     return (
         <div className={`flex`}>
             <div className={`w-1/2`}>
@@ -84,6 +98,9 @@ export default function TeamsEmployeeList({employees}) {
             </div>
             <div className={`w-1/2`}>
                 <h1>Team</h1>
+                <input className={"text-black"} type={"text"} onChange={(e) => {
+                    setTeamName(e.target.value)
+                }}/>
                 <div>
                     <div className={"flex justify-between"}>
                         <div>
@@ -125,7 +142,24 @@ export default function TeamsEmployeeList({employees}) {
                         </div>
                     )
                 })}</div>
-                <PrimaryButton label={"Create team"}/>
+                <button onClick={() => {
+                    if(teamName !== ""){
+                        createTeam({
+                            name: teamName,
+                            kpi: KPI,
+                            attendance: attendance,
+                            wages: wages,
+                            performance: performance,
+                            members: selectedEmployees,
+                            orgId: orgId
+                        })
+                    }else {
+                        alert("Please enter a unique team name.")
+                    }
+
+                }}>
+                    Create team
+                </button>
             </div>
         </div>
     )

@@ -35,7 +35,7 @@ export default function LineChart(props) {
     }
     return (
         <div>
-            <div className="chartTitle">{props.data[0].fields.Title}</div>
+            <div className={"text-black dark:text-white w-full text-center uppercase font-light mb-10"}>{props.data[0].fields.Title}</div>
             <Line options={{
                 responsive: true,
                 plugins: {

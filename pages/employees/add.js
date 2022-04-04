@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import ContentContainer from "../../components/universal/ContentContainer"
-import AddEmployeeForm from "../../components/employees/addEmployeeForm";
+import AddEmployeeForm from "./components/addEmployeeForm";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";

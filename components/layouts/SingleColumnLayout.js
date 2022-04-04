@@ -33,7 +33,7 @@ export default function SingleColumnLayout({children}) {
                             </div>
                             <Navigation/>
                         </div>
-                        <div className="flex-shrink-0 flex border-t border-gray-900 p-4 ">
+                        <div className="flex-shrink-0 flex border-t border-gray-200 dark:border-gray-800 p-4 ">
                             <a href="#" className="flex-shrink-0 w-full group block">
                                 <div className="flex items-center">
                                     <div>

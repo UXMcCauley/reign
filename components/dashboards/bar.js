@@ -22,7 +22,7 @@ export default function BarChart(props){
         Title);
     return (
         <div>
-            <div className="chartTitle">{props.data.records[0].fields.Name}</div>
+            <div className={"text-black dark:text-white w-full text-center uppercase font-light mb-10"}>{props.data.records[0].fields.Name}</div>
             <Bar type={"Bar"} data={{
                 labels: props.data.records[0].fields.XAxis.split(","),
                 datasets: [

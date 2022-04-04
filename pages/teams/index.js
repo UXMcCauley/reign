@@ -1,13 +1,13 @@
 import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
-import EmployeeTable from "../../components/ui/EmployeeTable";
+import TeamsTable from "../../components/ui/TeamsTable";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import {useState} from "react";
 import EmployeeCompareFlyin from "../../components/ui/EmployeeCompareFlyin";
 
-const orgURL = "61bf60ecddd910d9c0a18df1"
+const orgId = "61bf60ecddd910d9c0a18df1"
 
-function Index({employees}) {
+function Index({teams}) {
     const [flyIn, setFlyIn] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedEmployees, setSelectedEmployees] = useState([])
@@ -24,15 +24,15 @@ function Index({employees}) {
                     ))}
                 </ul>
             </div>
-            <EmployeeTable
+            <TeamsTable
                 setFly={setFlyIn}
                 searchTerm={searchTerm}
                 selectedEmployees={selectedEmployees}
                 setSelectedEmployees={setSelectedEmployees}
-                people={employees}
+                teams={teams}
                 title={"Teams"}
                 desc={"List of all the teams you've created."}
-                heads={["Last", "First", "Cell", "KPI", "Performance", "Attendance", ""]}
+                heads={["Team", "KPI", "Performance", "Attendance", "Wages/hr", "Size", ""]}
                 buttonLabel={"Add team"}
                 buttonLink={"/teams/add"}
                 linkLabel={"View team"}/>
@@ -45,15 +45,15 @@ export async function getServerSideProps({req}) {
 
     const {db} = await connectToDatabase()
     const employees = await db
-        .collection("employees")
-        .find({"organization": ObjectId(orgURL)})
+        .collection("teams")
+        .find({"orgId": ObjectId(orgId)})
         .toArray()
 
     const returnData = JSON.stringify(employees)
 
     return {
         props: {
-            employees: returnData,
+            teams: returnData,
         }
     }
 }

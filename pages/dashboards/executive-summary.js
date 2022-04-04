@@ -1,15 +1,190 @@
 // components
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
-import TopMetric from "../../components/dashboards/TopMetric";
+import TopMetricYMQ from "./components/TopMetricYMQ";
+import GoogleTreemap from "./components/GoogleTreeMap";
+import faker from "@faker-js/faker";
 
 // charts
 import LineChart from "../../components/dashboards/line"
 import BarChart from "../../components/dashboards/bar"
-import GooglePieChart from "../../components/dashboards/GooglePieChart";
+import GooglePieChart from "./components/GooglePieChart";
 
-//styles
-import styles from "./styles/Executive.module.scss"
+const minFake = 0
+const maxFake = 188
+
+const minFakeColor = -122
+const maxFakeColor = 122
+
+const makeParentItem = (parent, title) => {
+    return [title, parent, faker.datatype.number({
+        min: minFake,
+        max: maxFake
+    }), faker.datatype.number({min: minFakeColor, max: maxFakeColor})]
+}
+
+const makeDataItem = (parent, task) => {
+    return [parent + " / " + task, parent, faker.datatype.number({
+        min: minFake,
+        max: maxFake
+    }), faker.datatype.number({min: minFakeColor, max: maxFakeColor})]
+}
+
+const data = [
+    // headers
+    [
+        "Keycard",
+        "Parent",
+        "Production Hours for Card",
+        "High/Low Production Hours",
+    ],
+    // root
+    ["Keycards", null, 0, 21],
+    // keycards
+    makeParentItem("Keycards", "Concrete"),
+    makeParentItem("Keycards", "Carpenter"),
+    makeParentItem("Keycards", "Commercial Roofer"),
+    makeParentItem("Keycards", "Residential Roofer"),
+    makeParentItem("Keycards", "HVAC"),
+    makeParentItem("Keycards", "Siding"),
+    makeParentItem("Keycards", "Flooring"),
+    makeParentItem("Keycards", "Manufacturing"),
+    makeParentItem("Keycards", "General laborer"),
+    makeParentItem("Keycards", "Painter"),
+
+    // concrete tasks
+    makeDataItem("Concrete", "Set-up"),
+    makeDataItem("Concrete", "Clean-up"),
+    makeDataItem("Concrete", "Puddling"),
+    makeDataItem("Concrete", "Moving Gravel"),
+    makeDataItem("Concrete", "Setting Forms"),
+    makeDataItem("Concrete", "Pulling Forms"),
+    makeDataItem("Concrete", "Striking Off"),
+    makeDataItem("Concrete", "Edging"),
+    makeDataItem("Concrete", "Floating"),
+    makeDataItem("Concrete", "Compacting Gravel"),
+    makeDataItem("Concrete", "Finishing Concrete"),
+    makeDataItem("Concrete", "Cleaning Tools"),
+    makeDataItem("Concrete", "Wheeling Concrete"),
+    makeDataItem("Concrete", "Cutting Joints"),
+    makeDataItem("Concrete", "Using Cement Saw"),
+    makeDataItem("Concrete", "Misc Concrete Work"),
+    //carpenter tasks
+    makeDataItem("Carpenter", "Set-Up"),
+    makeDataItem("Carpenter", "Clean-Up"),
+    makeDataItem("Carpenter", "Moving material"),
+    makeDataItem("Carpenter", "Layouts"),
+    makeDataItem("Carpenter", "Setting Trusses"),
+    makeDataItem("Carpenter", "Setting Floor Joist"),
+    makeDataItem("Carpenter", "Building Walls"),
+    makeDataItem("Carpenter", "Building Gables"),
+    makeDataItem("Carpenter", "Exterior Wall Sheeting"),
+    makeDataItem("Carpenter", "Roof Sheeting"),
+    makeDataItem("Carpenter", "Misc Carpentry"),
+    makeDataItem("Carpenter", "Building Stair Systems"),
+    makeDataItem("Carpenter", "Installing Tyvek"),
+    makeDataItem("Carpenter", "Floor Decking "),
+    // commercial roofer tasks
+    makeDataItem("Commercial Roofer", "Tear-Off"),
+    makeDataItem("Commercial Roofer", "Clean-up"),
+    makeDataItem("Commercial Roofer", "Material Layout"),
+    makeDataItem("Commercial Roofer", "Laying Insulation"),
+    makeDataItem("Commercial Roofer", "Roof Load"),
+    makeDataItem("Commercial Roofer", "Roof Unload"),
+    makeDataItem("Commercial Roofer", "Install Decking"),
+    makeDataItem("Commercial Roofer", "Install Penetrations"),
+    makeDataItem("Commercial Roofer", "Install T-Bar"),
+    makeDataItem("Commercial Roofer", "Install Metal"),
+    makeDataItem("Commercial Roofer", "Install TPO"),
+    makeDataItem("Commercial Roofer", "Install Rubber"),
+    // residential roofer tasks
+    makeDataItem("Residential Roofer", "Tear-Off"),
+    makeDataItem("Residential Roofer", "Clean-up"),
+    makeDataItem("Residential Roofer", "Roofing Installation"),
+    makeDataItem("Residential Roofer", "Lifetime Shingle Installation"),
+    makeDataItem("Residential Roofer", "Valley Installation"),
+    makeDataItem("Residential Roofer", "Edge Metal Installation"),
+    makeDataItem("Residential Roofer", "Ridge Cap/Vent"),
+    makeDataItem("Residential Roofer", "Underlayment Installation"),
+    makeDataItem("Residential Roofer", "Penetration Installation"),
+    makeDataItem("Residential Roofer", "In-House Practice"),
+    makeDataItem("Residential Roofer", "Decking/Sheeting Installation"),
+    makeDataItem("Residential Roofer", "Misc Roofing Work"),
+    // HVAC tasks
+    makeDataItem("HVAC", "Set-Up"),
+    makeDataItem("HVAC", "Clean-Up"),
+    makeDataItem("HVAC", "Moving Material"),
+    makeDataItem("HVAC", "Delivering Material"),
+    makeDataItem("HVAC", "Duct Installation"),
+    makeDataItem("HVAC", "Assist in System Install"),
+    makeDataItem("HVAC", "Install Drains"),
+    makeDataItem("HVAC", "Caulking"),
+    makeDataItem("HVAC", "Remove old System"),
+    makeDataItem("HVAC", "Furnace Install"),
+    makeDataItem("HVAC", "Misc HVAC Task"),
+    // siding installer tasks
+    makeDataItem("Siding", "Set-Up"),
+    makeDataItem("Siding", "Clean-Up"),
+    makeDataItem("Siding", "Moving Material"),
+    makeDataItem("Siding", "Layouts"),
+    makeDataItem("Siding", "Cutting Material"),
+    makeDataItem("Siding", "Installing Siding"),
+    makeDataItem("Siding", "Installing Underlayment"),
+    makeDataItem("Siding", "Tyvek Installation"),
+    makeDataItem("Siding", "Caulking"),
+    makeDataItem("Siding", "Installing Metal"),
+    makeDataItem("Siding", "Bending Metal"),
+    makeDataItem("Siding", "Installing Trim"),
+    makeDataItem("Siding", "Painting"),
+    // flooring installer tasks
+    makeDataItem("Flooring", "Set-Up"),
+    makeDataItem("Flooring", "Clean-Up"),
+    makeDataItem("Flooring", "Moving Material"),
+    makeDataItem("Flooring", "Install underlayment"),
+    makeDataItem("Flooring", "Installing Wood Flooring"),
+    makeDataItem("Flooring", "Installing Vinyl Flooring"),
+    makeDataItem("Flooring", "Removing Existing Floor"),
+    makeDataItem("Flooring", "Prep Work"),
+    makeDataItem("Flooring", "Install Sub-Floor"),
+    makeDataItem("Flooring", "Misc Flooring Task"),
+    makeDataItem("Flooring", "Sanding Existing Floor"),
+    makeDataItem("Flooring", "Staining or Clear Coating"),
+    // manufacturing tasks
+    makeDataItem("Manufacturing", "Set-Up"),
+    makeDataItem("Manufacturing", "Clean-Up"),
+    makeDataItem("Manufacturing", "CNC Machine Operation"),
+    makeDataItem("Manufacturing", "Former Machine Operation"),
+    makeDataItem("Manufacturing", "Router"),
+    makeDataItem("Manufacturing", "Band-Saw"),
+    makeDataItem("Manufacturing", "Packaging"),
+    makeDataItem("Manufacturing", "Counting Parts"),
+    makeDataItem("Manufacturing", "Quality Control"),
+    makeDataItem("Manufacturing", "Misc Manufacturing"),
+    // general laborer
+    makeDataItem("General laborer", "Set-Up"),
+    makeDataItem("General laborer", "Clean-Up"),
+    makeDataItem("General laborer", "Demo Work"),
+    makeDataItem("General laborer", "Moving Material"),
+    makeDataItem("General laborer", "Assist in Building"),
+    makeDataItem("General laborer", "Assist in Installation"),
+    makeDataItem("General laborer", "Prep-Work"),
+    // painter
+    makeDataItem("Painter", "Set-up"),
+    makeDataItem("Painter", "Clean-Up"),
+    makeDataItem("Painter", "Scrapping Walls"),
+    makeDataItem("Painter", "Skim Coating"),
+    makeDataItem("Painter", "Using Sprayer"),
+    makeDataItem("Painter", "Rolling Paint"),
+    makeDataItem("Painter", "Brush/Cut Work"),
+    makeDataItem("Painter", "Trim Work"),
+    makeDataItem("Painter", "Taping"),
+    makeDataItem("Painter", "Drywall Work"),
+    makeDataItem("Painter", "Sanding"),
+    makeDataItem("Painter", "Prep Work"),
+    makeDataItem("Painter", "Staining"),
+    makeDataItem("Painter", "Applying Texture"),
+    makeDataItem("Painter", "Misc Painting"),
+];
 
 export default function ExecutiveSummary(props) {
     return (
@@ -17,15 +192,20 @@ export default function ExecutiveSummary(props) {
             <SingleColumnLayout>
                 <Heading label={"Executive Summary"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetric value={20021} title={"employees"} subtitle={""} options={[]}/>
-                    <TopMetric value={17324} title={"training hours"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
-                    <TopMetric value={347212} title={"production hours"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
-                    <TopMetric value={1904658} title={"payroll average"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
-                    <TopMetric value={399} title={"new hires"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
-                    <TopMetric value={7446} title={"raises"} subtitle={"total"} options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={20021} title={"employees"} subtitle={""} options={[]}/>
+                    <TopMetricYMQ value={17324} title={"training hours"} subtitle={"total"}
+                                  options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={347212} title={"production hours"} subtitle={"total"}
+                                  options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={1904658} title={"payroll average"} subtitle={"total"}
+                                  options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={399} title={"new hires"} subtitle={"total"}
+                                  options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={7446} title={"raises"} subtitle={"total"}
+                                  options={["Year", "Quarter", "Month"]}/>
                 </div>
                 <div>
-                    <div className={`flex justify-between`}>
+                    <div className={`flex justify-between mb-10`}>
                         <GooglePieChart label={"employees"} title={"performance/employee"} data={[
                             ["Rating", "Number of employees"],
                             ["<5", 6],
@@ -78,7 +258,7 @@ export default function ExecutiveSummary(props) {
                 </div>
                 <div>
                     <div>
-                        <div className={styles.title}>Production Hours/Keycard</div>
+                        <GoogleTreemap title={"Production hours/Keycard"} data={data}/>
                     </div>
                 </div>
             </SingleColumnLayout>

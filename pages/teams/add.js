@@ -2,7 +2,7 @@ import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import {useState} from "react";
-import TeamsEmployeeList from "../../components/teams/TeamsEmployeeList";
+import TeamsEmployeeList from "./components/TeamsEmployeeList";
 
 const orgURL = "61bf60ecddd910d9c0a18df1"
 
