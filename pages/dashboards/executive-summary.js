@@ -192,7 +192,7 @@ export default function ExecutiveSummary(props) {
             <SingleColumnLayout>
                 <Heading label={"Executive Summary"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={20021} title={"employees"} subtitle={""} options={[]}/>
+                    <TopMetricYMQ value={20021} title={"employees"} subtitle={""} options={["one"]}/>
                     <TopMetricYMQ value={17324} title={"training hours"} subtitle={"total"}
                                   options={["Year", "Quarter", "Month"]}/>
                     <TopMetricYMQ value={347212} title={"production hours"} subtitle={"total"}

@@ -192,12 +192,12 @@ export default function EmployeePerformance(props) {
             <SingleColumnLayout>
                 <Heading label={"Employee Performance"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={20021} title={"performance rating"} subtitle={""} options={[]}/>
-                    <TopMetricYMQ value={17324} title={"attendance"} subtitle={"total"}
+                    <TopMetricYMQ value={20021} title={"performance rating"} options={["one"]}/>
+                    <TopMetricYMQ value={17324} title={"attendance"}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={347212} title={"kpi"} subtitle={"total"}
+                    <TopMetricYMQ value={347212} title={"kpi"}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={1904658} title={"time w/ company"} subtitle={"total"}
+                    <TopMetricYMQ value={1904658} title={"time w/ company"}
                                   options={["Year", "Quarter", "Month"]}/>
                     <a href={"/employees"}>
                         <button className={"w-60 rounded-xl bg-violet-700 p-6 uppercase font-light hover:bg-violet-500"}>

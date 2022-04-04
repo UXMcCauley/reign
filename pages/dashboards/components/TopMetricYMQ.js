@@ -4,7 +4,7 @@ function TopMetricYMQ({title, value, options}) {
     const [selected, setSelected] = useState("")
     const [number, setNumber] = useState(value)
     useEffect(() => {
-        if(options.length > 0){
+        if(options.length > 1){
             setSelected(options[0])
             setNumber(value)
         }
