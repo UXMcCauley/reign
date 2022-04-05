@@ -3,6 +3,7 @@ import BarChart from "../../components/dashboards/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import styles from "./styles/Executive.module.scss";
+import InequityGapFinder from "./components/InequityGapFinder";
 
 export default function WorkforceDiversity(props) {
     return (
@@ -27,6 +28,8 @@ export default function WorkforceDiversity(props) {
                     </div>
                     <div>
                         <div>
+                            <h1>Inequity Gap Finder</h1>
+                            <InequityGapFinder/>
                         </div>
                     </div>
                 </SingleColumnLayout>

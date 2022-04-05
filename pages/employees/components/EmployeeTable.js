@@ -62,9 +62,7 @@ export default function EmployeeTable({
                             <table className="w-full  divide-y divide-gray-300 dark:divide-gray-900">
                                 <thead className="bg-gray-50 dark:bg-gray-800">
                                 <tr>
-                                    <th scope="col" className="relative w-12 px-6 sm:w-16 sm:px-8 text-xs">
-                                        Compare
-                                    </th>
+                                    <th scope="col" className="relative w-12 px-6 sm:w-16 sm:px-8 text-xs">Compare</th>
                                     {heads.map((heading, i) => {
                                             return (<th key={i} scope="col"
                                                         className="min-w-[12rem] py-3.5  text-left text-sm font-semibold text-gray-900 dark:text-white">{heading}</th>)
@@ -77,7 +75,7 @@ export default function EmployeeTable({
                                 {parsedPeople.filter(person => person.lastName.toLowerCase().includes(searchTerm.toLowerCase())).map((person) => (
                                     <tr key={person.email}>
                                         <td className="relative w-12 px-6 sm:w-16 sm:px-8">
-                                            <button className={"text-sm text-black dark:text-white"} onClick={() => {
+                                            <button className={"text-sm text-black dark:text-white p-1 w-7 bg-pink-700 rounded-full hover:bg-pink-500"} onClick={() => {
                                                 if (selectedEmployees.length >= 2) {
                                                     alert("You can only compare two employees ar once. Clearing list.")
                                                     setSelectedEmployees([])
@@ -109,7 +107,7 @@ export default function EmployeeTable({
                                         <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.attendance}%</td>
                                         <td className="whitespace-nowrap text-sm font-medium sm:pr-6">
                                             <a href={`/employees/${person._id}`}
-                                               className="text-indigo-600 dark:text-violet-300 hover:text-indigo-900">
+                                               className="text-indigo-600 dark:text-white hover:text-indigo-900 p-3 bg-indigo-500 rounded-xl hover:bg-indigo-700">
                                                 {linkLabel}<span className="sr-only">, {person.name}</span>
                                             </a>
                                         </td>

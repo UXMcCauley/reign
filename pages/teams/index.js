@@ -3,7 +3,7 @@ import TeamsTable from "../../components/ui/TeamsTable";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import {useState} from "react";
-import EmployeeCompareFlyin from "../../components/ui/EmployeeCompareFlyin";
+import EmployeeCompareFlyin from "../employees/components/EmployeeCompareFlyin";
 
 const orgId = "61bf60ecddd910d9c0a18df1"
 

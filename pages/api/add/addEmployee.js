@@ -13,7 +13,7 @@ export default async (req, res) => {
             email: req.body.email,
             cell: req.body.cell,
             home: req.body.home,
-            birthdate: req.body.birthdate,
+            birthdate: new Date(req.body.birthdate),
             street: req.body.street,
             city: req.body.city,
             state: req.body.state,
@@ -22,7 +22,7 @@ export default async (req, res) => {
             pronouns: req.body.pronouns,
             organization: ObjectId(req.body.organization),
             createdAt: new Date(),
-            startDate: req.body.startDate,
+            startDate: new Date(req.body.startDate),
             username: req.body.username,
             password: req.body.password,
             highSchool: req.body.highSchool,
@@ -32,7 +32,8 @@ export default async (req, res) => {
             performance: req.body.performance,
             wage: req.body.wage,
             avatar: req.body.avatar,
-            attendance: req.body.attendance
+            attendance: req.body.attendance,
+            ethnicity: req.body.ethnicity
         })
 
     res.json(newEmployee)

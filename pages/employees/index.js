@@ -2,9 +2,9 @@ import Head from 'next/head'
 import {useState} from "react";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
-import EmployeeTable from "../../components/ui/EmployeeTable";
+import EmployeeTable from "./components/EmployeeTable";
 import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
-import EmployeeCompareFlyin from "../../components/ui/EmployeeCompareFlyin";
+import EmployeeCompareFlyin from "./components/EmployeeCompareFlyin";
 const orgURL = "61bf60ecddd910d9c0a18df1"
 
 export default function Index({employees}) {

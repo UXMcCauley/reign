@@ -2,7 +2,7 @@
 import {Fragment, useEffect, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {XIcon} from '@heroicons/react/outline'
-import BarChart from "../dashboards/bar";
+import BarChart from "../../../components/dashboards/bar";
 import EmployeeCompareLine from "./EmployeeCompareLine";
 import { Chart } from 'react-google-charts';
 

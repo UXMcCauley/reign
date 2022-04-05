@@ -27,6 +27,7 @@ export default function AddEmployeeForm(props) {
     const fakeRole = faker.helpers.randomize(["Carpenter", "Roofer", "Concrete", "HVAC", "Manufacturing", "Siding", "Administrative"])
     const fakeAvatar = faker.image.avatar()
     const fakeAttendance = faker.datatype.number({min: 83, max: 100, precision: 0.1})
+    const fakeEthnicity = faker.helpers.randomize(["African-American", "Asian", "Hispanic", "White"])
     // console.log(props)
 
     const router = useRouter()
@@ -56,6 +57,7 @@ export default function AddEmployeeForm(props) {
     const [role, setRole] = useState(fakeRole)
     const [avatar, setAvatar] = useState(fakeAvatar)
     const [attendance, setAttendance] = useState(fakeAttendance)
+    const [ethnicity, setEthnicity] = useState(fakeEthnicity)
 
     // const formFields = [["firstName"], "lastName", "email", 'cell', "home", "birthdate", "street", "city", "state", "zip", "gender", "pronouns", "startDate", "orgId", "username", "password", "highSchool", "college", "bio"]
     const formFields = [
@@ -82,7 +84,8 @@ export default function AddEmployeeForm(props) {
         ["wage", wage],
         ["role", role],
         ["avatar", avatar],
-        ["attendance", attendance]
+        ["attendance", attendance],
+        ["ethnicity", ethnicity]
     ]
 
     const [overlay, setOverlay] = useState(false)
@@ -134,9 +137,11 @@ export default function AddEmployeeForm(props) {
                                        wage: wage,
                                        role: role,
                                        avatar: avatar,
-                                       attendance: attendance
+                                       attendance: attendance,
+                                       ethnicity: ethnicity
                                    })
                                    setOverlay(true)
+                                   window.location.reload()
                                }}/>
                 {formFields.map((field, i) => {
                     return (
@@ -148,128 +153,6 @@ export default function AddEmployeeForm(props) {
                 })}
 
             </form>
-
-            {/*<form autoComplete="off" onSubmit={(e) => {*/}
-            {/*    e.preventDefault()*/}
-            {/*}}>*/}
-            {/*    <div className={styles.fieldContainer}>*/}
-            {/*        <label>Organization ID</label>*/}
-            {/*        <input type={"text"} id={"orgId"} value={props.currentOrg} disabled={true}/>*/}
-            {/*    </div>*/}
-            {/*    <div className={styles.formLineContainer}>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>First Name</label>*/}
-            {/*            <input type={"text"} value={firstName} id={"firstName"} onChange={(e) => {*/}
-            {/*                setFirstName(e.target.value)*/}
-            {/*            }} required={true}/>*/}
-            {/*        </div>*/}
-
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Last Name</label>*/}
-            {/*            <input type={"text"} value={lastName} id={"lastName"} onChange={(e) => {*/}
-            {/*                setLastName(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <div className={styles.formLineContainer}>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Birthdate</label>*/}
-            {/*            <input type={"date"} id={"phone"} value={birthdate} onChange={(e) => {*/}
-            {/*                setBirthdate(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Gender</label>*/}
-            {/*            <select id={"Preferred Pronouns"} onChange={(e) => {*/}
-            {/*                setGender(e.target.value)*/}
-            {/*            }}>*/}
-            {/*                <option value={"Female"}>Female</option>*/}
-            {/*                <option value={"Male"}>Male</option>*/}
-            {/*                <option value={"Other"}>Other</option>*/}
-            {/*            </select>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Preferred Pronouns</label>*/}
-            {/*            <select id={"Preferred Pronouns"} onChange={(e) => {*/}
-            {/*                setPronouns(e.target.value)*/}
-            {/*            }}>*/}
-            {/*                <option value={"She/Her"}>She/Her</option>*/}
-            {/*                <option value={"He/Him"}>He/Him</option>*/}
-            {/*                <option value={"They/Them"}>They/Them</option>*/}
-            {/*            </select>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <div className={styles.formLineContainer}>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Email Address</label>*/}
-            {/*            <input type={"email"} id={"email"} onChange={(e) => {*/}
-            {/*                setEmail(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Cell Phone</label>*/}
-            {/*            <input type={"text"} id={"phone"} onChange={(e) => {*/}
-            {/*                setCell(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Home Phone (optional)</label>*/}
-            {/*            <input type={"text"} id={"phone"} onChange={(e) => {*/}
-            {/*                setHome(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-
-            {/*    </div>*/}
-            {/*    <div className={styles.formLineContainer}>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Street Address</label>*/}
-            {/*            <input id={"text"} onChange={(e) => {*/}
-            {/*                setStreet(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>City</label>*/}
-            {/*            <input id={"text"} onChange={(e) => {*/}
-            {/*                setCity(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>State</label>*/}
-            {/*            <input id={"text"} onChange={(e) => {*/}
-            {/*                setState(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*        <div className={styles.fieldContainer}>*/}
-            {/*            <label>Zip Code</label>*/}
-            {/*            <input id={"text"} onChange={(e) => {*/}
-            {/*                setZip(e.target.value)*/}
-            {/*            }}/>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*    <PrimaryButton disabled={firstName === "" ? true : false}*/}
-            {/*                   label={"Add employee"}*/}
-            {/*                   color={"blue"}*/}
-            {/*                   action={() => {*/}
-            {/*                       createEmployee({*/}
-            {/*                           firstName: firstName,*/}
-            {/*                           lastName: lastName,*/}
-            {/*                           email: email,*/}
-            {/*                           cell: cell,*/}
-            {/*                           home: home,*/}
-            {/*                           birthdate: birthdate,*/}
-            {/*                           street: street,*/}
-            {/*                           city: city,*/}
-            {/*                           state: state,*/}
-            {/*                           zipCode: zip,*/}
-            {/*                           gender: gender,*/}
-            {/*                           pronouns: pronouns,*/}
-            {/*                           organization: orgId,*/}
-            {/*                           createdAt: new Date()*/}
-            {/*                       })*/}
-            {/*                       setOverlay(true)*/}
-            {/*                   }}/>*/}
-            {/*</form>*/}
-
         </div>
     )
 }
