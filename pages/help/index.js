@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import HelpGrid from "../../components/HelpCenter/HelpGrid";
 import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
 

@@ -1,5 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
-import {useEffect, useState} from 'react'
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 
@@ -7,7 +5,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Toggle({dark, setDark}) {
+export default function Toggle() {
     const { theme, setTheme } = useTheme()
 
     return (

@@ -1,5 +1,3 @@
-import styles from "./styles/Treemap.module.scss"
-
 export default function Treemap({data}) {
     let dataTotal = 0
     let dataObject = []
@@ -27,7 +25,7 @@ export default function Treemap({data}) {
     // set up container element
     const Container = ({children}) => {
         return (
-            <div className={styles.container}>
+            <div className={""}>
                 {children}
             </div>
         )
@@ -36,7 +34,7 @@ export default function Treemap({data}) {
     // set up column divider
     const Column = ({children}) => {
         return (
-            <div className={styles.column}>
+            <div className={""}>
                 {children}
             </div>
         )

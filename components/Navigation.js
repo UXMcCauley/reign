@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import { useTheme } from 'next-themes'
 import {
     AdjustmentsIcon,
@@ -31,7 +30,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-function Navigation({dark, setDark}) {
+function Navigation() {
     const router = useRouter()
     const { theme, setTheme } = useTheme()
 

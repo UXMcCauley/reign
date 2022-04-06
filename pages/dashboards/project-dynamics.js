@@ -1,8 +1,5 @@
-import { useState} from "react";
-import {Modal} from 'react-responsive-modal';
 import {Chart} from "react-google-charts";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
-import styles from "./styles/Executive.module.scss";
 import Heading from "../../components/headings/Heading";
 
 export const data = [
@@ -16,7 +13,7 @@ export const data = [
 
 const chartEvents = [
     {
-        callback: ({ chartWrapper }) => {
+        callback: ({chartWrapper}) => {
             const chart = chartWrapper.getChart();
             chart.container.addEventListener("click", (ev) => console.log(ev))
         },
@@ -60,70 +57,54 @@ export const bodyOptions = {
     pieSliceBorderColor: "black"
 };
 
-
 export default function ProjectDynamics() {
-    const [open, setOpen] = useState(false);
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-
     return (
         <>
             <SingleColumnLayout>
                 <Heading label={"Project Dynamics"}/>
-                    <div>
-                        <button onClick={onOpenModal}>Open modal</button>
-
+                <div>
+                    <div className={"flex"}>
                     </div>
-                    <div>
-                        <div className={styles.flexRow}>
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.flexRow} style={{opacity: 0.8}}>
-                            <Chart
-                                chartType="PieChart"
-                                data={data}
-                                options={bodyOptions}
-                                chartEvents={chartEvents}
-                            />
-                            <Chart
-                                chartType="PieChart"
-                                data={data}
-                                options={bodyOptions}
-                            />
-                            <Chart
-                                chartType="PieChart"
-                                data={data}
-                                options={bodyOptions}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.flexRow}>
-                            <div className={styles.half}>
-                                <div style={{height: 350, width: "100%"}}>
-                                </div>
-                            </div>
-                            <div className={styles.half}>
-                                <div style={{height: 350, width: "100%"}}>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div style={{height: 500}}>
-                            </div>
-                        </div>
-                    </div>
-                    <Modal open={open} onClose={onCloseModal} center>
+                </div>
+                <div>
+                    <div className={"flex opacity-5"}>
                         <Chart
                             chartType="PieChart"
                             data={data}
-                            options={modalOptions}
+                            options={bodyOptions}
+                            chartEvents={chartEvents}
                         />
-                    </Modal>
+                        <Chart
+                            chartType="PieChart"
+                            data={data}
+                            options={bodyOptions}
+                        />
+                        <Chart
+                            chartType="PieChart"
+                            data={data}
+                            options={bodyOptions}
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className={"flex"}>
+                        <div className={"w-1/2"}>
+                            <div style={{height: 350, width: "100%"}}>
+                            </div>
+                        </div>
+                        <div className={"w-1/2"}>
+                            <div style={{height: 350, width: "100%"}}>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div style={{height: 500}}>
+                        </div>
+                    </div>
+                </div>
             </SingleColumnLayout>
         </>
     )
