@@ -74,7 +74,7 @@ export default function EmployeeTable({
                                 </thead>
                                 <tbody
                                     className="divide-y divide-gray-200 bg-white dark:bg-gray-700 dark:divide-gray-600">
-                                {parsedPeople.filter(person => person.lastName.toLowerCase().includes(searchTerm.toLowerCase())).map((person) => (
+                                {parsedPeople && parsedPeople.filter(person => person.lastName.toLowerCase().includes(searchTerm.toLowerCase())).map((person) => (
                                     <tr key={person.email}>
                                         <td className="relative w-12 px-6 sm:w-16 sm:px-8">
                                             <button className={"text-sm text-black dark:text-white p-1 w-7 bg-pink-700 rounded-full hover:bg-pink-500"} onClick={() => {
