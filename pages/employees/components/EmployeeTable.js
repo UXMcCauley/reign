@@ -65,7 +65,7 @@ export default function EmployeeTable({
                                 <thead className="bg-gray-50 dark:bg-gray-800">
                                 <tr>
                                     <th scope="col" className="relative w-12 px-6 sm:w-16 sm:px-8 text-xs">Compare</th>
-                                    {heads.map((heading, i) => {
+                                    {heads && heads.map((heading, i) => {
                                             return (<th key={i} scope="col"
                                                         className="min-w-[12rem] py-3.5  text-left text-sm font-semibold text-gray-900 dark:text-white">{heading}</th>)
                                         }
