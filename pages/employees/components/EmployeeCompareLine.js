@@ -1,19 +1,18 @@
-import React from 'react';
-
 function EmployeeCompareLine({selectedEmployees, line}) {
-    let symbol = "="
-    let color = "bg-green-700"
-    if(parseFloat(selectedEmployees[0][line]) > parseFloat(selectedEmployees[1][line])){
-        symbol = ">"
-        color = "bg-pink-700"
-    } else if (parseFloat(selectedEmployees[0][line]) < parseFloat(selectedEmployees[1][line])){
-        symbol = "<"
-        color= "bg-violet-700"
-    }else {
-        symbol = "="
-        color= "bg-green-700"
-    }
 
+    let symbol, color
+    if(selectedEmployees.length > 0) {
+        if (parseFloat(selectedEmployees[0][line]) > parseFloat(selectedEmployees[1][line])) {
+            symbol = ">"
+            color = "bg-pink-700"
+        } else if (parseFloat(selectedEmployees[0][line]) < parseFloat(selectedEmployees[1][line])) {
+            symbol = "<"
+            color = "bg-violet-700"
+        } else {
+            symbol = "="
+            color = "bg-green-700"
+        }
+    }
     return (
         <div className={"w-full p-3 text-center first:border-0 border-b border-gray-300 dark:border-gray-700"}>
             <div className={`w-full text-black dark:text-white`}><h2 className={`uppercase font-light p-3`}>{line}</h2></div>

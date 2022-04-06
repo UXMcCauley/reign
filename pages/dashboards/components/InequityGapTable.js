@@ -29,7 +29,7 @@ export default function InequityGapTable({data}) {
                                 </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 bg-white">
-                                {data.map((item, i) => (
+                                {data && data.map((item, i) => (
                                     <tr key={i}>
                                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                             {item.data !== undefined ? item.ethnicity + ", " + item.gender + ", " + item.age : null}
