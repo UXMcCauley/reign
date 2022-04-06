@@ -1,7 +1,7 @@
 function EmployeeCompareLine({selectedEmployees, line}) {
 
     let symbol, color
-    if(selectedEmployees.length > 0) {
+    if(selectedEmployees !== undefined && selectedEmployees.length > 0) {
         if (parseFloat(selectedEmployees[0][line]) > parseFloat(selectedEmployees[1][line])) {
             symbol = ">"
             color = "bg-pink-700"
