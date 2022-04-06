@@ -11,6 +11,7 @@ import LineChart from "../../components/line"
 import BarChart from "../../components/bar"
 import GooglePieChart from "../../components/GooglePieChart";
 import {useEffect, useState} from "react";
+import {GoogleScatterChart} from "../../components/GoogleScatterChart";
 
 const minFake = 0
 const maxFake = 188
@@ -188,22 +189,22 @@ const data = [
     makeDataItem("Painter", "Misc Painting"),
 ];
 
-export default function EmployeePerformance(props) {
+export default function EmployeePerformance({numericDataForPage}) {
+    console.log(numericDataForPage)
     const [numericData, setNumericData] = useState({})
 
-    const fetchNumericData = async () => {
-        await fetch("/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All")
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                setNumericData(res.data[0])
-            })
-            .catch(e => console.warn(e))
-    }
+    // const fetchNumericData = async () => {
+    //     return await fetch("/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All")
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             console.log(res)
+    //             setNumericData(res.data[0])
+    //         })
+    //         .catch(e => console.warn(e))
+    // }
 
     useEffect(() => {
-        fetchNumericData().then(data => console.log(data))
-    },[])
+    }, [])
 
     return (
         <>
@@ -211,12 +212,13 @@ export default function EmployeePerformance(props) {
                 <TabbedNavigation/>
                 <Heading label={"Employee Performance"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={numericData.averagePerformance} title={"performance rating"}
+                    <TopMetricYMQ value={numericDataForPage.data[0].averagePerformance} title={"performance rating"}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}
                                   showSelect={true}/>
-                    <TopMetricYMQ value={numericData.averageAttendance} title={"attendance"} showSelect={true}
+                    <TopMetricYMQ value={numericDataForPage.data[0].averageAttendance} title={"attendance"}
+                                  showSelect={true}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
-                    <TopMetricYMQ value={numericData.averageKpi} title={"kpi"} showSelect={true}
+                    <TopMetricYMQ value={numericDataForPage.data[0].averageKpi} title={"kpi"} showSelect={true}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
                     <TopMetricYMQ value={2} title={"time w/ company"} showSelect={true}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
@@ -276,20 +278,11 @@ export default function EmployeePerformance(props) {
 
                     </div>
                 </div>
-                <div>
-                    <div className={`flex mt-20`}>
-                        <div className={`w-1/2`}>
-                            <LineChart data={props.airtableLine.records}/>
-                        </div>
-                        <div className={`w-1/2`}>
-                            <BarChart data={props.airtableBar}/>
-                        </div>
-                    </div>
+                <div className={"w-full"}>
+                    <GoogleScatterChart/>
                 </div>
-                <div>
-                    <div>
-                        <GoogleTreemap title={"Production hours/Keycard"} data={data}/>
-                    </div>
+                <div className={"w-full"}>
+                    <GoogleTreemap title={"Production hours/Keycard"} data={data}/>
                 </div>
             </SingleColumnLayout>
         </>
@@ -298,24 +291,16 @@ export default function EmployeePerformance(props) {
 
 export async function getServerSideProps() {
     // set up variables
-    const url = "https://api.airtable.com/v0/"
-    const app = "apppbpS0rK10adQYh/"
-    const key = "?api_key=keyYCtVdqu5KWRkCr&view="
+    const url = "http://localhost:3000//api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All"
 
     // fetch data
-    const bar = await fetch(url + app + "Bars" + key + "ExecutiveSummary")
-    const donuts = await fetch(url + app + "Donuts" + key + "ExecutiveSummary")
-    const line = await fetch(url + app + "Lines" + key + "ExecutiveSummary")
-    const numeric = await fetch(url + app + "Numerics" + key + "ExecutiveSummary")
-    const tree = await fetch(url + app + "TreeMap" + key + "ExecutiveSummary")
+    const numericData = await fetch(url)
+
 
     // cast data to json
-    const airtableBar = await bar.json()
-    const airtableDonuts = await donuts.json()
-    const airtableLine = await line.json()
-    const airtableNumeric = await numeric.json()
-    const airtableTree = await tree.json()
+    const numericDataForPage = await numericData.json()
+
 
     // return data as component props on render
-    return {props: {airtableBar, airtableDonuts, airtableLine, airtableNumeric, airtableTree}}
+    return {props: {numericDataForPage}}
 }

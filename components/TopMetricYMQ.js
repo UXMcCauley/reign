@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 
 function TopMetricYMQ({title, value, options, showSelect}) {
-    console.log(value, "check")
     const [selectOptions, setSelectOptions] = useState(["one", "two", "three"])
     const [selected, setSelected] = useState("")
     const [number, setNumber] = useState(value)
