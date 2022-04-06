@@ -1,7 +1,7 @@
-import ContentContainer from "../../components/universal/ContentContainer"
+import ContentContainer from "../../components/ContentContainer"
 
 
-function Index(props) {
+function Index() {
     return (
         <ContentContainer>
 

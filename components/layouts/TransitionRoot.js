@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import {Dialog, Transition} from "@headlessui/react";
 import {XIcon} from "@heroicons/react/outline";
-import Navigation from "../ui/Navigation";
+import Navigation from "../Navigation";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')

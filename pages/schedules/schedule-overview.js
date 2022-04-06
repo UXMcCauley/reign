@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
+import ContentContainer from "../../components/ContentContainer"
 
 import styles from "./styles/ScheduleOverview.module.scss"
 import {useState} from "react";

@@ -4,10 +4,10 @@ import {useState} from "react";
 import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
-import {useRouter} from "next/router";
+
 
 // import my components
-import {PrimaryButton} from "../components/ui/Buttons";
+import {PrimaryButton} from "../components/Buttons";
 import styles from "../styles/SignIn.module.scss"
 
 export default function SignIn() {

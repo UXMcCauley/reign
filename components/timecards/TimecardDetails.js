@@ -3,7 +3,7 @@ import {Chat, Phone} from "phosphor-react";
 import Image from "next/image";
 import DataTable from "react-data-table-component";
 import {customTableStyles, timecardColumns} from "../../lib/helpers";
-import {PrimaryButton} from "../ui/Buttons";
+import {PrimaryButton} from "../Buttons";
 import {useState} from "react";
 
 function TimecardDetails(props) {

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import {ArrowCircleLeft} from "phosphor-react";
-import styles from "./styles/IconButton.module.scss";
+import styles from "./ui/styles/IconButton.module.scss";
 
 export default function BackButton() {
     const router = useRouter()

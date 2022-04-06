@@ -1,7 +1,7 @@
 import {useState} from "react";
-import styles from "../../../components/employees/AddEmployeeForm.module.scss"
+import styles from "./employees/AddEmployeeForm.module.scss"
 import {useRouter} from "next/router";
-import {PrimaryButton} from "../../../components/ui/Buttons";
+import {PrimaryButton} from "./Buttons";
 import faker from "@faker-js/faker";
 
 export default function AddEmployeeForm(props) {

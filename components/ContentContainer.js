@@ -1,5 +1,5 @@
 import Header from "./header"
-import MainNavigation from "../ui/MainNavigation";
+import MainNavigation from "./MainNavigation";
 import {useState} from "react";
 export default function ContentContainer({children}) {
     const [state, setState] = useState(false)

@@ -1,12 +1,8 @@
-import {Fragment, useEffect, useState} from 'react'
 import {MenuIcon} from '@heroicons/react/outline'
-import Navigation from "../ui/Navigation";
+import Navigation from "../Navigation";
 import TransitionRoot from "./TransitionRoot";
 import {useTheme} from 'next-themes'
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import Image from "next/image";
 
 export default function SingleColumnLayout({children}) {
     const {theme, setTheme} = useTheme()
@@ -22,7 +18,9 @@ export default function SingleColumnLayout({children}) {
                         className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white dark:bg-black dark:border-gray-800">
                         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                             <div className="flex items-center flex-shrink-0 px-4">
-                                <img
+                                <Image
+                                    width={32}
+                                    height={32}
                                     className="h-8 w-auto"
                                     src="/img/Reignlogo.png"
                                     alt="Workflow"
@@ -37,7 +35,9 @@ export default function SingleColumnLayout({children}) {
                             <a href="#" className="flex-shrink-0 w-full group block">
                                 <div className="flex items-center">
                                     <div>
-                                        <img
+                                        <Image
+                                            width={32}
+                                            height={32}
                                             className="inline-block h-9 w-9 rounded-full"
                                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                             alt=""
@@ -68,12 +68,9 @@ export default function SingleColumnLayout({children}) {
                     <main className="flex-1 dark:bg-gray-900">
                         <div className="py-6">
                             <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
-
-                                {/* Replace with your content */}
                                 <div className="py-4">
                                     {children}
                                 </div>
-                                {/* /End replace */}
                             </div>
                         </div>
                     </main>

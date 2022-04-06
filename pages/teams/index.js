@@ -1,9 +1,9 @@
 import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
-import TeamsTable from "../../components/ui/TeamsTable";
+import TeamsTable from "../../components/TeamsTable";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import {useState} from "react";
-import EmployeeCompareFlyin from "../employees/components/EmployeeCompareFlyin";
+import EmployeeCompareFlyin from "../../components/EmployeeCompareFlyin";
 
 const orgId = "61bf60ecddd910d9c0a18df1"
 

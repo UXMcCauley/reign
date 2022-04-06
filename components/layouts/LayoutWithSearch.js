@@ -1,24 +1,18 @@
-import {Fragment, useEffect, useState} from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import {Fragment, useState} from 'react'
+import {Menu, Transition} from '@headlessui/react'
 import {
     BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
-    HomeIcon,
-    InboxIcon,
     MenuAlt2Icon,
-    UsersIcon,
-    XIcon,
 } from '@heroicons/react/outline'
-import { SearchIcon } from '@heroicons/react/solid'
+import {SearchIcon} from '@heroicons/react/solid'
 import TransitionRoot from "./TransitionRoot";
-import Navigation from "../ui/Navigation";
+import Navigation from "../Navigation";
+import Image from "next/image";
 
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    {name: 'Your Profile', href: '#'},
+    {name: 'Settings', href: '#'},
+    {name: 'Sign out', href: '#'},
 ]
 
 function classNames(...classes) {
@@ -27,26 +21,21 @@ function classNames(...classes) {
 
 export default function LayoutWithSearch({children, setSearchTerm}) {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [dark, setDark] = useState(false)
-    const isSet = (val) => {
-        setDark(val)
-    }
-    useEffect(() => {
-        const setMode = localStorage.getItem("mode")
-        console.log(setMode)
-        setDark(localStorage.getItem("mode"))
-    },[])
+
     return (
         <>
-            <div className={`h-full overflow-hidden flex ${eval(dark) ? "dark" : ""} `}>
-               <TransitionRoot/>
+            <div className={`h-full overflow-hidden flex`}>
+                <TransitionRoot/>
                 {/* Static sidebar for desktop */}
                 <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
-                    <div className="flex-1 flex-col flex-grow pt-5 border-r bg-gray-100 border-gray-200 bg-white overflow-y-auto dark:bg-black dark:border-gray-800">
+                    <div
+                        className="flex-1 flex-col flex-grow pt-5 border-r bg-gray-100 border-gray-200 bg-white overflow-y-auto dark:bg-black dark:border-gray-800">
                         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                             <div className="flex items-center flex-shrink-0 px-4">
-                                <img
+                                <Image
+                                    width={32}
+                                    height={32}
                                     className="h-8 w-auto"
                                     src="/img/Reignlogo.png"
                                     alt="Workflow"
@@ -67,7 +56,7 @@ export default function LayoutWithSearch({children, setSearchTerm}) {
                             onClick={() => setSidebarOpen(true)}
                         >
                             <span className="sr-only">Open sidebar</span>
-                            <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
+                            <MenuAlt2Icon className="h-6 w-6" aria-hidden="true"/>
                         </button>
                         <div className="flex-1 px-4 flex justify-between dark:bg-gray-800">
                             <div className="flex-1 flex">
@@ -76,8 +65,9 @@ export default function LayoutWithSearch({children, setSearchTerm}) {
                                         Search
                                     </label>
                                     <div className="relative w-full text-gray-400 focus-within:text-gray-600">
-                                        <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
-                                            <SearchIcon className="h-5 w-5" aria-hidden="true" />
+                                        <div
+                                            className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                                            <SearchIcon className="h-5 w-5" aria-hidden="true"/>
                                         </div>
                                         <input
                                             id="search-field"
@@ -98,16 +88,19 @@ export default function LayoutWithSearch({children, setSearchTerm}) {
                                     className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 >
                                     <span className="sr-only">View notifications</span>
-                                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                                    <BellIcon className="h-6 w-6" aria-hidden="true"/>
                                 </button>
 
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="ml-3 relative">
                                     <div>
-                                        <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        <Menu.Button
+                                            className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <span className="sr-only">Open user menu</span>
-                                            <img
-                                                className="h-8 w-8 rounded-full"
+                                            <Image
+                                                width={32}
+                                                height={32}
+                                                className="inline-block h-9 w-9 rounded-full"
                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                                 alt=""
                                             />
@@ -122,10 +115,11 @@ export default function LayoutWithSearch({children, setSearchTerm}) {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        <Menu.Items
+                                            className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             {userNavigation.map((item) => (
                                                 <Menu.Item key={item.name}>
-                                                    {({ active }) => (
+                                                    {({active}) => (
                                                         <a
                                                             href={item.href}
                                                             className={classNames(

@@ -1,13 +1,10 @@
-import {Fragment, useEffect, useState} from 'react'
-import Navigation from "../ui/Navigation";
+import {useEffect, useState} from 'react'
+import Navigation from "../Navigation";
 import {MenuIcon} from '@heroicons/react/outline'
 import Heading from "../headings/Heading";
 import Feed from "../tailwind/Feed";
 import TransitionRoot from "./TransitionRoot";
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import Image from "next/image";
 
 const secondaryNavigation = [
     {name: 'Inequity Gap Finder', href: '#'},
@@ -19,11 +16,8 @@ const secondaryNavigation = [
 ]
 export default function TwoColumnRightMenu({children}) {
     const [dark, setDark] = useState(false)
-    const isSet = (val) => {
-        setDark(val)
-    }
+
     useEffect(() => {
-        const setMode = localStorage.getItem("mode")
         setDark(localStorage.getItem("mode"))
     }, [])
     return (
@@ -38,7 +32,9 @@ export default function TwoColumnRightMenu({children}) {
                             className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-gray-100  dark:bg-black dark:border-gray-800">
                             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                                 <div className="flex items-center flex-shrink-0 px-4">
-                                    <img
+                                    <Image
+                                        width={32}
+                                        height={32}
                                         className="h-8 w-auto"
                                         src="/img/Reignlogo.png"
                                         alt="Workflow"
@@ -53,9 +49,11 @@ export default function TwoColumnRightMenu({children}) {
                                 <a href="#" className="flex-shrink-0 w-full group block">
                                     <div className="flex items-center">
                                         <div>
-                                            <img
+                                            <Image
+                                                width={32}
+                                                height={32}
                                                 className="inline-block h-9 w-9 rounded-full"
-                                                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                                 alt=""
                                             />
                                         </div>
@@ -76,9 +74,11 @@ export default function TwoColumnRightMenu({children}) {
                         <div
                             className="flex items-center justify-between bg-gray-50 border-b border-gray-200 px-4 py-1.5">
                             <div>
-                                <img
+                                <Image
+                                    width={32}
+                                    height={32}
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                                    src="/img/Reignlogo.png"
                                     alt="Workflow"
                                 />
                             </div>

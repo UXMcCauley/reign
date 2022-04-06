@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {useEffect, useState} from "react";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
-import MessageList from "./components/MessageList";
+import MessageList from "../../components/MessageList";
 import {DotsThree} from "phosphor-react";
 
 export default function Index() {

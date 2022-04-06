@@ -1,14 +1,14 @@
 // components
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
-import TopMetricYMQ from "./components/TopMetricYMQ";
-import GoogleTreemap from "./components/GoogleTreeMap";
+import TopMetricYMQ from "../../components/TopMetricYMQ";
+import GoogleTreemap from "../../components/GoogleTreeMap";
 import faker from "@faker-js/faker";
 
 // charts
-import LineChart from "../../components/dashboards/line"
-import BarChart from "./components/bar"
-import GooglePieChart from "./components/GooglePieChart";
+import LineChart from "../../components/line"
+import BarChart from "../../components/bar"
+import GooglePieChart from "../../components/GooglePieChart";
 
 const minFake = 0
 const maxFake = 188

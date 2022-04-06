@@ -1,6 +1,6 @@
 import YMQToggle from "./ymqToggle";
 import {useState} from "react";
-import Select from "../../components/ui/Select"
+import Select from "./Select"
 export default function NumericDisplay(props) {
     const [state, setState] = useState("Year")
     const getActive = (value) => {

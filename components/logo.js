@@ -1,6 +1,6 @@
 import Image from "next/image"
-import styles from "./styles/Logo.module.scss"
-import colors from "../../lib/colors";
+import styles from "./ui/styles/Logo.module.scss"
+import colors from "../lib/colors";
 
 export default function Logo() {
     return (

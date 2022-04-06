@@ -1,8 +1,8 @@
-import Donuts from "../../components/dashboards/donuts";
-import BarChart from "./components/bar";
+import Donuts from "../../components/donuts";
+import BarChart from "../../components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
-import InequityGapFinder from "./components/InequityGapFinder";
+import InequityGapFinder from "../../components/InequityGapFinder";
 
 export default function WorkforceDiversity(props) {
     return (

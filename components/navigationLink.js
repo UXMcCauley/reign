@@ -1,4 +1,4 @@
-import styles from "./styles/NavigationLink.module.scss"
+import styles from "./ui/styles/NavigationLink.module.scss"
 import {useRouter} from "next/router"
 
 export default function NavigationLink(props) {

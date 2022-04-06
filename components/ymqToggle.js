@@ -1,4 +1,4 @@
-import styles from "./styles/YMQToggle.module.scss"
+import styles from "./dashboards/styles/YMQToggle.module.scss"
 import {useState} from "react";
 
 export default function YMQToggle(props) {

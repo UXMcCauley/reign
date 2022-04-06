@@ -1,12 +1,11 @@
 import Head from 'next/head'
 import {useState, useEffect} from "react";
 import absoluteUrl from 'next-absolute-url'
-import EmployeeTable from "../employees/components/EmployeeTable";
 import LayoutWithSearch from "../../components/layouts/LayoutWithSearch";
-import FlyIn from "../../components/ui/FlyIn";
-import TimecardsTable from "../../components/ui/TimecardsTable";
+import FlyIn from "../../components/FlyIn";
+import TimecardsTable from "../../components/TimecardsTable";
 
-export default function Index({dark}) {
+export default function Index() {
     const [flyIn, setFlyIn] = useState(false)
     const [allShifts, setAllShifts] = useState([])
     const [currentShift, setCurrentShift] = useState({

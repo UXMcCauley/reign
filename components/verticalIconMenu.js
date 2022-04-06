@@ -1,4 +1,4 @@
-import styles from "./styles/VerticalIconMenu.module.scss"
+import styles from "./ui/styles/VerticalIconMenu.module.scss"
 import Link from "next/link"
 import {useRouter} from "next/router";
 

@@ -1,4 +1,4 @@
-import styles from "./styles/Buttons.module.scss"
+import styles from "./ui/styles/Buttons.module.scss"
 import {MegaphoneSimple, Camera, ThumbsUp, ThumbsDown, DotsThree, SignOut, ArrowBendUpLeft, Plus} from "phosphor-react";
 
 export function PrimaryButton({color, label, action, icon, disabled}) {

@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import IconButton from "../../components/ui/iconButton";
-import BackButton from "../../components/ui/backButton";
+import ContentContainer from "../../components/ContentContainer"
+import IconButton from "../../components/iconButton";
+import BackButton from "../../components/backButton";
 
 export default function AddNewKeycard() {
     return (

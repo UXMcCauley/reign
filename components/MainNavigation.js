@@ -1,7 +1,7 @@
 import {useRouter} from "next/router";
 import Link from "next/link"
 
-import styles from "./styles/MainNavigation.module.scss"
+import styles from "./ui/styles/MainNavigation.module.scss"
 
 const MAIN_LINKS = [
     {path: "/", label: "Home"},

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react"
 import faker from "@faker-js/faker";
 
 // import my components
-import styles from "../styles/SignIn.module.scss"
+import styles from "../../styles/SignIn.module.scss"
 import DataTable from "react-data-table-component";
 
 

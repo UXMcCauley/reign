@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
-import AddEmployeeForm from "./components/addEmployeeForm";
+import AddEmployeeForm from "../../components/addEmployeeForm";
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
@@ -21,7 +20,7 @@ export default function Add({currentOrg}) {
     )
 }
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps() {
 
     const {db} = await connectToDatabase()
 

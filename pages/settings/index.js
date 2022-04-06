@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import ContentContainer from "../../components/universal/ContentContainer"
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 
 

@@ -2,9 +2,9 @@ import {useState} from "react"
 import {useRouter} from "next/router"
 
 // my component imports
-import {PrimaryButton} from "../ui/Buttons";
-import Logo from "../ui/logo"
-import NotificationBell from "../ui/notificationBell"
+import {PrimaryButton} from "./Buttons";
+import Logo from "./logo"
+import NotificationBell from "./notificationBell"
 
 export default function Header() {
     const [firstName, setFirstName] = useState("")

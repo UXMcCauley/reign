@@ -1,6 +1,6 @@
 
 import styles from "./styles/EmployeeId.module.scss"
-import NumericDisplay from "../../components/dashboards/numericDisplay";
+import NumericDisplay from "../../components/numericDisplay";
 import GaugeChart from 'react-gauge-chart'
 import {connectToDatabase} from "../../lib/dbConnect";
 import {ObjectId} from "mongodb";
