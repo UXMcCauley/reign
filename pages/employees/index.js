@@ -8,7 +8,6 @@ import EmployeeCompareFlyin from "./components/EmployeeCompareFlyin";
 const orgURL = "61bf60ecddd910d9c0a18df1"
 
 export default function Index({employees}) {
-    const empData = JSON.parse(employees)
     const [flyIn, setFlyIn] = useState(false)
     const [searchTerm, setSearchTerm] = useState("")
     const [selectedEmployees, setSelectedEmployees] = useState([])
@@ -47,7 +46,7 @@ export default function Index({employees}) {
     )
 }
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps() {
 
     const {db} = await connectToDatabase()
     const employees = await db

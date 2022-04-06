@@ -1,5 +1,3 @@
-import {useRef, useState} from 'react'
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -17,8 +15,12 @@ export default function EmployeeTable({
                                           setFly,
                                           buttonLink
                                       }) {
-    const parsedPeople = JSON.parse(people)
-
+    let parsedPeople
+    try {
+        parsedPeople = JSON.parse(people)
+    } catch (err) {
+        console.log("data was not ready")
+    }
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
