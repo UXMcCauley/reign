@@ -25,7 +25,7 @@ export default function EmployeeTable({
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
-                    <h1 className="text-xl font-light text-gray-900 dark:text-white">{title}</h1>
+                    <h1 className="text-xl font-light text-gray-900 dark:text-white">{parsedPeople.length} {title}</h1>
                     <p className="mt-2 text-sm text-gray-400">{desc}</p>
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
@@ -61,13 +61,13 @@ export default function EmployeeTable({
                 <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div className="relative overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                            <table className="w-full  divide-y divide-gray-300 dark:divide-gray-900">
+                            <table className="divide-y divide-gray-300 dark:divide-gray-900 w-full">
                                 <thead className="bg-gray-50 dark:bg-gray-800">
                                 <tr>
                                     <th scope="col" className="relative w-12 px-6 sm:w-16 sm:px-8 text-xs">Compare</th>
                                     {heads && heads.map((heading, i) => {
                                             return (<th key={i} scope="col"
-                                                        className="min-w-[12rem] py-3.5  text-left text-sm font-semibold text-gray-900 dark:text-white">{heading}</th>)
+                                                        className=" py-3.5  text-left text-sm font-semibold text-gray-900 dark:text-white">{heading}</th>)
                                         }
                                     )}
                                 </tr>
@@ -76,10 +76,10 @@ export default function EmployeeTable({
                                     className="divide-y divide-gray-200 bg-white dark:bg-gray-700 dark:divide-gray-600">
                                 {parsedPeople && parsedPeople.filter(person => person.lastName.toLowerCase().includes(searchTerm.toLowerCase())).map((person) => (
                                     <tr key={person.email}>
-                                        <td className="relative w-12 px-6 sm:w-16 sm:px-8">
+                                        <td className="relative px-6 sm:w-16 sm:px-8">
                                             <button className={"text-sm text-black dark:text-white p-1 w-7 bg-pink-700 rounded-full hover:bg-pink-500"} onClick={() => {
                                                 if (selectedEmployees.length >= 2) {
-                                                    alert("You can only compare two employees ar once. Clearing list.")
+                                                    alert("You can only compare two employees at once. Clearing list.")
                                                     setSelectedEmployees([])
                                                 } else {
                                                     setSelectedEmployees(prev => [...prev, {
@@ -103,7 +103,8 @@ export default function EmployeeTable({
                                             {person.lastName}
                                         </td>
                                         <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.firstName}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.cell}</td>
+                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.keycard}</td>
+                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.level}</td>
                                         <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.kpi}</td>
                                         <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.performance}</td>
                                         <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.attendance}%</td>

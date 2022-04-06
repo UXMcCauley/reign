@@ -2,29 +2,30 @@ import Donuts from "../../components/donuts";
 import LineChart from "../../components/line";
 import BarChart from "../../components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
-import styles from "./styles/Executive.module.scss";
 import Heading from "../../components/headings/Heading";
+import TabbedNavigation from "../../components/TabbedNavigation"
 
 export default function SalaryOverview(props) {
     return (
         <>
             <SingleColumnLayout>
+                <TabbedNavigation/>
                 <Heading label={"Salary Overview"}/>
                     <div>
-                        <div className={styles.flexRow}>
+                        <div className={"flex"}>
                         </div>
                     </div>
                     <div>
-                        <div className={styles.flexRow}>
+                        <div className={"flex"}>
                             <Donuts data={props.airtableDonuts.records}/>
                         </div>
                     </div>
                     <div>
-                        <div className={styles.flexRow}>
-                            <div className={styles.half}>
+                        <div className={"flex"}>
+                            <div className={"w-1/2"}>
                                 <LineChart data={props.airtableLine.records}/>
                             </div>
-                            <div className={styles.half}>
+                            <div className={"w-1/2"}>
                                 <BarChart data={props.airtableBar}/>
                             </div>
                         </div>

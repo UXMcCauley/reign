@@ -5,10 +5,12 @@ import TopMetricYMQ from "../../components/TopMetricYMQ";
 import GoogleTreemap from "../../components/GoogleTreeMap";
 import faker from "@faker-js/faker";
 import {UserIcon, UserGroupIcon,} from "@heroicons/react/outline";
+import TabbedNavigation from "../../components/TabbedNavigation"
 // charts
 import LineChart from "../../components/line"
 import BarChart from "../../components/bar"
 import GooglePieChart from "../../components/GooglePieChart";
+import {useEffect, useState} from "react";
 
 const minFake = 0
 const maxFake = 188
@@ -187,26 +189,46 @@ const data = [
 ];
 
 export default function EmployeePerformance(props) {
+    const [numericData, setNumericData] = useState({})
+
+    const fetchNumericData = async () => {
+        await fetch("/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All")
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                setNumericData(res.data[0])
+            })
+            .catch(e => console.warn(e))
+    }
+
+    useEffect(() => {
+        fetchNumericData().then(data => console.log(data))
+    },[])
+
     return (
         <>
             <SingleColumnLayout>
+                <TabbedNavigation/>
                 <Heading label={"Employee Performance"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={20021} title={"performance rating"} options={["one"]}  showSelect={false}/>
-                    <TopMetricYMQ value={17324} title={"attendance"} showSelect={true}
-                                  options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={347212} title={"kpi"} showSelect={true}
-                                  options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={1904658} title={"time w/ company"} showSelect={true}
-                                  options={["Year", "Quarter", "Month"]}/>
+                    <TopMetricYMQ value={numericData.averagePerformance} title={"performance rating"}
+                                  options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}
+                                  showSelect={true}/>
+                    <TopMetricYMQ value={numericData.averageAttendance} title={"attendance"} showSelect={true}
+                                  options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
+                    <TopMetricYMQ value={numericData.averageKpi} title={"kpi"} showSelect={true}
+                                  options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
+                    <TopMetricYMQ value={2} title={"time w/ company"} showSelect={true}
+                                  options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
                     <a href={"/employees"}>
-                        <button className={"w-60 rounded-xl bg-violet-700 p-6 uppercase font-light hover:bg-violet-500"}>
+                        <button
+                            className={"w-40 rounded-xl bg-violet-700 p-6 uppercase font-light hover:bg-violet-500"}>
                             <UserIcon className={"h-10 w-10 m-auto mb-3"}/>
                             Compare employees
                         </button>
                     </a>
                     <a href={"/teams"}>
-                        <button className={"w-60 rounded-xl bg-pink-700 p-6 uppercase font-light hover:bg-pink-500"}>
+                        <button className={"w-40 rounded-xl bg-pink-700 p-6 uppercase font-light hover:bg-pink-500"}>
                             <UserGroupIcon className={"h-10 w-10 m-auto mb-3"}/>
                             Compare teams
                         </button>

@@ -3,11 +3,13 @@ import BarChart from "../../components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import InequityGapFinder from "../../components/InequityGapFinder";
+import TabbedNavigation from "../../components/TabbedNavigation"
 
 export default function WorkforceDiversity(props) {
     return (
         <>
                 <SingleColumnLayout>
+                    <TabbedNavigation/>
                     <Heading label={"Workforce Diversity"}/>
                     <div>
                         <div className={"flex"}>

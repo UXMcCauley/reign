@@ -37,7 +37,7 @@ export default function Index({employees}) {
                     people={employees}
                     title={"Employees"}
                     desc={"List of all employees in your organization."}
-                    heads={["Last", "First", "Cell", "KPI", "Performance", "Attendance", "RTR"]}
+                    heads={["Last", "First", "Keycard", "Level", "KPI", "Performance", "Attendance", "RTR"]}
                     buttonLabel={"Add employee"}
                     buttonLink={"/employees/add"}
                     linkLabel={"Real-Time Resume"}/>

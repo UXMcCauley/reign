@@ -24,10 +24,11 @@ export default function AddEmployeeForm(props) {
     const fakeKpi = faker.datatype.number({min: 1.8, max: 3.5, precision: 0.01})
     const fakePerformance = faker.datatype.number({min: 4, max: 10, precision: 0.01})
     const fakeWage = faker.datatype.number({min: 18, max: 28, precision: 0.01})
-    const fakeRole = faker.helpers.randomize(["Carpenter", "Roofer", "Concrete", "HVAC", "Manufacturing", "Siding", "Administrative"])
+    const fakeKeycard = faker.helpers.randomize(["Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"])
     const fakeAvatar = faker.image.avatar()
     const fakeAttendance = faker.datatype.number({min: 83, max: 100, precision: 0.1})
     const fakeEthnicity = faker.helpers.randomize(["African-American", "Asian", "Hispanic", "White"])
+    const fakeLevel = faker.helpers.randomize([1, 2, 3])
     // console.log(props)
 
     const router = useRouter()
@@ -54,10 +55,11 @@ export default function AddEmployeeForm(props) {
     const [kpi, setKpi] = useState(fakeKpi)
     const [performance, setPerformance] = useState(fakePerformance)
     const [wage, setWage] = useState(fakeWage)
-    const [role, setRole] = useState(fakeRole)
+    const [keycard, setKeycard] = useState(fakeKeycard)
     const [avatar, setAvatar] = useState(fakeAvatar)
     const [attendance, setAttendance] = useState(fakeAttendance)
     const [ethnicity, setEthnicity] = useState(fakeEthnicity)
+    const [level, setLevel] = useState(fakeLevel)
 
     // const formFields = [["firstName"], "lastName", "email", 'cell', "home", "birthdate", "street", "city", "state", "zip", "gender", "pronouns", "startDate", "orgId", "username", "password", "highSchool", "college", "bio"]
     const formFields = [
@@ -82,10 +84,11 @@ export default function AddEmployeeForm(props) {
         ["kpi", kpi],
         ["performance", performance],
         ["wage", wage],
-        ["role", role],
+        ["keycard", keycard],
         ["avatar", avatar],
         ["attendance", attendance],
-        ["ethnicity", ethnicity]
+        ["ethnicity", ethnicity],
+        ["level", level]
     ]
 
     const [overlay, setOverlay] = useState(false)
@@ -135,10 +138,11 @@ export default function AddEmployeeForm(props) {
                                        kpi: kpi,
                                        performance: performance,
                                        wage: wage,
-                                       role: role,
+                                       keycard: keycard,
                                        avatar: avatar,
                                        attendance: attendance,
-                                       ethnicity: ethnicity
+                                       ethnicity: ethnicity,
+                                       level: level
                                    })
                                    setOverlay(true)
                                    window.location.reload()
@@ -147,7 +151,7 @@ export default function AddEmployeeForm(props) {
                     return (
                         <div key={i}>
                             <label htmlFor={field[0]}>{field[0]}</label>
-                            <input id={field[0]} type={"text"} value={field[1]}/>
+                            <input id={field[0]} type={"text"} defaultValue={field[1]}/>
                         </div>
                     )
                 })}

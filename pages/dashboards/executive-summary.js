@@ -3,6 +3,7 @@ import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import TopMetricYMQ from "../../components/TopMetricYMQ";
 import GoogleTreemap from "../../components/GoogleTreeMap";
+import TabbedNavigation from "../../components/TabbedNavigation"
 import faker from "@faker-js/faker";
 
 // charts
@@ -190,6 +191,7 @@ export default function ExecutiveSummary(props) {
     return (
         <>
             <SingleColumnLayout>
+                <TabbedNavigation/>
                 <Heading label={"Executive Summary"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
                     <TopMetricYMQ value={20021} title={"employees"} options={["one"]}/>

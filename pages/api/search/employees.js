@@ -27,11 +27,12 @@ export default async (req, res) => {
         endDate.setFullYear(endDate.getFullYear() - 56)
     }
 
-    const testQuery2 = {
+    const query = {
         "organization": ObjectId("61bf60ecddd910d9c0a18df1"),
-        "gender": req.query.gender === "All" ? {$exists: true} : req.query.gender,
-        "birthdate": req.query.age === "All" ? {$exists: true} : {$gte: startDate, $lt: endDate},
-        "ethnicity": req.query.ethnicity === "All" ? {$exists: true} : req.query.ethnicity
+        "gender": req.query.gender === "All" || req.query.gender === undefined ? {$exists: true} : req.query.gender,
+        "birthdate": req.query.age === "All" || req.query.age === undefined ? {$exists: true} : {$gte: startDate, $lt: endDate},
+        "ethnicity": req.query.ethnicity === "All" || req.query.ethnicity === undefined ? {$exists: true} : req.query.ethnicity,
+        "keycard" : req.query.keycard === "All" || req.body.keycard === undefined ? {$exists: true} : req.query.keycard,
     }
     const pipeline = [
         {
@@ -63,7 +64,7 @@ export default async (req, res) => {
     const {db} = await connectToDatabase()
     const employees = await db
         .collection("employees")
-        .find(testQuery2)
+        .find(query)
         .toArray()
 
     const pipedData = await db

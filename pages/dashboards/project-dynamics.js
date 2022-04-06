@@ -1,6 +1,7 @@
 import {Chart} from "react-google-charts";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
+import TabbedNavigation from "../../components/TabbedNavigation"
 
 export const data = [
     ["Task", "Hours per Day"],
@@ -61,13 +62,14 @@ export default function ProjectDynamics() {
     return (
         <>
             <SingleColumnLayout>
+                <TabbedNavigation/>
                 <Heading label={"Project Dynamics"}/>
                 <div>
                     <div className={"flex"}>
                     </div>
                 </div>
                 <div>
-                    <div className={"flex opacity-5"}>
+                    <div className={"flex"}>
                         <Chart
                             chartType="PieChart"
                             data={data}

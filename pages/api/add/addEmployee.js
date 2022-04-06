@@ -33,7 +33,9 @@ export default async (req, res) => {
             wage: req.body.wage,
             avatar: req.body.avatar,
             attendance: req.body.attendance,
-            ethnicity: req.body.ethnicity
+            ethnicity: req.body.ethnicity,
+            keycard: req.body.keycard,
+            level: req.body.level
         })
 
     res.json(newEmployee)
