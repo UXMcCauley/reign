@@ -2,13 +2,9 @@
 import {Fragment, useEffect, useState} from 'react'
 import {Dialog, Transition} from '@headlessui/react'
 import {XIcon} from '@heroicons/react/outline'
-import BarChart from "../../../components/dashboards/bar";
 import EmployeeCompareLine from "./EmployeeCompareLine";
-import { Chart } from 'react-google-charts';
-
 
 export default function EmployeeCompareFlyin({flyIn, setFly, selectedEmployees}) {
-    const [open, setOpen] = useState(true)
     const [dark, setDark] = useState(false)
     useEffect(() => {
         const isDark = localStorage.getItem("mode")

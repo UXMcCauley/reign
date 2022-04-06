@@ -1,30 +1,25 @@
 import {useState} from "react";
+import InequityGapTable from "./InequityGapTable";
 
 export default function InequityGapFinder() {
     const [datasets, setDatasets] = useState([])
-    const [gender, setGender] = useState("")
-    const [ethnicity, setEthnicity] = useState("")
-    const [age, setAge] = useState("")
+    const [gender, setGender] = useState("All")
+    const [ethnicity, setEthnicity] = useState("All")
+    const [age, setAge] = useState("All")
 
-    const fetchEmployees = async (body) => {
-        const data = await fetch("/api/search/employees", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(body)
-        })
-        const fetched = data.json()
-        console.log(fetched)
-        return fetched
-    }
-
-    const addDataset = () => {
-        setDatasets(prevState => [...prevState, {
-            gender: gender,
-            ethnicity: ethnicity,
-            age: age
-        }])
+    const fetchEmployees = async () => {
+        await fetch("/api/search/employees?age=" + age + "&gender=" + gender + "&ethnicity=" + ethnicity)
+            .then(res => res.json())
+            .then(res => {
+                setDatasets(prevState => [...prevState, {
+                    gender: gender,
+                    ethnicity: ethnicity,
+                    age: age,
+                    employees: res.employees,
+                    data: res.data[0]
+                }])
+            })
+            .catch(e => console.warn(e))
     }
     return (
         <div>
@@ -60,23 +55,23 @@ export default function InequityGapFinder() {
                         <option value={"26-35"}>26-35</option>
                         <option value={"36-45"}>36-45</option>
                         <option value={"46-55"}>46-55</option>
-                        <option value={"55+"}>55+</option>
+                        <option value={"55+"}>56+</option>
                     </select>
                 </div>
                 <button onClick={() => {
-                    fetchEmployees({
-                        gender: gender,
-                        age: age,
-                        ethnicity: ethnicity,
-                        orgId: "61bf60ecddd910d9c0a18df1"
-                    })
+                    fetchEmployees(age, gender, ethnicity)
+                        .then(r => console.log(r))
                 }} className={"bg-violet-700 pl-3 pr-3 rounded-xl"}>
                     Add this dataset
                 </button>
-            </div>
-            <div>
+                <button onClick={() => {
+                    setDatasets([])
+                }} className={"bg-gray-700 pl-3 pr-3 rounded-xl ml-2"}>
+                    Clear table
+                </button>
 
             </div>
+            <InequityGapTable data={datasets}/>
         </div>
     )
 }

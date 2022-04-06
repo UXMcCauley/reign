@@ -1,6 +1,6 @@
 import Donuts from "../../components/dashboards/donuts";
 import LineChart from "../../components/dashboards/line";
-import BarChart from "../../components/dashboards/bar";
+import BarChart from "./components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import styles from "./styles/Executive.module.scss";
 import Heading from "../../components/headings/Heading";

@@ -7,7 +7,7 @@ import faker from "@faker-js/faker";
 
 // charts
 import LineChart from "../../components/dashboards/line"
-import BarChart from "../../components/dashboards/bar"
+import BarChart from "./components/bar"
 import GooglePieChart from "./components/GooglePieChart";
 
 const minFake = 0

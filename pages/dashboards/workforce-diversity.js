@@ -1,8 +1,7 @@
 import Donuts from "../../components/dashboards/donuts";
-import BarChart from "../../components/dashboards/bar";
+import BarChart from "./components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
-import styles from "./styles/Executive.module.scss";
 import InequityGapFinder from "./components/InequityGapFinder";
 
 export default function WorkforceDiversity(props) {
@@ -11,24 +10,24 @@ export default function WorkforceDiversity(props) {
                 <SingleColumnLayout>
                     <Heading label={"Workforce Diversity"}/>
                     <div>
-                        <div className={styles.flexRow}>
+                        <div className={"flex"}>
                         </div>
                     </div>
                     <div>
-                        <div className={styles.flexRow}>
+                        <div className={"flex"}>
                             <Donuts data={props.airtableDonuts.records}/>
                         </div>
                     </div>
                     <div>
-                        <div className={styles.flexRow}>
-                            <div style={{width: "100%"}}>
+                        <div className={"flex"}>
+                            <div className={"w-full"}>
                                 <BarChart data={props.airtableBar}/>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div>
-                            <h1>Inequity Gap Finder</h1>
+                        <div className={"mt-10"}>
+                            <h1 className={"text-black dark:text-white"}>Inequity Gap Finder</h1>
                             <InequityGapFinder/>
                         </div>
                     </div>
