@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"
 const products = [
     {
         id: 1,
@@ -48,8 +49,10 @@ export default function TailWindPreviewCards() {
             <div className="max-w-2xl mx-auto py-5 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 text-center">
                     {products.map((product) => (
-                        <a key={product.id} href={product.href} className="group">
-                            <div className="w-full bg-gray-200 rounded-lg overflow-hidden dark:bg-gray-800 dark:border-2 dark:border-gray-800">
+                        <Link key={product.id}  href={product.href} passHref>
+                            <a className="group">
+                            <div
+                                className="w-full bg-gray-200 rounded-lg overflow-hidden dark:bg-gray-800 dark:border-2 dark:border-gray-800">
                                 <Image
                                     width={260}
                                     height={200}
@@ -59,6 +62,7 @@ export default function TailWindPreviewCards() {
                             </div>
                             <h3 className="mt-4 text-sm text-gray-700 dark:text-white">{product.name}</h3>
                         </a>
+                        </Link>
                     ))}
                 </div>
             </div>
