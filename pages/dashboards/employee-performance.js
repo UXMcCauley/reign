@@ -262,7 +262,7 @@ export default function EmployeePerformance({numericDataForPage}) {
 
                     </div>
                 </div>
-                <div className={"w-full h-600 border"}>
+                <div className={"w-full"}>
                     <GoogleScatterChart/>
                 </div>
                 <div className={"w-full"}>

@@ -60,7 +60,7 @@ export function GoogleScatterChart() {
         <Chart
             chartType="ScatterChart"
             width="100%"
-            height="600px"
+            height="500px"
             data={data}
             options={options}
         />
