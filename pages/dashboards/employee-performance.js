@@ -7,10 +7,7 @@ import faker from "@faker-js/faker";
 import {UserIcon, UserGroupIcon,} from "@heroicons/react/outline";
 import TabbedNavigation from "../../components/TabbedNavigation"
 // charts
-import LineChart from "../../components/line"
-import BarChart from "../../components/bar"
 import GooglePieChart from "../../components/GooglePieChart";
-import {useEffect, useState} from "react";
 import {GoogleScatterChart} from "../../components/GoogleScatterChart";
 
 const minFake = 0
@@ -191,20 +188,6 @@ const data = [
 
 export default function EmployeePerformance({numericDataForPage}) {
     console.log(numericDataForPage)
-    const [numericData, setNumericData] = useState({})
-
-    // const fetchNumericData = async () => {
-    //     return await fetch("/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All")
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             console.log(res)
-    //             setNumericData(res.data[0])
-    //         })
-    //         .catch(e => console.warn(e))
-    // }
-
-    useEffect(() => {
-    }, [])
 
     return (
         <>
@@ -278,7 +261,7 @@ export default function EmployeePerformance({numericDataForPage}) {
 
                     </div>
                 </div>
-                <div className={"w-full"}>
+                <div className={"w-full h-600 border"}>
                     <GoogleScatterChart/>
                 </div>
                 <div className={"w-full"}>
