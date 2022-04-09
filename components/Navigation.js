@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/outline";
 import Toggle from "./Toggle";
 import {useRouter} from "next/router";
+import Link from "next/link"
 
 const navigation = [
     {name: 'Home', href: '/', icon: HomeIcon, current: false},
@@ -38,9 +39,9 @@ function Navigation() {
         <nav className="mt-5 flex-1" aria-label="Sidebar">
             <div className="px-2 space-y-1">
                 {navigation.map((item) => (
-                    <a
-                        key={item.name}
-                        href={item.href}
+                    <Link key={item.name}
+                          href={item.href} passHref>
+                        <a
                         className={classNames(
                             router.pathname === item.href
                                 ? 'bg-gray-200 text-gray-900 dark:text-white dark:bg-violet-700'
@@ -50,13 +51,14 @@ function Navigation() {
                     >
                         <item.icon
                             className={classNames(
-                                    item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
+                                item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
                                 'mr-3 h-6 w-6'
                             )}
                             aria-hidden="true"
                         />
                         {item.name}
                     </a>
+                    </Link>
                 ))}
             </div>
             <div className={"p-3"}>
