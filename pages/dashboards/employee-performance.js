@@ -6,6 +6,7 @@ import GoogleTreemap from "../../components/GoogleTreeMap";
 import faker from "@faker-js/faker";
 import {UserIcon, UserGroupIcon,} from "@heroicons/react/outline";
 import TabbedNavigation from "../../components/TabbedNavigation"
+import Router from "next/router"
 // charts
 import GooglePieChart from "../../components/GooglePieChart";
 import {GoogleScatterChart} from "../../components/GoogleScatterChart";
@@ -272,9 +273,14 @@ export default function EmployeePerformance({numericDataForPage}) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+    const {req} = context;
+
+    const protocol = req.headers['x-forwarded-proto'] || 'http'
+    const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
+
     // set up variables
-    const url = "http://localhost:3000//api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All"
+    const url =  baseUrl + "/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All"
 
     // fetch data
     const numericData = await fetch(url)
