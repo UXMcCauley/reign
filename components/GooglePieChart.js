@@ -1,7 +1,7 @@
 import {Chart} from "react-google-charts";
 import {useState} from "react";
 
-function GooglePieChart({data, label, title}) {
+function GooglePieChart({data, label, title, selectOptions, showSelect}) {
     const [selected, setSelected] = useState([])
     const chartEvents = [
         {
@@ -47,8 +47,19 @@ function GooglePieChart({data, label, title}) {
         ],
         pieSliceBorderColor: "black"
     };
+
+    const makeSelectOptions = (selectOptions) => {
+        return (
+            <select className={"w-1/2 m-auto mt-5 text-black rounded-full dark:bg-gray-800 dark:text-white"}>
+                {selectOptions.map((option, i) => {
+                    return <option key={i}>{option}</option>
+                } )}
+            </select>
+        )
+    }
+
     return (
-        <div className={"pieChartContainer"}>
+        <div className={"flex flex-col"}>
             <div className={"text-black dark:text-white text-l uppercase font-light w-full text-center mt-14 mb-4"}>{title}</div>
             <div className={`relative`}>
                 <div className={`text-black dark:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
@@ -60,7 +71,9 @@ function GooglePieChart({data, label, title}) {
                     data={data}
                     options={options}
                     chartEvents={chartEvents}
-                /></div>
+                />
+            </div>
+            {showSelect ? makeSelectOptions(selectOptions) : null}
         </div>
     );
 }

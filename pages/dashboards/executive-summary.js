@@ -195,59 +195,58 @@ export default function ExecutiveSummary(props) {
                 <Heading label={"Executive Summary"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
                     <TopMetricYMQ value={20021} title={"employees"} options={["one"]}/>
-                    <TopMetricYMQ value={17324} title={"training hours"}  showSelect={false}
+                    <TopMetricYMQ value={17324} title={"training hours"} showSelect={false}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={347212} title={"production hours"}  showSelect={true}
+                    <TopMetricYMQ value={347212} title={"production hours"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={1904658} title={"payroll average"}  showSelect={true}
+                    <TopMetricYMQ value={1904658} title={"payroll average"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={399} title={"new hires"}  showSelect={true}
+                    <TopMetricYMQ value={399} title={"new hires"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
                     <TopMetricYMQ value={7446} title={"raises"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
                 </div>
-                <div>
-                    <div className={`flex justify-between mb-10`}>
-                        <GooglePieChart label={"employees"} title={"performance/employee"} data={[
-                            ["Rating", "Number of employees"],
-                            ["<5", 6],
-                            ["5-6", 14],
-                            ["6-7", 19],
-                            ["7-8", 45],
-                            ["8-9", 51],
-                            ["9-10", 11]
-                        ]}/>
+                <div className={`flex justify-between mb-10`}>
+                    <GooglePieChart label={"employees"} title={"performance/employee"} data={[
+                        ["Rating", "Number of employees"],
+                        ["<5", 6],
+                        ["5-6", 14],
+                        ["6-7", 19],
+                        ["7-8", 45],
+                        ["8-9", 51],
+                        ["9-10", 11]
+                    ]}/>
 
-                        <GooglePieChart label={"hours"} title={"training/keycard"} data={[
-                            ["Keycard", "Training hours"],
-                            ["Carpenter", 1103],
-                            ["Commercial Roofer", 1034],
-                            ["Concrete", 900],
-                            ["Flooring Installer", 1672],
-                            ["General Laborer", 783],
-                            ["Manufacturing", 1209],
-                            ["HVAC", 609],
-                            ["Painter", 399],
-                            ["Residential Roofer", 1478],
-                            ["Siding Installer", 230]
-                        ]}/>
+                    <GooglePieChart label={"hours"} title={"training/keycard"} data={[
+                        ["Keycard", "Training hours"],
+                        ["Carpenter", 1103],
+                        ["Commercial Roofer", 1034],
+                        ["Concrete", 900],
+                        ["Flooring Installer", 1672],
+                        ["General Laborer", 783],
+                        ["Manufacturing", 1209],
+                        ["HVAC", 609],
+                        ["Painter", 399],
+                        ["Residential Roofer", 1478],
+                        ["Siding Installer", 230]
+                    ]}/>
 
-                        <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
-                            ["Keycard", "Late employees"],
-                            ["Carpenter", 12],
-                            ["Commercial Roofer", 5],
-                            ["Concrete", 7],
-                            ["Flooring Installer", 11],
-                            ["General Laborer", 7],
-                            ["Manufacturing", 4],
-                            ["HVAC", 1],
-                            ["Painter", 3],
-                            ["Residential Roofer", 9],
-                            ["Siding Installer", 6]
-                        ]}/>
+                    <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
+                        ["Keycard", "Late employees"],
+                        ["Carpenter", 12],
+                        ["Commercial Roofer", 5],
+                        ["Concrete", 7],
+                        ["Flooring Installer", 11],
+                        ["General Laborer", 7],
+                        ["Manufacturing", 4],
+                        ["HVAC", 1],
+                        ["Painter", 3],
+                        ["Residential Roofer", 9],
+                        ["Siding Installer", 6]
+                    ]}/>
 
-                    </div>
                 </div>
+
                 <div>
                     <div className={`flex`}>
                         <div className={`w-1/2`}>

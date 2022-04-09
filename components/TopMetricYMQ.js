@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 
 function TopMetricYMQ({title, value, options, showSelect}) {
     const [selectOptions, setSelectOptions] = useState(["one", "two", "three"])
-    const [selected, setSelected] = useState("")
     const [number, setNumber] = useState(value)
     useEffect(() => {
         setNumber(value)
@@ -27,7 +26,7 @@ function TopMetricYMQ({title, value, options, showSelect}) {
                                 setNumber(value / 12)
                             }
                         }}
-                        className={`${selectOptions.length > 0 ? "visible" : "hidden"} text-black py-1 rounded-full`}>
+                        className={`${selectOptions.length > 0 ? "visible" : "hidden"} text-black py-1 rounded-full dark:bg-gray-800 dark:text-white`}>
                         {options.map((option, i) => {
                             return <option key={i}>{option}</option>
                         })}

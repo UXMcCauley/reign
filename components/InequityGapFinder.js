@@ -27,7 +27,7 @@ export default function InequityGapFinder() {
                 <div>
                     <select onChange={(e) => {
                         setGender(e.target.value)
-                    }} className={"text-black mr-5"}>
+                    }} className={"text-black mr-5 rounded-full dark:bg-gray-800 dark:text-white"}>
                         <option value={"All"}>All</option>
                         <option value={"Male"}>Male</option>
                         <option value={"Female"}>Female</option>
@@ -37,7 +37,7 @@ export default function InequityGapFinder() {
                 <div>
                     <select onChange={(e) => {
                         setEthnicity(e.target.value)
-                    }} className={"text-black mr-5"}>
+                    }} className={"text-black mr-5 rounded-full dark:bg-gray-800 dark:text-white"}>
                         <option value={"All"}>All</option>
                         <option value={"African-American"}>African-American</option>
                         <option value={"Asian"}>Asian</option>
@@ -48,7 +48,7 @@ export default function InequityGapFinder() {
                 <div>
                     <select onChange={(e) => {
                         setAge(e.target.value)
-                    }} className={"text-black mr-5"}>
+                    }} className={"text-black mr-5 rounded-full dark:bg-gray-800 dark:text-white"}>
                         <option value={"All"}>All</option>
                         <option value={"16-18"}>16-18</option>
                         <option value={"19-25"}>19-25</option>
@@ -61,12 +61,12 @@ export default function InequityGapFinder() {
                 <button onClick={() => {
                     fetchEmployees(age, gender, ethnicity)
                         .then(r => console.log(r))
-                }} className={"bg-violet-700 pl-3 pr-3 rounded-xl"}>
+                }} className={"bg-violet-700 pl-5 pr-5 rounded-full"}>
                     Add this dataset
                 </button>
                 <button onClick={() => {
                     setDatasets([])
-                }} className={"bg-gray-700 pl-3 pr-3 rounded-xl ml-2"}>
+                }} className={"bg-gray-700 pl-5 pr-5 rounded-full ml-2"}>
                     Clear table
                 </button>
 

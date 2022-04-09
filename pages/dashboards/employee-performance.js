@@ -263,7 +263,8 @@ export default function EmployeePerformance({numericDataForPage}) {
                     </div>
                 </div>
                 <div className={"w-full"}>
-                    <GoogleScatterChart/>
+                    <h1 className={"text-black dark:text-white w-full text-center"}>Performance/level</h1>
+                    <GoogleScatterChart labels={["Level", "Level 1", "Level 2", "Level 3"]} height={500}/>
                 </div>
                 <div className={"w-full"}>
                     <GoogleTreemap title={"Production hours/Keycard"} data={data}/>
