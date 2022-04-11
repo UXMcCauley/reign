@@ -1,64 +1,123 @@
-import Donuts from "../../components/donuts";
-import LineChart from "../../components/line";
-import BarChart from "../../components/bar";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import TabbedNavigation from "../../components/TabbedNavigation"
+import TopMetricYMQ2 from "../../components/TopMetricYMQ2";
+import GooglePieChart from "../../components/GooglePieChart";
+import InequityGapFinder from "../../components/InequityGapFinder";
 
-export default function SalaryOverview(props) {
+export default function SalaryOverview({numericDataForPage}) {
     return (
         <>
             <SingleColumnLayout>
                 <TabbedNavigation/>
-                <Heading label={"Salary Overview"}/>
-                    <div>
-                        <div className={"flex"}>
-                        </div>
+                <Heading label={"Workforce Diversity"}/>
+                <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"average wage"} type={false}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/gender"} type={"byGender"}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/ethnicity"} type={"byEthnicity"}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/age"} type={"byAge"}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/keycard"} type={"byKeycard"}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/performance"} type={"byAge"}/>
+
+                    {/*<TopMetricYMQ value={151} title={"wage/gender"} showSelect={true}*/}
+                    {/*              options={["All", "Female", "Male", "Other"]}/>*/}
+                    {/*<TopMetricYMQ value={151} title={"wage/age"} showSelect={true}*/}
+                    {/*              options={["All", "16-18", "19-25", "26-35", "36-45", "46-55", "56+"]}/>*/}
+                    {/*<TopMetricYMQ value={23.31} title={"wage/keycard"} showSelect={true}*/}
+                    {/*              options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>*/}
+                    {/*<TopMetricYMQ value={23.31} title={"wage/performance"} showSelect={true}*/}
+                    {/*              options={["All", "<5>", "5-6", "6-7", "7-8", "8-9", "9-10"]}/>*/}
+                </div>
+                <div className={`flex justify-between mb-10`}>
+                    <GooglePieChart label={"hours"} title={"overtime/keycard"}
+                                    showSelect={false}
+                                    selectOptions={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}
+                                    data={[
+                                        ["Keycard", "Overtime"],
+                                        ["Carpenter", 16],
+                                        ["Commercial Roofer", 114],
+                                        ["Concrete", 119],
+                                        ["HVAC", 145],
+                                        ["Manufacturing", 251],
+                                        ["Siding Installer", 311],
+                                        ["Flooring Installer", 45],
+                                        ["Residential Roofer", 245],
+                                        ["General Laborer", 145],
+                                        ["Painter", 245],
+                                    ]}/>
+
+                    <GooglePieChart label={"hours"} title={"overtime/ethnicity"}
+                                    showSelect={false}
+                                    selectOptions={["Select an ethnicity...", "African-American", "Asian", "Hispanic", "White"]}
+                                    data={[
+                                        ["Rating", "Number of employees"],
+                                        ["<5", 36],
+                                        ["5-6", 214],
+                                        ["6-7", 119],
+                                        ["7-8", 345],
+                                        ["8-9", 251],
+                                        ["9-10", 111]
+                                    ]}/>
+
+                    <GooglePieChart label={"hours"} title={"overtime/age"}
+                                    showSelect={false}
+                                    selectOptions={["Select an age...", "16-18", "19-25", "26-35", "36-45", "46-55", "56+"]}
+                                    data={[
+                                        ["Rating", "Number of employees"],
+                                        ["<5", 216],
+                                        ["5-6", 314],
+                                        ["6-7", 119],
+                                        ["7-8", 245],
+                                        ["8-9", 351],
+                                        ["9-10", 111]
+                                    ]}/>
+
+                    <GooglePieChart label={"hours"} title={"overtime/gender"}
+                                    showSelect={false}
+                                    selectOptions={["Select skill level...", "Female", "Male", "Other"]}
+                                    data={[
+                                        ["Rating", "Number of employees"],
+                                        ["<5", 6],
+                                        ["5-6", 14],
+                                        ["6-7", 19],
+                                        ["7-8", 45],
+                                        ["8-9", 51],
+                                        ["9-10", 11]
+                                    ]}/>
+
+                </div>
+                <div className={"mt-20 flex"}>
+                    <div className={"w-1/2"}>
+                        <h1 className={"text-black dark:text-white w-full text-center"}>wages/group</h1>
                     </div>
-                    <div>
-                        <div className={"flex"}>
-                            <Donuts data={props.airtableDonuts.records}/>
-                        </div>
+                    <div className={"w-1/2"}>
+                        <h1 className={"text-black dark:text-white w-full text-center"}>payroll/group</h1>
                     </div>
-                    <div>
-                        <div className={"flex"}>
-                            <div className={"w-1/2"}>
-                                <LineChart data={props.airtableLine.records}/>
-                            </div>
-                            <div className={"w-1/2"}>
-                                <BarChart data={props.airtableBar}/>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                        </div>
-                    </div>
+                </div>
+                <div className={"mt-20"}>
+                    <h1 className={"text-black dark:text-white w-full text-center"}>Pay Gap Finder</h1>
+                    <InequityGapFinder/>
+                </div>
             </SingleColumnLayout>
         </>
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+    const {req} = context;
+
+    const protocol = req.headers['x-forwarded-proto'] || 'http'
+    const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
+
     // set up variables
-    const url = "https://api.airtable.com/v0/"
-    const app = "apppbpS0rK10adQYh/"
-    const key = "?api_key=keyYCtVdqu5KWRkCr&view="
+    const url =  baseUrl + "/api/search/salary-overview"
 
     // fetch data
-    const bar = await fetch(url + app + "Bars" + key + "SalaryOverview")
-    const donuts = await fetch(url + app + "Donuts" + key + "SalaryOverview")
-    const line = await fetch(url + app + "Lines" + key + "SalaryOverview")
-    const numeric = await fetch(url + app + "Numerics" + key + "SalaryOverview")
-    const tree = await fetch(url + app + "TreeMap" + key + "SalaryOverview")
+    const numericData = await fetch(url)
 
     // cast data to json
-    const airtableBar = await bar.json()
-    const airtableDonuts = await donuts.json()
-    const airtableLine = await line.json()
-    const airtableNumeric = await numeric.json()
-    const airtableTree = await tree.json()
+    const numericDataForPage = await numericData.json()
 
     // return data as component props on render
-    return {props: {airtableBar, airtableDonuts, airtableLine, airtableNumeric, airtableTree}}
+    return {props: {numericDataForPage}}
 }

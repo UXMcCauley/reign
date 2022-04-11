@@ -92,26 +92,6 @@ export default function WorkforceDiversity() {
     )
 }
 
-export async function getServerSideProps() {
-    // set up variables
-    const url = "https://api.airtable.com/v0/"
-    const app = "apppbpS0rK10adQYh/"
-    const key = "?api_key=keyYCtVdqu5KWRkCr&view="
-
-    // fetch data
-    const bar = await fetch(url + app + "Bars" + key + "WorkforceDiversity")
-    const donuts = await fetch(url + app + "Donuts" + key + "WorkforceDiversity")
-    const line = await fetch(url + app + "Lines" + key + "WorkforceDiversity")
-    const numeric = await fetch(url + app + "Numerics" + key + "WorkforceDiversity")
-    const tree = await fetch(url + app + "TreeMap" + key + "WorkforceDiversity")
-
-    // cast data to json
-    const airtableBar = await bar.json()
-    const airtableDonuts = await donuts.json()
-    const airtableLine = await line.json()
-    const airtableNumeric = await numeric.json()
-    const airtableTree = await tree.json()
-
-    // return data as component props on render
-    return {props: {airtableBar, airtableDonuts, airtableLine, airtableNumeric, airtableTree}}
-}
+// export async function getServerSideProps() {
+//     return {props: {props}}
+// }

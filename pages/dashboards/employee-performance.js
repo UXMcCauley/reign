@@ -286,10 +286,8 @@ export async function getServerSideProps(context) {
     // fetch data
     const numericData = await fetch(url)
 
-
     // cast data to json
     const numericDataForPage = await numericData.json()
-
 
     // return data as component props on render
     return {props: {numericDataForPage}}
