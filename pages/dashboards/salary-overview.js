@@ -4,8 +4,46 @@ import TabbedNavigation from "../../components/TabbedNavigation"
 import TopMetricYMQ2 from "../../components/TopMetricYMQ2";
 import GooglePieChart from "../../components/GooglePieChart";
 import InequityGapFinder from "../../components/InequityGapFinder";
+import {GoogleBarChart} from "../../components/GoogleBarChart";
+import faker from "@faker-js/faker";
+import {GooglePieChart2} from "../../components/GooglePieChart2";
 
 export default function SalaryOverview({numericDataForPage}) {
+    const makeDataItem = (task) => {
+        return [task, faker.datatype.number({min: 19, max: 26})]
+    }
+    const barData = [
+        ["Keycard", "Wage"],
+        makeDataItem("Male"),
+        makeDataItem("Female"),
+        makeDataItem("Other Gender"),
+        makeDataItem("African-American"),
+        makeDataItem("Asian"),
+        makeDataItem("Hispanic"),
+        makeDataItem("16-18"),
+        makeDataItem("19-25"),
+        makeDataItem("26-35"),
+        makeDataItem("36-45"),
+        makeDataItem("46-55"),
+        makeDataItem("56+"),
+    ]
+
+    const pieData = [
+        ["Keycard", "Wage"],
+        makeDataItem("Male"),
+        makeDataItem("Female"),
+        makeDataItem("Other Gender"),
+        makeDataItem("African-American"),
+        makeDataItem("Asian"),
+        makeDataItem("Hispanic"),
+        makeDataItem("16-18"),
+        makeDataItem("19-25"),
+        makeDataItem("26-35"),
+        makeDataItem("36-45"),
+        makeDataItem("46-55"),
+        makeDataItem("56+"),
+    ]
+
     return (
         <>
             <SingleColumnLayout>
@@ -18,15 +56,6 @@ export default function SalaryOverview({numericDataForPage}) {
                     <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/age"} type={"byAge"}/>
                     <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/keycard"} type={"byKeycard"}/>
                     <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/performance"} type={"byAge"}/>
-
-                    {/*<TopMetricYMQ value={151} title={"wage/gender"} showSelect={true}*/}
-                    {/*              options={["All", "Female", "Male", "Other"]}/>*/}
-                    {/*<TopMetricYMQ value={151} title={"wage/age"} showSelect={true}*/}
-                    {/*              options={["All", "16-18", "19-25", "26-35", "36-45", "46-55", "56+"]}/>*/}
-                    {/*<TopMetricYMQ value={23.31} title={"wage/keycard"} showSelect={true}*/}
-                    {/*              options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>*/}
-                    {/*<TopMetricYMQ value={23.31} title={"wage/performance"} showSelect={true}*/}
-                    {/*              options={["All", "<5>", "5-6", "6-7", "7-8", "8-9", "9-10"]}/>*/}
                 </div>
                 <div className={`flex justify-between mb-10`}>
                     <GooglePieChart label={"hours"} title={"overtime/keycard"}
@@ -89,9 +118,11 @@ export default function SalaryOverview({numericDataForPage}) {
                 <div className={"mt-20 flex"}>
                     <div className={"w-1/2"}>
                         <h1 className={"text-black dark:text-white w-full text-center"}>wages/group</h1>
+                        <GoogleBarChart data={barData}/>
                     </div>
                     <div className={"w-1/2"}>
-                        <h1 className={"text-black dark:text-white w-full text-center"}>payroll/group</h1>
+                        <h1 className={"text-black dark:text-white w-full text-center relative"}>payroll/group</h1>
+                        <GooglePieChart2 data={pieData}/>
                     </div>
                 </div>
                 <div className={"mt-20"}>
