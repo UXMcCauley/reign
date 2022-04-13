@@ -3,13 +3,16 @@ import Navigation from "../Navigation";
 import TransitionRoot from "./TransitionRoot";
 import {useTheme} from 'next-themes'
 import Image from "next/image";
+import {useEffect} from "react";
 
 export default function SingleColumnLayout({children}) {
     const {theme, setTheme} = useTheme()
-
+    useEffect(() => {
+        setTheme(localStorage.getItem("theme"))
+    },[])
     return (
         <>
-            <div className={`h-screen flex ${theme === "true" ? "dark" : "light"}`}>
+            <div className={`h-screen w-full flex ${theme === "true" ? "dark" : "light"}`}>
                 <TransitionRoot/>
                 {/* Static sidebar for desktop */}
                 <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
@@ -68,7 +71,7 @@ export default function SingleColumnLayout({children}) {
                     <main className="flex-1 dark:bg-gray-900">
                         <div className="py-6">
                             <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
-                                <div className="py-4">
+                                <div className="py-4 overflow-auto">
                                     {children}
                                 </div>
                             </div>

@@ -15,14 +15,14 @@ const secondaryNavigation = [
     {name: 'Generate a team', href: '#'},
 ]
 export default function TwoColumnRightMenu({children}) {
-    const [dark, setDark] = useState(false)
+    const [dark, setDark] = useState("")
 
     useEffect(() => {
-        setDark(localStorage.getItem("mode"))
+        setDark(localStorage.getItem("theme"))
     }, [])
     return (
         <>
-            <div className={`h-screen flex ${eval(dark) ? "dark" : ""}`}>
+            <div className={`h-screen flex ${dark === "dark" ? "dark" : "light"}`}>
                 <TransitionRoot/>
                 {/* Static sidebar for desktop */}
                 <div className="hidden lg:flex lg:flex-shrink-0">
@@ -105,7 +105,7 @@ export default function TwoColumnRightMenu({children}) {
                             className="hidden relative xl:flex xl:flex-col flex-shrink-0 w-96 border-l border-gray-200 overflow-y-auto dark:border-gray-800 ">
                             {/* Start secondary column (hidden on smaller screens) */}
                             <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8 dark:bg-gray-900">
-                                <Heading label={"Actions"}/>
+                                <Heading label={"Activity"}/>
                                 <Feed/>
                                 <Heading label={"Functions"}/>
                                 <div className="mt-1 space-y-1" aria-labelledby="projects-headline">

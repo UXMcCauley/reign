@@ -30,7 +30,7 @@ function Badges() {
 
     const badge = (data, idx) => {
         return (
-            <div key={idx} className={`bg-gradient-to-r ${data.startColor} ${data.endColor} p-8 rounded-full relative ml-3`}>
+            <div key={idx} className={`bg-gradient-to-r ${data.startColor} ${data.endColor} p-5 rounded-full relative mr-3 overflow-hidden`}>
                 <div className={"absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-xs"}>
                     {data.label}
                 </div>
@@ -40,11 +40,14 @@ function Badges() {
 
     return (
 
+        <div className={"ml-16 mt-5"}>
+            <div className={" mb-3 text-black"}>Badges</div>
             <div className={"flex h-8"}>
                 {badges.map((item, i) => {
                     return badge(item, i)
                 })}
             </div>
+        </div>
 
     );
 }
