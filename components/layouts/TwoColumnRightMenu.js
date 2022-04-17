@@ -22,7 +22,7 @@ export default function TwoColumnRightMenu({children}) {
     }, [])
     return (
         <>
-            <div className={`h-screen flex ${dark === "dark" ? "dark" : "light"}`}>
+            <div className={`h-screen flex ${dark === "dark" ? "dark" : ""}`}>
                 <TransitionRoot/>
                 {/* Static sidebar for desktop */}
                 <div className="hidden lg:flex lg:flex-shrink-0">

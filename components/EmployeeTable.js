@@ -61,7 +61,7 @@ export default function EmployeeTable({
                 <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                         <div className="relative overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                            <table className="divide-y divide-gray-300 dark:divide-gray-900 w-full">
+                            <table className="divide-y divide-gray-300 dark:divide-gray-900 w-full text-xs">
                                 <thead className="bg-gray-50 dark:bg-gray-800">
                                 <tr>
                                     <th scope="col" className="text-black dark:text-white relative w-12 px-6 sm:w-16 sm:px-8 text-xs">Compare</th>
@@ -97,20 +97,20 @@ export default function EmployeeTable({
                                         </td>
                                         <td
                                             className={classNames(
-                                                'text-black whitespace-nowrap py-4 pr-3 text-sm font-medium dark:text-white',
+                                                'text-black whitespace-nowrap py-4 pr-3 text-xs font-medium dark:text-white',
                                             )}
                                         >
                                             {person.lastName}
                                         </td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.firstName}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.keycard}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.level}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.kpi}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.performance}</td>
-                                        <td className="whitespace-nowrap text-sm text-gray-500 dark:text-white">{person.attendance}%</td>
-                                        <td className="whitespace-nowrap text-sm font-medium sm:pr-6">
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.firstName}</td>
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.keycard}</td>
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.level}</td>
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.kpi}</td>
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.performance}</td>
+                                        <td className="whitespace-nowrap text-xs text-gray-500 dark:text-white">{person.attendance}%</td>
+                                        <td className="whitespace-nowrap text-xs font-medium sm:pr-6">
                                             <a href={`/employees/${person._id}`}
-                                               className="text-white text-xs dark:text-white hover:text-indigo-900 p-3 bg-indigo-500 rounded-full hover:bg-indigo-700">
+                                               className="text-black dark:text-white text-xs p-2 border-indigo-500 border-2 rounded-full hover:bg-indigo-200">
                                                 {linkLabel}<span className="sr-only">, {person.name}</span>
                                             </a>
                                         </td>

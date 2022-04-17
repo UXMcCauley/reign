@@ -49,6 +49,10 @@ export default function TeamsEmployeeList({employees}) {
         setSelectedEmployees(prevState => {
             return prevState.filter(employee => employee.id !== id)
         })
+        console.log(selectedEmployees.length)
+      if  (selectedEmployees.length === 0) {
+          setWages(0)
+      }
     }
 
     const createTeam = async (body) => {
@@ -69,8 +73,9 @@ export default function TeamsEmployeeList({employees}) {
     }, [employees])
     return (
         <div className={`flex`}>
-            <div className={`flex-1`}>
-                <h1>Staff</h1>
+            <div className={`w-2/5`}>
+                <p className={"text-black dark:text-white text-xl"}>Staff</p>
+                <p className={"text-black  dark:text-white text-xs"}>Please add employees to your team.</p>
                 <fieldset className="space-y-5">
                     <legend className="sr-only">Notifications</legend>
                     {employeeList.map((employee, i) => {
@@ -115,10 +120,10 @@ export default function TeamsEmployeeList({employees}) {
                                     />
                                 </div>
                                 <div className="ml-3 text-sm">
-                                    <label htmlFor="offers" className="text-white font-medium text-sm text-gray-700">
+                                    <label htmlFor="offers" className="text-black dark:text-white font-medium text-sm ">
                                         {employee.firstName} {employee.lastName}
                                     </label>
-                                    <p id="offers-description" className="text-gray-500">
+                                    <p id="offers-description" className="text-gray-500 text-xs">
                                         <span className={`text-pink-500`}>KPI:</span> {employee.kpi}
                                         <span
                                             className={`text-violet-500 ml-4`}>Performance:</span> {employee.performance}
@@ -130,49 +135,57 @@ export default function TeamsEmployeeList({employees}) {
                             </div>
                         )
                     })}
-
                 </fieldset>
             </div>
-            <div className={`flex-1`}>
-                <h1>Team</h1>
-                <input id={"teamName"} className={"text-black w-full rounded-xl capitalize"} type={"text"} value={teamName}
-                       placeholder={"Please enter a team name..."} onChange={(e) => {
-                    setTeamName(e.target.value)
-                }}/>
-                <a className={"mb-5 mt-1 underline font-light block"} onClick={() => {
-                    generateRandomTeamName()
-                }}>Generate a random team name for me.</a>
+            <div className={`w-2/5`}>
+                <p className={"text-black dark:text-white text-xl"}>Team Details</p>
+                <p className={"text-black  dark:text-white text-xs mb-6"}>Data will populate here once you add team members.</p>
+
                 <div>
-                    <div className={"flex justify-between"}>
-                        <div>
-                            <div className={"text-black dark:text-white"}>Wages/hour</div>
+                    <div className={"flex justify-around bg-gray-100 dark:bg-gray-800 p-5 shadow-2xl mb-10"}>
+                        <div className={"text-black dark:text-white"}>
+                            <div>Wages/hour</div>
                             <div className={"text-center text-3xl"}>
-                                ${wages.toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "")}
+                                {wages !== 0 ?
+                                    "$" + wages.toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "") :
+                                    null
+                                }
+
                             </div>
                         </div>
-                        <div>
-                            <div className={"text-black dark:text-white"}>Avg/KPI</div>
+                        <div className={"text-black dark:text-white"}>
+                            <div>Avg/KPI</div>
                             <div className={"text-center text-3xl"}>
                                 {(KPI / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
                             </div>
                         </div>
-                        <div>
-                            <div className={"text-black dark:text-white"}>Avg/Performance</div>
+                        <div className={"text-black dark:text-white"}>
+                            <div>Avg/Performance</div>
                             <div className={"text-center text-3xl"}>
                                 {(performance / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}
                             </div>
                         </div>
-                        <div>
-                            <div className={"text-black dark:text-white"}>Avg/Attendance</div>
+                        <div className={"text-black dark:text-white"}>
+                            <div>Avg/Attendance</div>
                             <div className={"text-center text-3xl"}>
                                 {(attendance / selectedEmployees.length).toLocaleString(undefined, {maximumFractionDigits: 2}).replace("-", "").replace("NaN", "")}%
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={"mt-12 mb-12"}>{selectedEmployees.map((person, i) => {
+                <input id={"teamName"} className={"text-black rounded-full w-full capitalize mb-3"} type={"text"} value={teamName}
+                       placeholder={"Please enter a team name..."} onChange={(e) => {
+                    setTeamName(e.target.value)
+                }}/>
+                <a className={"text-black dark:text-white mb-5 mt-1 underline font-light block cursor-pointer text-xs w-full text-center"} onClick={() => {
+                    generateRandomTeamName()
+                }}>Generate a random team name for me.</a>
+
+                <div className={"mt-12 mb-12 text-xs"}>
+                    <p className={"text-xl font-light mb-5"}>Employees on team:</p>
+                    {selectedEmployees.map((person, i) => {
                     return (
-                        <div key={i}>
+                        <div className={"mb-3"} key={i}>
                             {person.name}
                             <span className={`text-pink-500 ml-4`}>KPI:</span> {person.kpi}
                             <span
@@ -183,7 +196,7 @@ export default function TeamsEmployeeList({employees}) {
                         </div>
                     )
                 })}</div>
-                <button className={"text-white bg-violet-700 p-2 rounded-xl w-full"} onClick={() => {
+                <button className={"text-white bg-violet-700 p-3 rounded-full w-80"} onClick={() => {
                     if (teamName === "") {
                         alert("Please enter a unique team name.")
                     } else if (selectedEmployees.length < 2) {
