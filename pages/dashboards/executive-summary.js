@@ -199,7 +199,7 @@ export default function ExecutiveSummary(props) {
                                   options={["Year", "Quarter", "Month"]}/>
                     <TopMetricYMQ value={347212} title={"production hours"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
-                    <TopMetricYMQ value={1904658} title={"payroll average"} showSelect={true}
+                    <TopMetricYMQ value={1904658} title={"payroll average"} showSelect={true} dollar={true}
                                   options={["Year", "Quarter", "Month"]}/>
                     <TopMetricYMQ value={399} title={"new hires"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
@@ -207,7 +207,7 @@ export default function ExecutiveSummary(props) {
                                   options={["Year", "Quarter", "Month"]}/>
                 </div>
                 <div className={`flex justify-between mb-10`}>
-                    <GooglePieChart label={"employees"} title={"performance/employee"} data={[
+                    <GooglePieChart label={"employees"} title={"performance / employee"} data={[
                         ["Rating", "Number of employees"],
                         ["<5", 6],
                         ["5-6", 14],
@@ -217,7 +217,7 @@ export default function ExecutiveSummary(props) {
                         ["9-10", 11]
                     ]}/>
 
-                    <GooglePieChart label={"hours"} title={"training/keycard"} data={[
+                    <GooglePieChart label={"hours"} title={"training / keycard"} data={[
                         ["Keycard", "Training hours"],
                         ["Carpenter", 1103],
                         ["Commercial Roofer", 1034],
@@ -231,7 +231,7 @@ export default function ExecutiveSummary(props) {
                         ["Siding Installer", 230]
                     ]}/>
 
-                    <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
+                    <GooglePieChart label={"late/no-show"} title={"PRODUCTION HOURS LOST / keycard"} data={[
                         ["Keycard", "Late employees"],
                         ["Carpenter", 12],
                         ["Commercial Roofer", 5],

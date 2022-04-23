@@ -199,12 +199,12 @@ export default function EmployeePerformance({numericDataForPage}) {
                     <TopMetricYMQ value={numericDataForPage.data[0].averagePerformance} title={"performance rating"}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}
                                   showSelect={true}/>
-                    <TopMetricYMQ value={numericDataForPage.data[0].averageAttendance} title={"attendance"}
+                    <TopMetricYMQ value={numericDataForPage.data[0].averageAttendance} title={"attendance"} percentage={true}
                                   showSelect={true}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
                     <TopMetricYMQ value={numericDataForPage.data[0].averageKpi} title={"kpi"} showSelect={true}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
-                    <TopMetricYMQ value={2} title={"time w/ company"} showSelect={true}
+                    <TopMetricYMQ value={2} title={"time w/ company"} showSelect={true} adtlText={"y 3m 16d"}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}/>
                     <a href={"/employees"}>
                         <button
@@ -222,7 +222,7 @@ export default function EmployeePerformance({numericDataForPage}) {
                 </div>
                 <div>
                     <div className={`flex justify-between mb-10`}>
-                        <GooglePieChart label={"employees"} title={"performance/employee"} data={[
+                        <GooglePieChart label={"employees"} title={"performance / employee"} data={[
                             ["Rating", "Number of employees"],
                             ["<5", 6],
                             ["5-6", 14],
@@ -232,7 +232,7 @@ export default function EmployeePerformance({numericDataForPage}) {
                             ["9-10", 11]
                         ]}/>
 
-                        <GooglePieChart label={"hours"} title={"training/keycard"} data={[
+                        <GooglePieChart label={"hours"} title={"training / keycard"} data={[
                             ["Keycard", "Training hours"],
                             ["Carpenter", 1103],
                             ["Commercial Roofer", 1034],
@@ -246,7 +246,7 @@ export default function EmployeePerformance({numericDataForPage}) {
                             ["Siding Installer", 230]
                         ]}/>
 
-                        <GooglePieChart label={"late/no-show"} title={"attendance/keycard"} data={[
+                        <GooglePieChart label={"late/no-show"} title={"PRODUCTION HOURS LOST / keycard"} data={[
                             ["Keycard", "Late employees"],
                             ["Carpenter", 12],
                             ["Commercial Roofer", 5],
@@ -263,7 +263,7 @@ export default function EmployeePerformance({numericDataForPage}) {
                     </div>
                 </div>
                 <div className={"w-full"}>
-                    <h1 className={"text-black dark:text-white w-full text-center"}>Performance/level</h1>
+                    <h1 className={"text-black dark:text-white w-full text-center mt-40"}>Performance/level</h1>
                     <GoogleScatterChart labels={["Level", "Level 1", "Level 2", "Level 3"]} height={500}/>
                 </div>
                 <div className={"w-full"}>

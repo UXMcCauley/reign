@@ -2,28 +2,23 @@ import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import InequityGapFinder from "../../components/InequityGapFinder";
 import TabbedNavigation from "../../components/TabbedNavigation"
-import TopMetricYMQ from "../../components/TopMetricYMQ";
+import TopMetricYMQ3 from "../../components/TopMetricYMQ3";
 import GooglePieChart from "../../components/GooglePieChart";
 import {GoogleScatterChart} from "../../components/GoogleScatterChart";
 
-export default function WorkforceDiversity() {
+export default function WorkforceDiversity({numericDataForPage}) {
+    console.log(numericDataForPage)
     return (
         <>
             <SingleColumnLayout>
                 <TabbedNavigation/>
                 <Heading label={"Workforce Diversity"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ value={151} title={"employees"} options={["one"]}/>
-                    <TopMetricYMQ value={151} title={"employees/ethnicity"} showSelect={true}
-                                  options={["All", "African-American", "Asian", "Hispanic", "White"]}/>
-                    <TopMetricYMQ value={151} title={"employees/gender"} showSelect={true}
-                                  options={["All", "Female", "Male", "Other"]}/>
-                    <TopMetricYMQ value={151} title={"employees/age"} showSelect={true}
-                                  options={["All", "16-18", "19-25", "26-35", "36-45", "46-55", "56+"]}/>
-                    <TopMetricYMQ value={23.31} title={"wage/gender"} showSelect={true}
-                                  options={["All", "Female", "Male", "Other"]}/>
-                    <TopMetricYMQ value={23.31} title={"wage/ethnicity"} showSelect={true}
-                                  options={["All", "African-American", "Asian", "Hispanic", "White"]}/>
+                    <TopMetricYMQ3 employees={numericDataForPage.employees} title={"employees"}/>
+                    <TopMetricYMQ3 employees={numericDataForPage.employees} title={"employees / ethnicity"} type={"ethnicity"}/>
+                    <TopMetricYMQ3 employees={numericDataForPage.employees} title={"employees / gender"} type={"gender"}/>
+                    <TopMetricYMQ3 employees={numericDataForPage.employees} title={"employees/age"} type={"age"}/>
+
                 </div>
                 <div className={`flex justify-between mb-10`}>
                     <GooglePieChart label={"employees"} title={"performance/gender"}
@@ -92,6 +87,21 @@ export default function WorkforceDiversity() {
     )
 }
 
-// export async function getServerSideProps() {
-//     return {props: {props}}
-// }
+export async function getServerSideProps(context) {
+    const {req} = context;
+
+    const protocol = req.headers['x-forwarded-proto'] || 'http'
+    const baseUrl = req ? `${protocol}://${req.headers.host}` : ''
+
+    // set up variables
+    const url =  baseUrl + "/api/search/employees?age=" + "All" + "&gender=" + "All" + "&ethnicity=" + "All"
+
+    // fetch data
+    const numericData = await fetch(url)
+
+    // cast data to json
+    const numericDataForPage = await numericData.json()
+
+    // return data as component props on render
+    return {props: {numericDataForPage}}
+}

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function TopMetricYMQ({title, value, options, showSelect}) {
+function TopMetricYMQ({title, value, options, showSelect, dollar, percentage, adtlText}) {
     const [selectOptions, setSelectOptions] = useState(["one", "two", "three"])
     const [number, setNumber] = useState(value)
     useEffect(() => {
@@ -14,7 +14,12 @@ function TopMetricYMQ({title, value, options, showSelect}) {
                 className={"text-sm text-black text-center uppercase font-light self-center dark:text-white mb-7"}>{title}</div>
             <div className={"flex text-center flex-col align-middle justify-center"}>
                 <div
-                    className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}</div>
+                    className={"text-4xl text-black text-center proportional-nums dark:text-white"}>
+                    {dollar ? "$" : null}
+                    {number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}
+                    {percentage ? "%" : null}
+                    {adtlText !== undefined ? adtlText : null}
+                </div>
                 <div className={`self-center mt-6`}>
                     {showSelect === true ? <select
                         onChange={(e) => {
