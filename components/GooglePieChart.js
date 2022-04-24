@@ -32,8 +32,8 @@ function GooglePieChart({data, label, title, selectOptions, showSelect}) {
         border: "none",
         legend: "none",
         chartArea: {'width': '97%', 'height': '97%'},
-        width: 400,
-        height: 400,
+        width: 330,
+        height: 330,
         colors: [
             "#e12162",
             "#bc1a5a",
