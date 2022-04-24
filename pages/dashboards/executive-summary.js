@@ -188,12 +188,13 @@ const data = [
 ];
 
 export default function ExecutiveSummary(props) {
+    console.log(props)
     return (
         <>
             <SingleColumnLayout>
                 <TabbedNavigation/>
                 <Heading label={"Executive Summary"}/>
-                <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
+                <div className={" flex justify-around w-full flex-row columns-6 items-start"}>
                     <TopMetricYMQ value={20021} title={"employees"} options={["one"]}/>
                     <TopMetricYMQ value={17324} title={"training hours"} showSelect={false}
                                   options={["Year", "Quarter", "Month"]}/>
@@ -206,7 +207,7 @@ export default function ExecutiveSummary(props) {
                     <TopMetricYMQ value={7446} title={"raises"} showSelect={true}
                                   options={["Year", "Quarter", "Month"]}/>
                 </div>
-                <div className={`flex justify-between mb-10`}>
+                <div className={`flex justify-around mb-10`}>
                     <GooglePieChart label={"employees"} title={"performance / employee"} data={[
                         ["Rating", "Number of employees"],
                         ["<5", 6],

@@ -195,7 +195,7 @@ export default function EmployeePerformance({numericDataForPage}) {
             <SingleColumnLayout>
                 <TabbedNavigation/>
                 <Heading label={"Employee Performance"}/>
-                <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
+                <div className={" flex justify-around w-full flex-row columns-6 items-start"}>
                     <TopMetricYMQ value={numericDataForPage.data[0].averagePerformance} title={"performance rating"}
                                   options={["All", "Carpenter", "Commercial Roofer", "Concrete", "HVAC", "Manufacturing", "Siding Installer", "Flooring Installer", "Residential Roofer", "General Laborer", "Painter"]}
                                   showSelect={true}/>
@@ -221,7 +221,7 @@ export default function EmployeePerformance({numericDataForPage}) {
                     </a>
                 </div>
                 <div>
-                    <div className={`flex justify-between mb-10`}>
+                    <div className={`flex justify-around mb-10`}>
                         <GooglePieChart label={"employees"} title={"performance / employee"} data={[
                             ["Rating", "Number of employees"],
                             ["<5", 6],

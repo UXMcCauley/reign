@@ -135,7 +135,7 @@ export default function WorkforceDiversity({numericDataForPage}) {
 
 
 
-                <div className={`flex justify-between mb-10`}>
+                <div className={`flex justify-around mb-10`}>
                     <GooglePieChart label={"employees"} title={"performance/gender"}
                                     showSelect={true}
                                     selectOptions={["Select a gender...", "Female", "Male", "Other"]}
@@ -143,9 +143,9 @@ export default function WorkforceDiversity({numericDataForPage}) {
                                         ["Rating", "Number of employees"],
                                         ["<5", 6],
                                         ["5-6", 14],
-                                        ["6-7", 19],
-                                        ["7-8", 45],
-                                        ["8-9", 51],
+                                        ["6-7", 39],
+                                        ["7-8", 35],
+                                        ["8-9", 21],
                                         ["9-10", 11]
                                     ]}/>
 
@@ -154,7 +154,7 @@ export default function WorkforceDiversity({numericDataForPage}) {
                                     selectOptions={["Select an ethnicity...", "African-American", "Asian", "Hispanic", "White"]}
                                     data={[
                                         ["Rating", "Number of employees"],
-                                        ["<5", 6],
+                                        ["<5", 16],
                                         ["5-6", 14],
                                         ["6-7", 19],
                                         ["7-8", 45],
@@ -167,8 +167,8 @@ export default function WorkforceDiversity({numericDataForPage}) {
                                     selectOptions={["Select an age...", "16-18", "19-25", "26-35", "36-45", "46-55", "56+"]}
                                     data={[
                                         ["Rating", "Number of employees"],
-                                        ["<5", 6],
-                                        ["5-6", 14],
+                                        ["<5", 26],
+                                        ["5-6", 24],
                                         ["6-7", 19],
                                         ["7-8", 45],
                                         ["8-9", 51],
@@ -177,15 +177,15 @@ export default function WorkforceDiversity({numericDataForPage}) {
 
                     <GooglePieChart label={"employees"} title={"performance/level"}
                                     showSelect={true}
-                                    selectOptions={["Select skill level...", "Female", "Male", "Other"]}
+                                    selectOptions={["Select skill level...", "1", "2", "3"]}
                                     data={[
                                         ["Rating", "Number of employees"],
                                         ["<5", 6],
-                                        ["5-6", 14],
-                                        ["6-7", 19],
-                                        ["7-8", 45],
-                                        ["8-9", 51],
-                                        ["9-10", 11]
+                                        ["5-6", 10],
+                                        ["6-7", 11],
+                                        ["7-8", 32],
+                                        ["8-9", 23],
+                                        ["9-10", 20]
                                     ]}/>
 
                 </div>

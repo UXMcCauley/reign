@@ -3,6 +3,8 @@ import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import TabbedNavigation from "../../components/TabbedNavigation"
 import {useState} from "react";
+import GooglePieChart from "../../components/GooglePieChart";
+import LineChart2 from "../../components/line2";
 
 export const data = [
     ["Task", "Hours per Day"],
@@ -258,6 +260,81 @@ export default function ProjectDynamics() {
                         </div>
                     </div>
 
+                </div>
+                <div className={"flex mt-10 justify-around"}>
+                    <div className={"w-1/4"}>
+                        <GooglePieChart label={"employees"} title={"performance / project"}
+                                        showSelect={true}
+                                        selectOptions={["All",
+                                            "Oscar House",
+                                            "Farreth House",
+                                            "Park Apartments",
+                                            "Serenity Mall",
+                                            "La Bonte Hotel",
+                                            "Imperial Paving",
+                                            "Kroger Grocery",
+                                            "Best Buy",
+                                            "Fairview Golf Course",
+                                            "Meddish Cheese Co",
+                                            "Jade Parkway"]}
+                                        data={[
+                                            ["Rating", "Number of employees"],
+                                            ["<5", 2],
+                                            ["5-6", 3],
+                                            ["6-7", 4],
+                                            ["7-8", 8],
+                                            ["8-9", 12],
+                                            ["9-10", 17]
+                                        ]}/>
+                    </div>
+                    <div className={"w-3/5"}>
+                        <LineChart2  data={{
+                            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                            datasets: [
+                                {
+                                    label: "Carpenter",
+                                    data: [11, 12, 13, 6, 5, 5, 7, 3, 2, 14, 12, 10],
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                },
+                                {
+                                    label: "Commercial Roofer",
+                                    data: [11, 13, 10, 9, 8, 5, 6, 4, 5, 7, 8, 7],
+                                    borderColor: 'rgb(99,187,255)',
+                                    backgroundColor: 'rgba(99,226,255,0.5)',
+                                },
+                                {
+                                    label: "HVAC",
+                                    data: [5, 4, 3, 2, 1, 10, 8, 9, 7, 6, 7, 4],
+                                    borderColor: 'rgb(99,255,112)',
+                                    backgroundColor: 'rgba(99,255,102,0.5)',
+                                },
+                                {
+                                    label: "Concrete",
+                                    data: [9, 2, 7, 2, 7, 5, 4, 6, 3, 5, 10, 11],
+                                    borderColor: 'rgb(255,99,219)',
+                                    backgroundColor: 'rgba(255,99,242,0.5)',
+                                },
+                                {
+                                    label: "Flooring",
+                                    data: [7, 5, 3, 6, 8, 9, 10, 5, 7, 11, 5, 6],
+                                    borderColor: 'rgb(255,146,99)',
+                                    backgroundColor: 'rgba(255,128,99,0.5)',
+                                },
+                                {
+                                    label: "Siding",
+                                    data: [1, 6, 5, 1, 7, 12, 14, 10, 11, 4, 5, 4,],
+                                    borderColor: 'rgb(245,255,99)',
+                                    backgroundColor: 'rgba(239,255,99,0.5)',
+                                }
+                            ]
+                        }} />
+                    </div>
+                </div>
+
+                <div className={"flex mt-10"}>
+                    <div className={"w-1/2 border p-5"}></div>
+                    <div className={"w-1/2 border p-5"}></div>
                 </div>
             </SingleColumnLayout>
         </>
