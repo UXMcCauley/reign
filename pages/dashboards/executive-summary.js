@@ -188,7 +188,6 @@ const data = [
 ];
 
 export default function ExecutiveSummary(props) {
-    console.log(props)
     return (
         <>
             <SingleColumnLayout>

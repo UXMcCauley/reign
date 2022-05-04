@@ -13,6 +13,7 @@ import {
 import Toggle from "./Toggle";
 import {useRouter} from "next/router";
 import Link from "next/link"
+import {useEffect} from "react";
 
 const navigation = [
     {name: 'Home', href: '/', icon: HomeIcon, current: false},
@@ -34,6 +35,10 @@ function classNames(...classes) {
 function Navigation() {
     const router = useRouter()
     const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+        setTheme(localStorage.getItem("theme"))
+    },[setTheme])
 
     return (
         <nav className="mt-5 flex-1" aria-label="Sidebar">
@@ -62,8 +67,7 @@ function Navigation() {
                 ))}
             </div>
             <div className={"p-3"}>
-                <div
-                    className={"text-sm text-black dark:text-white mb-2"}>{theme === "dark" ? "Dark Mode" : "Light Mode"}</div>
+                <div className={"text-sm text-black dark:text-white mb-2"}>{theme === "dark" ? "Dark Mode" : "Light Mode"}</div>
                 <Toggle/>
             </div>
 

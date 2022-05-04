@@ -1,10 +1,15 @@
-import {Chart} from "react-google-charts";
 import SingleColumnLayout from "../../components/layouts/SingleColumnLayout";
 import Heading from "../../components/headings/Heading";
 import TabbedNavigation from "../../components/TabbedNavigation"
 import {useState} from "react";
 import GooglePieChart from "../../components/GooglePieChart";
 import LineChart2 from "../../components/line2";
+import {connectToDatabase} from "../../lib/dbConnect";
+import {ObjectId} from "mongodb";
+import ProjectsTable from "../../components/ProjectsTable";
+import CompareProjectsWidget from "../../components/compareProjectsWidget";
+
+const orgURL = "61bf60ecddd910d9c0a18df1"
 
 export const data = [
     ["Task", "Hours per Day"],
@@ -15,15 +20,15 @@ export const data = [
     ["Sleep", 7],
 ];
 
-const chartEvents = [
-    {
-        callback: ({chartWrapper}) => {
-            const chart = chartWrapper.getChart();
-            chart.container.addEventListener("click", (ev) => console.log(ev))
-        },
-        eventName: "ready"
-    }
-];
+// const chartEvents = [
+//     {
+//         callback: ({chartWrapper}) => {
+//             const chart = chartWrapper.getChart();
+//             chart.container.addEventListener("click", (ev) => console.log(ev))
+//         },
+//         eventName: "ready"
+//     }
+// ];
 
 const colors = [
     "#e12162",
@@ -61,7 +66,7 @@ export const bodyOptions = {
     pieSliceBorderColor: "black"
 };
 
-export default function ProjectDynamics() {
+export default function ProjectDynamics({projects}) {
     const projectsKeycardKey = {
         "All": 12,
         "Carpenter": 4,
@@ -132,8 +137,6 @@ export default function ProjectDynamics() {
         "Imperial Paving": "21,461",
         "Oscar House": "19,489",
         "Farreth House": "14,682",
-
-
     }
 
     const [projectsKeycard, setProjectsKeycard] = useState(projectsKeycardKey["All"])
@@ -141,6 +144,25 @@ export default function ProjectDynamics() {
     const [performanceProject, setPerformanceProject] = useState(performanceProjectKey["All"])
     const [attendanceProject, setAttendanceProject] = useState(attendanceProjectKey["All"])
     const [laborProject, setLaborProject] = useState(laborProjectKey["All"])
+
+    const [comparedProjects, setComparedProjects] = useState([])
+
+    const handleCompareClick = (val) => {
+
+        if (comparedProjects.length === 2) {
+            alert("Only 2 projects may be compared. Clearing comparison.")
+            setComparedProjects([])
+        } else {
+            const hasValue = comparedProjects.filter(item => item.name === val.name)
+            if (hasValue.length === 0) {
+                setComparedProjects(prevState => [...prevState, val])
+            } else {
+                setComparedProjects(prevState => prevState.filter(item => item.name !== val.name))
+            }
+        }
+
+
+    }
 
     return (
         <>
@@ -174,7 +196,8 @@ export default function ProjectDynamics() {
                                             setProjectsKeycard(projectsKeycardKey[e.target.value])
                                         }}
                                 >
-                                    {Object.keys(projectsKeycardKey).map((key, i) => <option key={i} value={key}>{key}</option>)}
+                                    {Object.keys(projectsKeycardKey).map((key, i) => <option key={i}
+                                                                                             value={key}>{key}</option>)}
                                 </select>
                             </div>
                         </div>
@@ -194,7 +217,8 @@ export default function ProjectDynamics() {
                                             setHoursProject(hoursProjectKey[e.target.value])
                                         }}
                                 >
-                                    {Object.keys(hoursProjectKey).map((key, i) => <option key={i} value={key}>{key}</option>)}
+                                    {Object.keys(hoursProjectKey).map((key, i) => <option key={i}
+                                                                                          value={key}>{key}</option>)}
                                 </select>
                             </div>
                         </div>
@@ -214,7 +238,8 @@ export default function ProjectDynamics() {
                                             setPerformanceProject(performanceProjectKey[e.target.value])
                                         }}
                                 >
-                                    {Object.keys(performanceProjectKey).map((key, i) => <option key={i} value={key}>{key}</option>)}
+                                    {Object.keys(performanceProjectKey).map((key, i) => <option key={i}
+                                                                                                value={key}>{key}</option>)}
                                 </select>
                             </div>
                         </div>
@@ -227,14 +252,16 @@ export default function ProjectDynamics() {
                             className={"text-sm text-black text-center uppercase font-light self-center dark:text-white mb-7"}>{"attendance / project"}</div>
                         <div className={"flex text-center flex-col align-middle justify-center"}>
                             <div
-                                className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{attendanceProject}%</div>
+                                className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{attendanceProject}%
+                            </div>
                             <div className={`self-center mt-6`}>
                                 <select className={"rounded-full dark:bg-gray-800 text-black dark:text-white"}
                                         onChange={(e) => {
                                             setAttendanceProject(attendanceProjectKey[e.target.value])
                                         }}
                                 >
-                                    {Object.keys(attendanceProjectKey).map((key, i) => <option key={i} value={key}>{key}</option>)}
+                                    {Object.keys(attendanceProjectKey).map((key, i) => <option key={i}
+                                                                                               value={key}>{key}</option>)}
                                 </select>
                             </div>
                         </div>
@@ -254,7 +281,8 @@ export default function ProjectDynamics() {
                                             setLaborProject(laborProjectKey[e.target.value])
                                         }}
                                 >
-                                    {Object.keys(laborProjectKey).map((key, i) => <option key={i} value={key}>{key}</option>)}
+                                    {Object.keys(laborProjectKey).map((key, i) => <option key={i}
+                                                                                          value={key}>{key}</option>)}
                                 </select>
                             </div>
                         </div>
@@ -288,7 +316,7 @@ export default function ProjectDynamics() {
                                         ]}/>
                     </div>
                     <div className={"w-3/5"}>
-                        <LineChart2  data={{
+                        <LineChart2 data={{
                             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                             datasets: [
                                 {
@@ -328,39 +356,47 @@ export default function ProjectDynamics() {
                                     backgroundColor: 'rgba(239,255,99,0.5)',
                                 }
                             ]
-                        }} />
+                        }}/>
                     </div>
                 </div>
 
                 <div className={"flex mt-10"}>
-                    <div className={"w-1/2 border p-5"}></div>
-                    <div className={"w-1/2 border p-5"}></div>
+                    <div className={"w-2/3"}>
+                        <ProjectsTable projects={projects} click={handleCompareClick}/>
+                    </div>
+                    <div className={"w-1/3"}>
+
+                        <CompareProjectsWidget comparedProjects={comparedProjects}/>
+                        <div className={"self-center"}>
+                            <button
+                                className={`${comparedProjects.length > 0 ? "visible" : "hidden"}  bg-violet-800 `}
+                                onClick={() => {
+                                    setComparedProjects([])
+                                }}>Clear comparison
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </SingleColumnLayout>
         </>
     )
 }
 
+
 export async function getServerSideProps() {
-    // set up variables
-    const url = "https://api.airtable.com/v0/"
-    const app = "apppbpS0rK10adQYh/"
-    const key = "?api_key=keyYCtVdqu5KWRkCr&view="
 
-    // fetch data
-    const bar = await fetch(url + app + "Bars" + key + "ProjectDynamics")
-    const donuts = await fetch(url + app + "Donuts" + key + "ProjectDynamics")
-    const line = await fetch(url + app + "Lines" + key + "ProjectDynamics")
-    const numeric = await fetch(url + app + "Numerics" + key + "ProjectDynamics")
-    const tree = await fetch(url + app + "TreeMap" + key + "ProjectDynamics")
+    const {db} = await connectToDatabase()
+    const projects = await db
+        .collection("projects")
+        .find({"organization": ObjectId(orgURL)})
+        .toArray()
 
-    // cast data to json
-    const airtableBar = await bar.json()
-    const airtableDonuts = await donuts.json()
-    const airtableLine = await line.json()
-    const airtableNumeric = await numeric.json()
-    const airtableTree = await tree.json()
+    const returnProjects = JSON.stringify(projects)
 
-    // return data as component props on render
-    return {props: {airtableBar, airtableDonuts, airtableLine, airtableNumeric, airtableTree}}
+    return {
+        props: {
+            projects: JSON.parse(returnProjects)
+        }
+    }
 }
+
