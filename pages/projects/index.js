@@ -17,7 +17,7 @@ function Index({projects}) {
 
 export default Index;
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps() {
 
     const {db} = await connectToDatabase()
     const projects = await db
@@ -25,16 +25,11 @@ export async function getServerSideProps({req}) {
         .find({"organization": ObjectId(orgURL)})
         .toArray()
 
-    const employees = await db
-        .collection("employees")
-        .find({"projects": ObjectId(orgURL)})
-        .toArray()
-
     const returnProjects = JSON.stringify(projects)
 
     return {
         props: {
-            projects: JSON.parse(returnProjects),
+            projects: JSON.parse(returnProjects)
         }
     }
 }

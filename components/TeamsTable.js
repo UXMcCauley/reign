@@ -3,20 +3,19 @@ function classNames(...classes) {
 }
 
 export default function TeamsTable({
-                                          title,
-                                          desc,
-                                          teams,
-                                          heads,
-                                          linkLabel,
-                                          buttonLabel,
-                                          searchTerm,
-                                          selectedEmployees,
-                                          setSelectedEmployees,
-                                          setFly,
-                                          buttonLink
-                                      }) {
+                                       title,
+                                       desc,
+                                       teams,
+                                       heads,
+                                       linkLabel,
+                                       buttonLabel,
+                                       searchTerm,
+                                       selectedEmployees,
+                                       setSelectedEmployees,
+                                       setFly,
+                                       buttonLink
+                                   }) {
     const parsedTeams = JSON.parse(teams)
-console.log(parsedTeams)
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
@@ -72,8 +71,8 @@ console.log(parsedTeams)
                                 </thead>
                                 <tbody
                                     className="divide-y divide-gray-200 bg-white dark:bg-gray-700 dark:divide-gray-600">
-                                {parsedTeams.filter(team => team.name.toLowerCase().includes(searchTerm.toLowerCase())).map((team) => (
-                                    <tr key={team.email}>
+                                {parsedTeams.filter((team) => team.name.toLowerCase().includes(searchTerm.toLowerCase())).map((team, i) => (
+                                    <tr key={i}>
                                         <td className="relative w-12 px-6 sm:w-16 sm:px-8">
                                             <button className={"text-sm text-black dark:text-white"} onClick={() => {
                                                 if (selectedEmployees.length >= 2) {

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function TopMetricYMQ({title, value, type}) {
+function TopMetricYMQ({title, value, type, dollar}) {
     const [number, setNumber] = useState(value)
     const [options, setOptions] = useState([])
     console.log(value[type])
@@ -34,7 +34,10 @@ function TopMetricYMQ({title, value, type}) {
                 className={"text-sm text-black text-center uppercase font-light self-center dark:text-white mb-7"}>{title}</div>
             <div className={"flex text-center flex-col align-middle justify-center"}>
                 <div
-                    className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}</div>
+                    className={"text-4xl text-black text-center proportional-nums dark:text-white"}>
+                    {dollar?"$":null}
+                    {number !== undefined ? number.toLocaleString(undefined, {maximumFractionDigits: 2}) : null}
+                </div>
                 <div className={`self-center mt-6`}>
                     {options.length > 0 ? <select onChange={(e) => {
                         console.log(e.target.value)
@@ -44,7 +47,6 @@ function TopMetricYMQ({title, value, type}) {
                             }else if(e.target.value === "All"){
                                 setNumber(findAverage(value[type]))
                             }
-
                         })
                     }}
                                                   className={"text-black rounded-full dark:bg-gray-800 dark:text-white"}>

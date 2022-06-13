@@ -32,8 +32,8 @@ function GooglePieChart({data, label, title, selectOptions, showSelect}) {
         border: "none",
         legend: "none",
         chartArea: {'width': '97%', 'height': '97%'},
-        width: 400,
-        height: 400,
+        width: 330,
+        height: 330,
         colors: [
             "#e12162",
             "#bc1a5a",
@@ -59,9 +59,9 @@ function GooglePieChart({data, label, title, selectOptions, showSelect}) {
     }
 
     return (
-        <div className={"flex flex-col"}>
+        <div className={"flex flex-col text-center"}>
             <div className={"text-black dark:text-white text-l uppercase font-light w-full text-center mt-14 mb-4"}>{title}</div>
-            <div className={`relative`}>
+            <div className={`relative text-center flex align-middle justify-center`}>
                 <div className={`text-black dark:text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
                     <div className={`text-center text-sm`}>{selected[0]}</div>
                     <div className={`text-center`}>{selected[1]} {selected.length > 0 ? label : null}</div>

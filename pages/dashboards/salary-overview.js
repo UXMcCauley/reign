@@ -7,8 +7,20 @@ import InequityGapFinder from "../../components/InequityGapFinder";
 import {GoogleBarChart} from "../../components/GoogleBarChart";
 import faker from "@faker-js/faker";
 import {GooglePieChart2} from "../../components/GooglePieChart2";
+import {useState} from "react";
 
 export default function SalaryOverview({numericDataForPage}) {
+    const wageAgeKey = {
+        0: "$23.09",
+        1: "$22.75",
+        2: "$22.97",
+        3: "$22.06",
+        4: "$24.10",
+        5: "$23.65",
+        6: "$25.15"
+    }
+    const [wageAge, setWageAge] = useState(wageAgeKey[0])
+
     const makeDataItem = (task) => {
         return [task, faker.datatype.number({min: 19, max: 26})]
     }
@@ -48,14 +60,40 @@ export default function SalaryOverview({numericDataForPage}) {
         <>
             <SingleColumnLayout>
                 <TabbedNavigation/>
-                <Heading label={"Workforce Diversity"}/>
+                <Heading label={"Salary Overview"}/>
                 <div className={" flex justify-between w-full flex-row columns-6 items-start"}>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"average wage"} type={false}/>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/gender"} type={"byGender"}/>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/ethnicity"} type={"byEthnicity"}/>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/age"} type={"byAge"}/>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/keycard"} type={"byKeycard"}/>
-                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/performance"} type={"byAge"}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"average wage"} type={false} dollar={true}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/gender"} type={"byGender"} dollar={true}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/ethnicity"} type={"byEthnicity"} dollar={true}/>
+
+                    {/*temporary for prototype*/}
+                    <div className={`flex flex-col align-middle text-center justify-center `}>
+                        <div
+                            className={"text-sm text-black text-center uppercase font-light self-center dark:text-white mb-7"}>{"wage / age"}</div>
+                        <div className={"flex text-center flex-col align-middle justify-center"}>
+                            <div
+                                className={"text-4xl text-black text-center proportional-nums dark:text-white"}>{wageAge}</div>
+                            <div className={`self-center mt-6`}>
+                                <select className={"rounded-full dark:bg-gray-800 text-black dark:text-white"}
+                                        onChange={(e) => {
+                                            setWageAge(wageAgeKey[e.target.value])
+                                        }}
+                                >
+                                    <option value={0}>All</option>
+                                    <option value={1}>16-18</option>
+                                    <option value={2}>18-25</option>
+                                    <option value={3}>26-35</option>
+                                    <option value={4}>36-45</option>
+                                    <option value={5}>46-55</option>
+                                    <option value={6}>56+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/keycard"} type={"byKeycard"} dollar={true}/>
+                    <TopMetricYMQ2 value={numericDataForPage.data} title={"wage/performance"} type={"byAge"} dollar={true}/>
                 </div>
                 <div className={`flex justify-between mb-10`}>
                     <GooglePieChart label={"hours"} title={"overtime/keycard"}
