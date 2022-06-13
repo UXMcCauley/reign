@@ -9,25 +9,64 @@ import faker from "@faker-js/faker";
 import {GoogleBarChartRTR} from "../../components/GoogleBarChartRTR";
 import Bio from "../../components/Bio"
 import PersonalInfo from "../../components/PersonalInfo";
+import {useState} from "react";
 
 export default function EmployeeId({employee}) {
-    const makeDataItem = (task) => {
-        return [task, faker.datatype.number({min: 0, max: 300})]
+    const [barData, setBarData] = useState("barData1")
+    const makeDataItem = (task, requiredHours) => {
+        return [task, faker.datatype.number({min: 0, max: 200}), requiredHours]
     }
-    const barData = [
-        ["Task", "Hours"],
-        makeDataItem("Set-up"),
-        makeDataItem("Clean-up"),
-        makeDataItem("Moving Material"),
-        makeDataItem("Roof Sheeting"),
-        makeDataItem("Layouts"),
-        makeDataItem("Building Stairs"),
-        makeDataItem("Installing Tyvek"),
-        makeDataItem("Exterior Wall Sheeting"),
-        makeDataItem("Building Walls"),
+    const barData1 = [
+        ["Task", "Hours Worked", "Hours Needed"],
+        makeDataItem("Set-up", 100),
+        makeDataItem("Clean-up", 150),
+        makeDataItem("Moving Material", 50),
+        makeDataItem("Roof Sheeting", 80),
+        makeDataItem("Layouts", 200),
+        makeDataItem("Building Stairs", 80),
+        makeDataItem("Installing Tyvek", 200),
+        makeDataItem("Exterior Wall Sheeting", 180),
+        makeDataItem("Building Walls", 150),
+    ]
+    const barData2 = [
+        ["Task", "Hours Worked", "Hours Needed"],
+        makeDataItem("Set-up", 100),
+        makeDataItem("Clean-up", 150),
+        makeDataItem("Moving Material", 50),
+        makeDataItem("Roof Sheeting", 80),
+        makeDataItem("Layouts", 200),
+        makeDataItem("Building Stairs", 80),
+        makeDataItem("Installing Tyvek", 200),
+        makeDataItem("Exterior Wall Sheeting", 180),
+        makeDataItem("Building Walls", 150),
+    ]
+    const barData3 = [
+        ["Task", "Hours Worked", "Hours Needed"],
+        makeDataItem("Set-up", 100),
+        makeDataItem("Clean-up", 150),
+        makeDataItem("Moving Material", 50),
+        makeDataItem("Roof Sheeting", 80),
+        makeDataItem("Layouts", 200),
+        makeDataItem("Building Stairs", 80),
+        makeDataItem("Installing Tyvek", 200),
+        makeDataItem("Exterior Wall Sheeting", 180),
+        makeDataItem("Building Walls", 150),
     ]
 
-    console.log(employee)
+    const keycardJSX = (keycard, level, progress, setValue) => {
+        return (
+            <div className={`flex justify-between font-light ${barData === setValue ? "bg-pink-700 text-white" : "bg-gray-200"}`} onClick={() => {setBarData(setValue)}}>
+                <div className={"flex-1 p-2"}>
+                    <div className={"text-lg"}>{keycard}</div>
+                    <div>Level {level}</div>
+                </div>
+                <div className={"flex items-center"}>
+                    <div className={"p-3 text-2xl"}>{progress}%</div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <SingleColumnLayout>
             <div className={"w-[1000px] m-auto p-12 shadow-2xl bg-white rounded-2xl"}>
@@ -85,24 +124,18 @@ export default function EmployeeId({employee}) {
 
                     <div className={"border-b-2 mt-10"}/>
 
-                    <div className={"flex justify-between mt-10"}>
-                        <div className={"w-1/5"}>
-                            <p className={"text-black  mb-16 w-full text-center"}>Keycard Progress</p>
-                            <div className={"divide-y divide-solid  text-black  text-xs"}>
-                                <div className={"p-2 bg-gray-300 "}>
-                                    Carpentry / Level 2 / 88%
-                                </div>
-                                <div className={"p-2 hover:bg-gray-200 "}>
-                                    Painting / Level 1 / 45%
-                                </div>
-                                <div className={"p-2 hover:bg-gray-200 "}>
-                                    Roofing / Level 1 / 13%
-                                </div>
+                    <div className={"flex justify-between mt-10 "}>
+                        <div className={""}>
+                            <p className={"text-black mb-8 w-full text-center"}>Keycard Progress</p>
+                            <div className={"divide-y divide-solid divide-pink-700 text-black text-xs rounded overflow-hidden"}>
+                                {keycardJSX("Carpenter", 2, 88, "barData1")}
+                                {keycardJSX("Painter", 1, 45, "barData2")}
+                                {keycardJSX("Roofer", 1, 32, "barData3")}
                             </div>
                         </div>
-                        <div className={"w-4/5 pl-20"}>
+                        <div className={"flex-1"}>
                             <p className={"text-black w-full text-center"}>Progress Chart</p>
-                            <GoogleBarChartRTR data={barData}/>
+                            <GoogleBarChartRTR data={eval(barData)}/>
                         </div>
 
                     </div>
@@ -116,12 +149,13 @@ export default function EmployeeId({employee}) {
 }
 
 export async function getServerSideProps(context) {
-    const empId = context.params.employeeId
+    // const empId = context.params.employeeId
+    const {employeeId} = context.params
     const {db} = await connectToDatabase()
 
     const employee = await db
         .collection("employees")
-        .findOne({_id: ObjectId(empId)})
+        .findOne({_id: ObjectId(employeeId)})
 
     const stringed = JSON.stringify(employee)
 

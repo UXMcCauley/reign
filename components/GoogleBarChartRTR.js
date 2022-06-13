@@ -24,7 +24,7 @@ export function GoogleBarChartRTR({data}) {
             },
         },
         legend: {
-            position: "bottom",
+            position: "top",
             textStyle: {
                 color: colors,
                 fontSize: 14,
@@ -37,7 +37,7 @@ export function GoogleBarChartRTR({data}) {
 
     return (
         <Chart
-            chartType="BarChart"
+            chartType="ColumnChart"
             width="100%"
             height="400px"
             data={data}
